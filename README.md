@@ -1,2 +1,13 @@
 # Booksy-UCAB
-Aplicación web para la materia de Ingeniería de Software de la Universidad Católica Andrés Bello en la escuela de Ingeniería Informática.
+## Tech Stack
+- Client: Vue
+- Server: .NET
+## Integrantes
+- Carmelo Moschella
+- Marco Di Mare
+- Javier Otero
+- Freddy Fernández
+## Documentación
+- [Brief]()
+- [Diagrama de casos de uso (UML)]()
+- [Diagrama de actividades]()
