@@ -112,10 +112,6 @@ C:\Users\camos\Downloads\software-project-main\src\backend\obj\Debug\net9.0\ref\
 C:\Users\camos\Downloads\software-project-main\src\backend\bin\Debug\net9.0\data\ventas.json
 C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\appsettings.json
-C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\data\book.json
-C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\data\buyers.json
-C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\data\sellers.json
-C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\data\ventas.json
 C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\backend.staticwebassets.endpoints.json
 C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\backend.exe
 C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\models\files\book.json
@@ -149,3 +145,7 @@ C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\obj\Debug\net9.0\refint
 C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\obj\Debug\net9.0\backend.pdb
 C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\obj\Debug\net9.0\ref\backend.dll
+C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\models\data\book.json
+C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\models\data\buyers.json
+C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\models\data\sellers.json
+C:\Users\Freddy\Documents\GitHub\booksy-ucab\src\backend\bin\Debug\net9.0\models\data\ventas.json

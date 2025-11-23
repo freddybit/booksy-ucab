@@ -20,7 +20,7 @@ namespace backend.repositories
         private static readonly SellerRepository _instance = new SellerRepository();
 
         //**@brief Ruta del archivo JSON que contiene los datos de los vendedores.
-        private readonly string _jsonPath = @"data/sellers.json";
+        private readonly string _jsonPath = @"models/data/sellers.json";
 
         //**@brief Lista interna de vendedores cargados desde el archivo.
         private List<Seller> _sellersList;

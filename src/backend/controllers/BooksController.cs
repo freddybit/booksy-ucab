@@ -11,7 +11,7 @@ public class BooksController :ControllerBase {
     [HttpGet]
     public IActionResult GetBooks() {
         Book b = new Book();
-        String rootFile = "data\\book.json";
+        String rootFile = "models\\data\\book.json";
         List<Book> books = b.LoadBooks(rootFile);
         return Ok(books);
     }

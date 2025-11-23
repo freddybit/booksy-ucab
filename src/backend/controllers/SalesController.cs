@@ -30,26 +30,26 @@ namespace backend.controllers
             try
             {
                 // Verify book exists by _id
-                if (!System.IO.File.Exists("data/book.json"))
+                if (!System.IO.File.Exists("models/data/book.json"))
                     return BadRequest(new { error = "Datos de libros no disponibles" });
 
-                var booksJson = System.IO.File.ReadAllText("data/book.json");
+                var booksJson = System.IO.File.ReadAllText("models/data/book.json");
                 var books = JsonSerializer.Deserialize<List<JsonElement>>(booksJson) ?? new List<JsonElement>();
                 bool bookExists = books.Any(b => b.GetProperty("_id").GetInt32() == req.LibroId);
                 if (!bookExists) return BadRequest(new { error = $"Libro con id {req.LibroId} no encontrado" });
 
                 // Verify seller id exists (1-based index into sellers.json)
-                if (!System.IO.File.Exists("data/sellers.json"))
+                if (!System.IO.File.Exists("models/data/sellers.json"))
                     return BadRequest(new { error = "Datos de vendedores no disponibles" });
-                var sellersJson = System.IO.File.ReadAllText("data/sellers.json");
+                var sellersJson = System.IO.File.ReadAllText("models/data/sellers.json");
                 var sellers = JsonSerializer.Deserialize<List<JsonElement>>(sellersJson) ?? new List<JsonElement>();
                 if (req.VendedorId <= 0 || req.VendedorId > sellers.Count)
                     return BadRequest(new { error = $"Vendedor con id {req.VendedorId} no encontrado" });
 
                 // Verify buyer id exists (1-based index into buyers.json)
-                if (!System.IO.File.Exists("data/buyers.json"))
+                if (!System.IO.File.Exists("models/data/buyers.json"))
                     return BadRequest(new { error = "Datos de compradores no disponibles" });
-                var buyersJson = System.IO.File.ReadAllText("data/buyers.json");
+                var buyersJson = System.IO.File.ReadAllText("models/data/buyers.json");
                 var buyers = JsonSerializer.Deserialize<List<JsonElement>>(buyersJson) ?? new List<JsonElement>();
                 if (req.CompradorId <= 0 || req.CompradorId > buyers.Count)
                     return BadRequest(new { error = $"Comprador con id {req.CompradorId} no encontrado" });

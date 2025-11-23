@@ -10,7 +10,7 @@ namespace backend.repositories
     public class SaleRepository
     {
         private static readonly SaleRepository _instance = new SaleRepository();
-        private readonly string _jsonPath = @"data/ventas.json";
+        private readonly string _jsonPath = @"models/data/ventas.json";
         private readonly List<Venta> _ventas;
 
         private SaleRepository()
