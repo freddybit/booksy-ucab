@@ -1,9 +1,9 @@
 <script setup lang="js">
 
-import Characteristics from "@/components/Libro/consultar-libro/book-detail/Characteristics.vue";
-import Description from "@/components/Libro/consultar-libro/book-detail/Description.vue";
-import CommentarySection from "@/components/Libro/consultar-libro/book-detail/CommentarySection.vue";
-import BookCardDetail from "@/components/Libro/consultar-libro/book-detail/BookCardDetail.vue";
+import Characteristics from "@/components/Libro/book-detail/Characteristics.vue";
+import Description from "@/components/Libro/book-detail/Description.vue";
+import CommentarySection from "@/components/Libro/book-detail/CommentarySection.vue";
+import BookCardDetail from "@/components/Libro/book-detail/BookCardDetail.vue";
 import {useRoute} from "vue-router";
 
 import { getBookList } from "@/services/Libro/bookService.js"

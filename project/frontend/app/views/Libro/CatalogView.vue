@@ -2,7 +2,7 @@
 import { onMounted, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { getBookList } from '@/services/Libro/bookService.js';
-import BookCard from '@/components/Libro/consultar-libro/catalog-card/BookCard.vue';
+import BookCard from '@/components/Libro/catalog-card/BookCard.vue';
 
 const books = ref([]);
 const error = ref(true);

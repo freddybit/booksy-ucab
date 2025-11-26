@@ -3,7 +3,7 @@
 import CategoryCardMath from "../Category/CategoryCardMath.vue";
 import CategoryCardFiction from "../Category/CategoryCardFiction.vue";
 import CategoryCardDesign from "../Category/CategoryCardDesign.vue";
-import CardCategoryClassic from "../Category/CardCategoryClassic.vue";
+import CategoryCardClassic from "../Category/CategoryCardClassic.vue";
 import CategoryCardNoFiction from "../Category/CategoryCardNoFiction.vue";
 import CategoryCardPoetry from "../Category/CategoryCardPoetry.vue";
 </script>
@@ -17,7 +17,7 @@ import CategoryCardPoetry from "../Category/CategoryCardPoetry.vue";
         <CategoryCardFiction></CategoryCardFiction>
         <CategoryCardNoFiction></CategoryCardNoFiction>
         <CategoryCardDesign></CategoryCardDesign>
-        <CardCategoryClassic></CardCategoryClassic>
+        <CategoryCardClassic></CategoryCardClassic>
         <CategoryCardPoetry></CategoryCardPoetry>
       </div>
     </section>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
-import Discovery from "@/components/Libro/consultar-libro/Discovery.vue";
-import WelcomeInterface from "@/components/Libro/consultar-libro/WelcomeInterface.vue";
-import HorizontalList from "@/components/Libro/consultar-libro/lists/HorizontalList.vue";
+import Discovery from "@/components/Libro/Discovery.vue";
+import WelcomeInterface from "@/components/Libro/WelcomeInterface.vue";
+import HorizontalList from "@/components/Libro/lists/HorizontalList.vue";
 </script>
 
 <template>
