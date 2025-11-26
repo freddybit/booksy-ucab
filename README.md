@@ -38,17 +38,17 @@ Ambos componentes se comunican a través de peticiones HTTP utilizando JSON como
 
 ### Estructura General
 
-```Bash
-src/
+```bash
+project/
 ├── backend/     # Lógica del servidor, controladores, modelos, servicios, repositorios
 └── frontend/    # Interfaz de usuario, componentes Vue, servicios, recursos estáticos
 ```
 
 Cada una de estas capas está documentada en profundidad en los siguientes archivos:
 
-- [backend/docs/architecture-backend.md](URL del enlace) - Detalles sobre la estructura, responsabilidades y flujo de datos del backend.
+- [project/backend/docs/architecture-backend.md](project/backend/docs/architecture-backend.md) - Detalles sobre la estructura, responsabilidades y flujo de datos del backend.
 
-- [frontend/docs/architecture-frontend.md]() - Detalles sobre la estructura, responsabilidades y flujo de datos del backend
+- [project/frontend/docs/architecture-frontend.md](project/frontend/docs/architecture-frontend.md) - Detalles sobre la estructura, responsabilidades y flujo de datos del frontend.
 
 ## Contexto del Proyecto
 
