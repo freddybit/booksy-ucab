@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/carmelomoschella/Projects/booksy-ucab/project/backend/backend.csproj": {}
+    "C:\\Users\\PC\\Documents\\GitHub\\booksy-ucab\\project\\backend\\backend.csproj": {}
   },
   "projects": {
-    "/Users/carmelomoschella/Projects/booksy-ucab/project/backend/backend.csproj": {
+    "C:\\Users\\PC\\Documents\\GitHub\\booksy-ucab\\project\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/carmelomoschella/Projects/booksy-ucab/project/backend/backend.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\booksy-ucab\\project\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "/Users/carmelomoschella/Projects/booksy-ucab/project/backend/backend.csproj",
-        "packagesPath": "/Users/carmelomoschella/.nuget/packages/",
-        "outputPath": "/Users/carmelomoschella/Projects/booksy-ucab/project/backend/obj/",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\booksy-ucab\\project\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\booksy-ucab\\project\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/carmelomoschella/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\PC\\.dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

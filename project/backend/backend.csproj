@@ -11,12 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="models\files\book.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <_ContentIncludedByDefault Remove="data\book.json" />
     <_ContentIncludedByDefault Remove="data\buyers.json" />
     <_ContentIncludedByDefault Remove="data\sellers.json" />

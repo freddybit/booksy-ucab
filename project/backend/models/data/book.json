@@ -179,5 +179,35 @@
       "_lastName": "",
       "_age": 0
     }
+  },
+  {
+    "_id": 38448,
+    "_nameBook": "C\u002B\u002B",
+    "_subtitle": "Estructura de datos",
+    "_series": "Program",
+    "_author": "Freddy Fernandez",
+    "_language": "Espa\u00F1ol",
+    "_publisher": "oreally",
+    "_bookCover": "Dura",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "1",
+    "_bookHeight": 30,
+    "_bookWidth": 15,
+    "_categoryList": [
+      "Otro",
+      "Acad\u00E9mica"
+    ],
+    "_numPages": 352,
+    "_publishYear": "2025-08-12T00:00:00",
+    "_cost": 120.99,
+    "_description": "Descubre el verdadero poder del desarrollo de software de alto rendimiento. Este libro es una gu\u00EDa esencial para estudiantes y profesionales que desean dominar el lenguaje C\u002B\u002B moderno y comprender a fondo c\u00F3mo organizar la informaci\u00F3n de manera eficiente.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
   }
 ]
