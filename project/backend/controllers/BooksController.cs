@@ -2,6 +2,7 @@
 using backend.models;
 using System.Text.Json;
 using System.IO;
+using backend.services;
 
 namespace backend.controllers;
 
@@ -9,34 +10,37 @@ namespace backend.controllers;
 [Route("api/[controller]")]
 public class BooksController :ControllerBase {
 
-    [HttpGet]
-    public IActionResult GetBooks() {
-        Book b = new Book();
-        string rootFile = Path.Combine("models", "data", "book.json");
-        if (!System.IO.File.Exists(rootFile)) return Ok(new List<Book>());
-        List<Book> books = b.LoadBooks(rootFile);
-        return Ok(books);
+    private readonly BookService _service;
+
+    public BooksController(BookService service) {
+        _service = service;
     }
 
-    [HttpPost]
-    public IActionResult PostBook([FromBody] Book book)
+    [HttpGet]
+    public IActionResult GetBooks() {
+        List<Book> books = _service.GetBookList();
+        return Ok(books);
+    }
+    
+    [HttpGet("{id}")] 
+    public IActionResult GetBookById(int id)
     {
-        if (book == null) return BadRequest("Book is null");
+        // Lógica simulada para buscar un libro
+        var book = _service.GetBookList().FirstOrDefault(b => b.Id == id);
+        if (book == null) return NotFound();
+        return Ok(book);
+    }
+    
+    [HttpPost]
+    public IActionResult PostBook([FromBody] BookDTO dto) {
 
-        string rootFile = Path.Combine("models", "data", "book.json");
-        var loader = new Book();
-        List<Book> books = loader.LoadBooks(rootFile) ?? new List<Book>();
-
-        books.Add(book);
-
-        var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(books, options);
-        // Ensure directory exists
-        var dir = Path.GetDirectoryName(rootFile) ?? "models/data";
-        if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
-        System.IO.File.WriteAllText(rootFile, json);
-
-        // Devolver 201 Created con el libro añadido
-        return CreatedAtAction(nameof(GetBooks), null, book);
+        try {
+            Book book = _service.RegisterBook(dto);
+            return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book); // Devolver 201 Created con el libro añadido
+        }
+        catch (Exception e) {
+            return BadRequest(new { error = e.Message });
+        }
+        
     }
 }

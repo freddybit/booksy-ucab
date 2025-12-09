@@ -1,5 +1,8 @@
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<backend.services.BookService>();
 
 // Configurar CORS
 builder.Services.AddCors(options =>
