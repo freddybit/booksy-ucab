@@ -3,12 +3,13 @@ import { onMounted, ref } from "vue";
 import { supabase } from "@/main";
 import { postBook } from "@/services/Libro/bookService.js"; // nueva función a crear
 
-const urlImg = ref('');
+const img = ref();
+const nameImg = ref('');
 const upload = ref(false);
 
 onMounted(() => {
 
-  console.log('✅ Supabase está listo:', supabase)
+  console.log('✅ Supabase está listo')
 
   const dropArea = document.querySelector('.drop-area');
   const dragText = dropArea.querySelector('h2');
@@ -16,15 +17,16 @@ onMounted(() => {
   const input = dropArea.querySelector('#input-file');
   let file;
 
-  fileButton.addEventListener('click', (evt) => {
-      console.log('click');
-  });
-
   input.addEventListener('change', (evt) => {
-    file = this.file;
+    file = evt.target.files;
     dropArea.classList.add('active');
     showFile(file);
     dropArea.classList.remove('active');
+  });
+
+  fileButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    input.click();
   });
 
   dropArea.addEventListener('dragover', (evt) => {
@@ -49,7 +51,7 @@ onMounted(() => {
   });
 
   function showFile(file) {
-    if (file.length === 1) proccesFile(file[0]);
+    if (file.length === 1 || file === undefined) proccesFile(file[0]);
   }
 
   async function proccesFile(file) {
@@ -60,12 +62,11 @@ onMounted(() => {
       try {
         upload.value = true;
         const fileName = 'covers/' + Date.now() + '-' + file.name;
-        const {data, error} = await supabase.storage.from('imagenes').upload(fileName, file);
-        const  url = await supabase.storage.from('imagenes').getPublicUrl(fileName);
-        urlImg.value = url.data.publicUrl;
+        img.value = file;
+        nameImg.value = fileName;
+        
         console.error('fileName: ', fileName);
         console.log('file: ', file);
-        console.log('Link real: ', urlImg.value);
       } catch (e){
         console.error('Error al subir:', e.message)
       } finally {
@@ -121,8 +122,13 @@ async function handleSubmit(event) {
   event.preventDefault();
 
   try {
+
+    const {data, error} = await supabase.storage.from('imagenes').upload(nameImg.value, img.value);
+    const  url = await supabase.storage.from('imagenes').getPublicUrl(nameImg.value);
+    const urlImg = url.data.publicUrl;
+
     const payload = {
-      _urlImg: urlImg.value.toString(),
+      _urlImg: urlImg.toString(),
       _id: (Math.floor(Math.random() * (100000 - 1 + 1)) + 1),
       _nameBook: bookName.value,
       _subtitle: subtitle.value,
@@ -288,12 +294,10 @@ async function handleSubmit(event) {
     <fieldset id="partFour">
       <section class="drop-area">
         <h2>Arrastrar y soltar imagen</h2>
-        <button>Seleccionar imagen</button>
+        <button>seleccionar archivo</button>
         <input id="input-file" type="file" hidden />
       </section>
-      <section id="preview"></section>
     </fieldset>
-
     <input class="register-book-button" type="submit" value="Registrar libro" />
   </form>
 </article>
@@ -392,6 +396,18 @@ input {
   background-color: rgb(163, 189, 224);
 }
 
+input[type="file"]{
+  height: 6vh;
+  width: 20vw;
+  font-size: 1.5rem;
+  padding: 0 0 0 2rem;
+
+  margin: 0 0 2.5rem 0;
+  border:none;
+  border-radius: 1rem;
+  background-color: rgb(163, 189, 224);
+}
+
 .register-book-button {
   height: 10vh;
   width: 40vw;
@@ -459,14 +475,6 @@ input {
   gap: 0.1rem;
   padding: 1rem;
   border: solid 0.1rem rgb(0, 44, 235);
-}
-
-#preview{
-  margin: 1rem 0 0 0;
-}
-
-.status-text {
-  padding: 0 1rem 0 1rem;
 }
 
 /* Componentes de Vuetify */

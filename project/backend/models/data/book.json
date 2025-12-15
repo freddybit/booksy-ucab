@@ -29,5 +29,37 @@
       "_lastName": "",
       "_age": 0
     }
+  },
+  {
+    "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1765816173601-portada-harry-potter-caliz-de-fuego.jpg",
+    "_id": 83389,
+    "_nameBook": "Harry Potter",
+    "_subtitle": "y el c\u00E1liz de fuego",
+    "_series": "Harry Potter",
+    "_author": "J.K Rowling",
+    "_language": "Espa\u00F1ol",
+    "_publisher": "Oc\u00E9ano, S.A.",
+    "_bookCover": "Blanda",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "4",
+    "_bookHeight": 20,
+    "_bookWidth": 15,
+    "_categoryList": [
+      "Novela",
+      "Literatura juvenil",
+      "Literatura fant\u00E1stica"
+    ],
+    "_numPages": 635,
+    "_publishYear": "2000-02-01T00:00:00",
+    "_cost": 25,
+    "_description": "Harry Potter y el c\u00E1liz de fuego (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Goblet of Fire) es el cuarto libro de la serie literaria llamada Harry Potter, escrita por la autora brit\u00E1nica J. K. Rowling en 2000. Ella, antes de que se publicase el libro advirti\u00F3 que uno de los personajes del libro morir\u00EDa, dejando mucha especulaci\u00F3n acerca de qui\u00E9n podr\u00EDa ser.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
   }
 ]

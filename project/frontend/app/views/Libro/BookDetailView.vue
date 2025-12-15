@@ -30,6 +30,7 @@ onMounted(async () => {
 <template>
   <article class="article-book" v-if="book">
     <section class="section-left">
+      <img :src="book._urlImg" alt="Portada del libro" />
       <Characteristics :book = "book"></Characteristics>
       <Description :book="book"></Description>
       <CommentarySection></CommentarySection>
@@ -44,7 +45,7 @@ onMounted(async () => {
 
 .article-book {
   display: flex;
-  height: 150vh;
+  height: 250vh;
   width: 65vw;
 
   margin: 8rem 0 8rem 0;
@@ -58,11 +59,11 @@ onMounted(async () => {
 }
 
 .section-left {
-  margin: 3rem 0 0 0;
+  margin: 0 0 0 0;
   display: flex;
   flex-direction: column;
   width: 37vw;
-  height: 120vh;
+  height: 200vh;
 }
 
 .section-right {
@@ -73,5 +74,13 @@ onMounted(async () => {
   justify-items: center;
 }
 
+article img {
+  width: 45vw;
+  min-height: 40vh;
+  max-height: 100vh;
+  margin: 0 0 5rem 0;
+
+  border-radius: 1rem;
+}
 
 </style>

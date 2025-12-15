@@ -2,7 +2,7 @@
 // Aquí manejo las peticiones HTTP de epica Libro
 // relative root: app/services/Libro/bookService.js
 
-import axios from "axios";
+import axios from 'axios';
 import {Book} from '@assets/js/Book.js';
 
 const API_URL = "http://localhost:5000/api/";
