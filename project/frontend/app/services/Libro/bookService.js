@@ -11,6 +11,7 @@ export let getBookList = async () => {
     try {
         let answer = await axios.get(API_URL + 'books');
         let books = answer.data.map(b => new Book(
+            b._urlImg,
             b._id,
             b._nameBook,
             b._subtitle,

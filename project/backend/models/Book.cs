@@ -8,6 +8,7 @@ public class Book {
     
     // Attributes
 
+    private string _urlImg;
     private int _id;
     private string _nameBook;
     private string _subtitle;
@@ -30,7 +31,8 @@ public class Book {
     // Methods
 
     // Constructor
-    public Book(int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, DateTime publishYear, float cost, string description, Seller seller) {
+    public Book(string urlImg, int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, DateTime publishYear, float cost, string description, Seller seller) {
+        _urlImg = urlImg;
         _id = id;
         _nameBook = nameBook;
         _subtitle = subtitle;
@@ -52,6 +54,7 @@ public class Book {
     }
 
     public Book() {
+        _urlImg = "";
         _id = 0;
         _nameBook = "";
         _subtitle = "";
@@ -73,6 +76,12 @@ public class Book {
     }
 
     // Getter and Setter
+
+    [JsonPropertyName("_urlImg")]
+    public string UrlImg {
+        get => _urlImg;
+        set => _urlImg = value;
+    }
     
     [JsonPropertyName("_id")]
     public int Id {

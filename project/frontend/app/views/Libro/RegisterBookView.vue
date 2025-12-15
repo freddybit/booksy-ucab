@@ -1,6 +1,84 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { supabase } from "@/main";
 import { postBook } from "@/services/Libro/bookService.js"; // nueva función a crear
+
+const urlImg = ref('');
+const upload = ref(false);
+
+onMounted(() => {
+
+  console.log('✅ Supabase está listo:', supabase)
+
+  const dropArea = document.querySelector('.drop-area');
+  const dragText = dropArea.querySelector('h2');
+  const fileButton = dropArea.querySelector('button');
+  const input = dropArea.querySelector('#input-file');
+  let file;
+
+  fileButton.addEventListener('click', (evt) => {
+      console.log('click');
+  });
+
+  input.addEventListener('change', (evt) => {
+    file = this.file;
+    dropArea.classList.add('active');
+    showFile(file);
+    dropArea.classList.remove('active');
+  });
+
+  dropArea.addEventListener('dragover', (evt) => {
+    evt.preventDefault();
+    dropArea.classList.add('active');
+    dragText.textContent = 'Suelta para subir la imagen';
+  });
+
+  dropArea.addEventListener('dragleave', (evt) => {
+    evt.preventDefault();
+    dropArea.classList.remove('active');
+    dragText.textContent = 'Arrastra y suelta la imagen';
+  });
+
+  dropArea.addEventListener('drop', (evt) => {
+    evt.preventDefault();
+    file = evt.dataTransfer.files;
+    showFile(file);
+    console.log('file: ', file);
+    dropArea.classList.remove('active');
+    dragText.textContent = 'Arrastra y suelta la imagen';
+  });
+
+  function showFile(file) {
+    if (file.length === 1) proccesFile(file[0]);
+  }
+
+  async function proccesFile(file) {
+    const docType = file.type;
+    const validateExtensions = ['image/jpg', 'image/jpeg', 'image/png'];
+
+    if (validateExtensions.includes(docType)) {
+      try {
+        upload.value = true;
+        const fileName = 'covers/' + Date.now() + '-' + file.name;
+        const {data, error} = await supabase.storage.from('imagenes').upload(fileName, file);
+        const  url = await supabase.storage.from('imagenes').getPublicUrl(fileName);
+        urlImg.value = url.data.publicUrl;
+        console.error('fileName: ', fileName);
+        console.log('file: ', file);
+        console.log('Link real: ', urlImg.value);
+      } catch (e){
+        console.error('Error al subir:', e.message)
+      } finally {
+        upload.value = false
+      }
+
+    } else {
+      alert('Tipo de archivo invalido');
+    }
+  }
+
+
+})
 
 function okMessage(event){
   alert('Libro registrado exitosamente')
@@ -44,6 +122,7 @@ async function handleSubmit(event) {
 
   try {
     const payload = {
+      _urlImg: urlImg.value.toString(),
       _id: (Math.floor(Math.random() * (100000 - 1 + 1)) + 1),
       _nameBook: bookName.value,
       _subtitle: subtitle.value,
@@ -206,6 +285,15 @@ async function handleSubmit(event) {
 
     </fieldset>
 
+    <fieldset id="partFour">
+      <section class="drop-area">
+        <h2>Arrastrar y soltar imagen</h2>
+        <button>Seleccionar imagen</button>
+        <input id="input-file" type="file" hidden />
+      </section>
+      <section id="preview"></section>
+    </fieldset>
+
     <input class="register-book-button" type="submit" value="Registrar libro" />
   </form>
 </article>
@@ -218,14 +306,14 @@ article {
   align-content: center;
   background-image: url("@assets/img/common/gradient_2.jpg");
 
-  height: 275vh;
+  height: 310vh;
 }
 
 form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 250vh;
+  height: 295vh;
   width: 70vw;
 
   align-items: center;
@@ -263,7 +351,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 87vh;
   width: 50vw;
   border: none;
 }
@@ -319,6 +407,68 @@ input {
   animation: jump 1s ease;
 }
 
+#partFour {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  align-items: center;
+  border: 0; 
+  margin: 0 0 5rem 0;
+}
+
+.drop-area {
+  margin: 0;
+  width: 48vw;
+  height: 50vh;
+
+  border-radius: 1rem;
+  border-style: dashed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;    
+
+  border-color: rgba(0, 0, 0, 0.5);
+  gap: 2rem;              
+}
+
+.drop-area.active {
+  background-color: rgba(0, 43, 235, 0.1);
+  border-color: rgb(0, 44, 235);           
+}
+
+.drop-area h2 {
+  font-size: 2rem;
+}
+
+.drop-area button {
+  width: 8vw;
+  height: 4vh;
+  border-radius: 1rem;
+  border: none;
+  background-color: rgb(0, 44, 235);
+  color: rgb(255, 255, 255);
+
+  font-size: 1rem;
+}
+
+.file-container {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 1rem;
+  border: solid 0.1rem rgb(0, 44, 235);
+}
+
+#preview{
+  margin: 1rem 0 0 0;
+}
+
+.status-text {
+  padding: 0 1rem 0 1rem;
+}
+
 /* Componentes de Vuetify */
 
 :deep(.v-field) {
@@ -328,6 +478,7 @@ input {
 :deep(.v-field-label) {
   font-size: 1.5rem;
   font-weight: normal;
+  height: 10vh;
 }
 
 :deep(.v-input){

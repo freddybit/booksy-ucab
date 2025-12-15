@@ -1,6 +1,7 @@
 
 export class Book {
-    constructor(_id, _nameBook, _subtitle, _series, _author, _language, _publisher, _bookCover, _typeBook, _bookVolume, _bookHeight, _bookWidth, _categoryList, _numPages, _publishYear, _cost, _description, _seller) {
+    constructor(_urlImg ,_id, _nameBook, _subtitle, _series, _author, _language, _publisher, _bookCover, _typeBook, _bookVolume, _bookHeight, _bookWidth, _categoryList, _numPages, _publishYear, _cost, _description, _seller) {
+        this._urlImg = _urlImg;
         this._id = _id;
         this._nameBook = _nameBook;
         this._subtitle = _subtitle;
