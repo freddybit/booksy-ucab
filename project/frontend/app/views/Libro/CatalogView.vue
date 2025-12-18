@@ -3,6 +3,8 @@ import { onMounted, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { getBookList } from '@/services/Libro/bookService.js';
 import BookCard from '@/components/Libro/catalog-card/BookCard.vue';
+import ZeroResults from '@/components/Libro/catalog-card/ZeroResults.vue';
+import CategoryListVue from '@/components/Libro/catalog-card/CategoryList.vue';
 
 const books = ref([]);
 const error = ref(true);
@@ -33,14 +35,13 @@ const filteredBooks = computed(() => {
 <template>
   <article class="catalog-article">
     <section class="section-left">
+      <h1 class="catalog-title">CATÁLOGO</h1>
+      <p>{{ filteredBooks.length }} resultados</p>
     </section>
     <section id="catalog" class="section-right">
-      <h1 class="catalog-title">CATÁLOGO</h1>
-
       <p v-if="error">Cargando resultados...</p>
-
       <section v-else>
-        <p v-if="query && filteredBooks.length === 0">No hay resultados para "{{ route.query.q }}"</p>
+        <ZeroResults v-if="query && filteredBooks.length === 0"></ZeroResults>
         <BookCard v-for="b in filteredBooks" :key="b._id" :book="b" />
         <p v-if="!query && books.length === 0">No hay libros</p>
       </section>
@@ -56,9 +57,8 @@ const filteredBooks = computed(() => {
   height: 88vh;
 }
 
-.section-left {
-  width: 20vw;
-  background-color: rgba(245,245,245);
+.section-left p {
+  font-size: 1.5rem;
 }
 
 .section-right {
@@ -66,10 +66,36 @@ const filteredBooks = computed(() => {
   overflow-x: auto;
 }
 
-.catalog-title {
-  margin: 1rem 0 4rem 1rem;
-  font-size: 5rem;
-  color: rgba(250,250,250)
+@media (max-width: 1599px){
+
+  .section-left {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 1rem 0 2rem;
+    width: 19vw;
+    background-color: rgba(245,245,245);
+  }
+
+  .catalog-title {
+    font-size: 3.5rem;
+    color: rgba(0,0,0)
+  }
+}
+
+@media (min-width: 1600px){
+
+  .section-left {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 1rem 0 2rem;
+    width: 21vw;
+    background-color: rgba(245,245,245);
+  }
+
+  .catalog-title {
+    font-size: 4.5rem;
+    color: rgba(0,0,0)
+  }
 }
 
 .catalog-title:hover {

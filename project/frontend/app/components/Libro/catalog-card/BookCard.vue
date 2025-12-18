@@ -15,7 +15,8 @@ defineProps({
         <h3 class="subtitle-card">{{ book._subtitle }}</h3>
       </div>
       <p class="author-card ">Autor: {{ book._author }}</p>
-      <p class="year-card" v-if="book._publishYear">{{ book._publishYear }}</p>
+      <p class="year-card" v-if="book._publishYear">Fecha de publicación: {{ book._publishYear }}</p>
+      <p class="author-card ">Vendedor: {{ book._seller._firstName }} {{ book._seller._lastName }}</p>
     </section>
     <section class="card-meta">
       <p class="cost-card" v-if="book._cost">${{ book._cost }}</p>
@@ -24,8 +25,9 @@ defineProps({
 </template>
 
 <style scoped>
+  
 .book-card {
-  height: 25vh;
+  height: 20vh;
   display: flex;
   justify-content: space-between;
   text-decoration: none;
@@ -45,9 +47,8 @@ defineProps({
 
 #img-section {
   display: flex;
-  height: 25vh;
+  height: 20vh;
   width: 40vw;
-  background-color: blue;
   border-radius: 1rem;
   background-color: rgb(240, 240, 240);
   align-items: center;
@@ -69,15 +70,16 @@ img {
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  background-color: blue;
 }
 
 .title-card {
-  font-size: 2.8rem;
+  margin: 0;
+  font-size: 3rem;
 }
 
 .subtitle-card {
-  font-size: 2rem;
+  margin: 0;
+  font-size: 2.5rem;
 }
 
 .author-card {
@@ -98,7 +100,6 @@ img {
 }
 
 .year-card {
-  margin-left: .5rem;
   color: #888;
   font-size: 1.5rem;
 }
@@ -108,7 +109,5 @@ img {
   color: rgb(0,44,235);
   background-color: rgba(250,250,250, 0.95);
 }
-
-
 
 </style>
