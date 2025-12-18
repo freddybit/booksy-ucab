@@ -7,13 +7,12 @@ namespace backend.services
 {
     /**
      * @class SellerService
-     * @brief Servicio que encapsula la lógica de negocio relacionada con vendedores.
+     * @brief Servicio que encapsula la lógica de negocio relacionada con vendedores. 
      *
      * Permite registrar nuevos vendedores, consultar perfiles y verificar existencia.
      * Si el correo ya está registrado como comprador, elimina al comprador antes de registrar al vendedor.
      */
-    public class SellerService
-    {
+    public class SellerService {
         private readonly SellerRepository _sellerRepository = SellerRepository.Instance;
         private readonly BuyerRepository _buyerRepository = BuyerRepository.Instance;
 
@@ -42,7 +41,7 @@ namespace backend.services
                 }
             }
 
-            Seller seller = ProfileFactory.CreateSeller(dto.Email, dto.FirstName, dto.LastName, dto.Age, dto.Password);
+            Seller seller = ProfileFactory.CreateSeller(dto.Email, dto.FirstName, dto.LastName, dto.Age, dto.Password, dto.BankName, dto.Id, dto.PhoneNumber, dto.Catalog, dto.Ratings, dto.SalesHistory);
             _sellerRepository.AddSeller(seller);
             _sellerRepository.Save();
             return seller;
@@ -64,12 +63,17 @@ namespace backend.services
      * @class SellerDTO
      * @brief Objeto de transferencia de datos para registrar vendedores.
      */
-    public class SellerDTO
-    {
+    public class SellerDTO {
         public required string Email { get; set; }
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
         public required int Age { get; set; }
         public required string Password { get; set; }
+        public required string BankName { get; set; }
+        public required int Id { get; set; }
+        public required string PhoneNumber { get; set; }
+        public required List<Book> Catalog { get; set; }
+        public required List<float> Ratings { get; set; }
+        public required List<BookPurchase> SalesHistory { get; set; }
     }
 }

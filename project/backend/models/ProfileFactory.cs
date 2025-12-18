@@ -3,7 +3,7 @@ namespace backend.models
     /**
      * @class ProfileFactory
      * @brief Fábrica para crear instancias de perfiles de usuario (Buyer o Seller).
-     *
+     * 
      * Implementa el patrón Singleton para garantizar una única instancia de la fábrica.
      * Proporciona métodos estáticos para construir perfiles según el tipo de usuario.
      */
@@ -25,9 +25,9 @@ namespace backend.models
         }
 
         //**@brief Crea un perfil de tipo Seller. Retorna instancia de Buyer.
-        public static Seller CreateSeller(string email, string firstName, string lastName, int age, string password, List<Book> catalog, List<float> ratings)
+        public static Seller CreateSeller(string email, string firstName, string lastName, int age, string password, string bankName, int id, string phoneNumber, List<Book> catalog, List<float> ratings, List<BookPurchase> salesHistory)
         {
-            Seller seller = new Seller(email, firstName, lastName, age, password);
+            Seller seller = new Seller(email, firstName, lastName, age, password, bankName, id, phoneNumber, catalog, ratings, salesHistory);
             seller.Catalog = catalog ?? new List<Book>();
             seller.Ratings = ratings ?? new List<float>();
             return seller;

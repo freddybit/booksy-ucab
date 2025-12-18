@@ -26,14 +26,22 @@ namespace backend.models
          * @param age Edad del usuario.
          * @param password Contraseña del usuario.
          */
-        public Profile(string email, string firstName, string lastName, int age, string password)
-        {
+        public Profile(string email, string firstName, string lastName, int age, string password) {
             _email = email ?? throw new ArgumentNullException(nameof(email));
             _firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             _lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             _age = age;
             _password = password ?? throw new ArgumentNullException(nameof(password));
         }
+        
+        public Profile() {
+            _email = "";
+            _firstName = "";
+            _lastName = "";
+            _age = 0;
+            _password = "";
+        }
+
 
         // Getters y Setters
 
