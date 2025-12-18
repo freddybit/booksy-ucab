@@ -61,5 +61,36 @@
       "_lastName": "",
       "_age": 0
     }
+  },
+  {
+    "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1765907964436-editorialtelevisa.brightspotcdn.jpg",
+    "_id": 38204,
+    "_nameBook": "Maria Antonieta",
+    "_subtitle": "A comer pastel",
+    "_series": "No aplica",
+    "_author": "Sofia Hernandez",
+    "_language": "Frances",
+    "_publisher": "Tucan",
+    "_bookCover": "Blanda",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "01",
+    "_bookHeight": 30,
+    "_bookWidth": 20,
+    "_categoryList": [
+      "Hist\u00F3rica",
+      "Pol\u00EDtica"
+    ],
+    "_numPages": 465,
+    "_publishYear": "2025-12-16T00:00:00",
+    "_cost": 9.99,
+    "_description": "De archiduquesa de Austria a \u0022La Viuda Capeto\u0022: la historia definitiva de la mujer que encarn\u00F3 el esplendor y la ca\u00EDda de una era.  A los catorce a\u00F1os, Mar\u00EDa Antonieta lleg\u00F3 a Versalles como una pieza de ajedrez pol\u00EDtico, una ni\u00F1a austriaca lanzada a la corte m\u00E1s sofisticada y traicionera de Europa. Despojada de su hogar, su perro y hasta su ropa, fue coronada con una tarea imposible: unir a dos naciones rivales y dar un heredero a Francia.  Atrapada en un matrimonio sin consumar y rodeada de enemigos que acechaban tras cortinas de seda, la joven reina busc\u00F3 refugio en el \u00FAnico mundo que pod\u00EDa controlar: el de la moda, el juego y las fiestas interminables en el Petit Trianon. Pero mientras ella constru\u00EDa un para\u00EDso de porcelana y pasteles, en las calles de Par\u00EDs se gestaba una tormenta de hambre e ira.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
   }
 ]

@@ -34,7 +34,7 @@ defineProps({
 }
 
 .characteristics-title{
-  height: 5vh;
+  height: 2vh;
   width: 30vw;
   font-size: 3rem;
   font-weight: lighter;

@@ -1,2 +1,96 @@
 [
+  {
+    "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1765766836903-81TRhaepO\u002BL._UF1000,1000_QL80_.jpg",
+    "_id": 11369,
+    "_nameBook": "Harry Potter",
+    "_subtitle": "El Pr\u00EDncipe Mestizo",
+    "_series": "Harry Potter",
+    "_author": "J.K Rowling",
+    "_language": "Espa\u00F1ol",
+    "_publisher": "Alejandria",
+    "_bookCover": "Dura",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "6",
+    "_bookHeight": 30,
+    "_bookWidth": 0,
+    "_categoryList": [
+      "Literatura juvenil",
+      "Literatura fant\u00E1stica"
+    ],
+    "_numPages": 223,
+    "_publishYear": "2005-12-12T00:00:00",
+    "_cost": 59.99,
+    "_description": "Harry Potter y el misterio del pr\u00EDncipe (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Half-Blood Prince) es el sexto libro de la serie literaria Harry Potter escrito por la autora brit\u00E1nica J. K. Rowling y publicado por primera vez, en ingl\u00E9s, el 16 de julio de 2005.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
+  },
+  {
+    "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1765816173601-portada-harry-potter-caliz-de-fuego.jpg",
+    "_id": 83389,
+    "_nameBook": "Harry Potter",
+    "_subtitle": "y el c\u00E1liz de fuego",
+    "_series": "Harry Potter",
+    "_author": "J.K Rowling",
+    "_language": "Espa\u00F1ol",
+    "_publisher": "Oc\u00E9ano, S.A.",
+    "_bookCover": "Blanda",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "4",
+    "_bookHeight": 20,
+    "_bookWidth": 15,
+    "_categoryList": [
+      "Novela",
+      "Literatura juvenil",
+      "Literatura fant\u00E1stica"
+    ],
+    "_numPages": 635,
+    "_publishYear": "2000-02-01T00:00:00",
+    "_cost": 25,
+    "_description": "Harry Potter y el c\u00E1liz de fuego (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Goblet of Fire) es el cuarto libro de la serie literaria llamada Harry Potter, escrita por la autora brit\u00E1nica J. K. Rowling en 2000. Ella, antes de que se publicase el libro advirti\u00F3 que uno de los personajes del libro morir\u00EDa, dejando mucha especulaci\u00F3n acerca de qui\u00E9n podr\u00EDa ser.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
+  },
+  {
+    "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1765907964436-editorialtelevisa.brightspotcdn.jpg",
+    "_id": 38204,
+    "_nameBook": "Maria Antonieta",
+    "_subtitle": "A comer pastel",
+    "_series": "No aplica",
+    "_author": "Sofia Hernandez",
+    "_language": "Frances",
+    "_publisher": "Tucan",
+    "_bookCover": "Blanda",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "01",
+    "_bookHeight": 30,
+    "_bookWidth": 20,
+    "_categoryList": [
+      "Hist\u00F3rica",
+      "Pol\u00EDtica"
+    ],
+    "_numPages": 465,
+    "_publishYear": "2025-12-16T00:00:00",
+    "_cost": 9.99,
+    "_description": "De archiduquesa de Austria a \u0022La Viuda Capeto\u0022: la historia definitiva de la mujer que encarn\u00F3 el esplendor y la ca\u00EDda de una era.  A los catorce a\u00F1os, Mar\u00EDa Antonieta lleg\u00F3 a Versalles como una pieza de ajedrez pol\u00EDtico, una ni\u00F1a austriaca lanzada a la corte m\u00E1s sofisticada y traicionera de Europa. Despojada de su hogar, su perro y hasta su ropa, fue coronada con una tarea imposible: unir a dos naciones rivales y dar un heredero a Francia.  Atrapada en un matrimonio sin consumar y rodeada de enemigos que acechaban tras cortinas de seda, la joven reina busc\u00F3 refugio en el \u00FAnico mundo que pod\u00EDa controlar: el de la moda, el juego y las fiestas interminables en el Petit Trianon. Pero mientras ella constru\u00EDa un para\u00EDso de porcelana y pasteles, en las calles de Par\u00EDs se gestaba una tormenta de hambre e ira.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
+  }
 ]

@@ -6,8 +6,14 @@ defineProps({
 
 <template>
   <router-link :to="{ name: 'BookDetail', params: { id: book._id } }" :key="book._id" class="book-card">
+    <section id="img-section">
+      <img :src="book._urlImg" alt="Portada del libro" />
+    </section>
     <section class="card-main">
-      <h2 class="title-card">{{ book._nameBook }}</h2>
+      <div class="div-title">
+        <h2 class="title-card">{{ book._nameBook }}</h2>
+        <h3 class="subtitle-card">{{ book._subtitle }}</h3>
+      </div>
       <p class="author-card ">Autor: {{ book._author }}</p>
       <p class="year-card" v-if="book._publishYear">{{ book._publishYear }}</p>
     </section>
@@ -19,7 +25,7 @@ defineProps({
 
 <style scoped>
 .book-card {
-  height: 15vh;
+  height: 25vh;
   display: flex;
   justify-content: space-between;
   text-decoration: none;
@@ -37,9 +43,41 @@ defineProps({
   padding: 0 0 0 3rem;
 }
 
+#img-section {
+  display: flex;
+  height: 25vh;
+  width: 40vw;
+  background-color: blue;
+  border-radius: 1rem;
+  background-color: rgb(240, 240, 240);
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  min-width: 10%;
+  max-width: 100%;
+  height: 100%;
+
+  border-radius: 1rem;
+}
+
+.div-title {
+  height: 10vh;
+  width: 35vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  background-color: blue;
+}
+
 .title-card {
   font-size: 2.8rem;
-  margin: 0 0 1rem 0;
+}
+
+.subtitle-card {
+  font-size: 2rem;
 }
 
 .author-card {
@@ -70,5 +108,7 @@ defineProps({
   color: rgb(0,44,235);
   background-color: rgba(250,250,250, 0.95);
 }
+
+
 
 </style>

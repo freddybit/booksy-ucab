@@ -53,9 +53,11 @@ onMounted(async () => {
 .book-detail-section {
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  min-height: 30vh;
+  max-height: 70vh;
   width: 15vw;
   gap: 1rem;
+  padding: 2rem 0 2rem 0;
 
   background-color: rgb(255,255,255);
   justify-content: center;
@@ -89,7 +91,9 @@ onMounted(async () => {
 
 .book-detail-seller-section {
   margin: 2rem;
-  height: 20vh;
+  min-height: 20vh;
+  max-height: 40vh;
+  padding: 2rem 0 2rem 1rem;
   width: 15vw;
 
   background-color: rgb(255,255,255);
