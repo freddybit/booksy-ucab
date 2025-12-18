@@ -11,16 +11,16 @@ defineProps({
 
 <template>
   <article class="characteristics-article">
-      <h2 class="characteristics-title">Características del libro</h2>
-      <section class="main-section">
-        <div>
-          <TableOne :book = "book"></TableOne>
-        </div>
-        <div>
-          <TableThree :book = "book"></TableThree>
-          <TableTwo :book = "book"></TableTwo>
-        </div>
-      </section>
+    <h2 class="characteristics-title">Características del libro</h2>
+    <section class="main-section">
+      <div>
+        <TableOne :book = "book"></TableOne>
+      </div>
+      <div>
+        <TableThree :book = "book"></TableThree>
+        <TableTwo :book = "book"></TableTwo>
+      </div>
+    </section>
   </article>
 </template>
 
@@ -34,7 +34,7 @@ defineProps({
 }
 
 .characteristics-title{
-  height: 5vh;
+  height: 2vh;
   width: 30vw;
   font-size: 3rem;
   font-weight: lighter;

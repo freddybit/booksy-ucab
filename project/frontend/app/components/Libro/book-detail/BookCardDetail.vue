@@ -1,14 +1,40 @@
 <script setup lang="js">
+import { onMounted, ref } from 'vue';
 
-defineProps({
+const props = defineProps({
   book: {type: Object, required: true}
 })
+
+let bolivarPrice = ref(0);
+
+onMounted(async () => {
+  try{
+    const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
+    const data = await response.json();
+    const dollarAverage = data.promedio;
+
+    if (props.book && props.book._cost) {
+        bolivarPrice.value = (props.book._cost * dollarAverage);
+    }
+
+    console.log("Tasa:", dollarAverage);
+    console.log("Precio en Bs:", bolivarPrice.value);
+  } catch (e) {
+    console.log('Error: ', e);
+  }
+})
+
+
+
 </script>
 
 <template>
   <section class="book-detail-section">
-    <h1 class="book-detail-title">{{ book._nameBook }}</h1>
-    <p class="book-detail-cost">${{ book._cost }}</p>
+    <h1 class="book-detail-title">{{ book._nameBook }} <br /> {{ book._subtitle }}</h1>
+    <section class="price-section">
+      <p class="book-detail-cost">US ${{ book._cost }}</p>
+      <p class="book-detail-cost-bs">Bs.{{ bolivarPrice.toFixed(2) }}</p>
+    </section>
     <p class="book-detail-delivery">Entrega: Acordar con el vendedor</p>
   </section>
 
@@ -25,19 +51,32 @@ defineProps({
 <style scoped>
 
 .book-detail-section {
-  height: 30vh;
-
+  display: flex;
+  flex-direction: column;
+  min-height: 30vh;
+  max-height: 70vh;
   width: 15vw;
+  gap: 1rem;
+  padding: 2rem 0 2rem 0;
 
   background-color: rgb(255,255,255);
-  justify-items: center;
-  align-content: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 1rem;
 }
 
 .book-detail-title {
   font-size: 3rem;
   text-align: center;
+  padding: 0.5rem;
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .book-detail-cost {
@@ -45,14 +84,22 @@ defineProps({
   font-weight: lighter;
 }
 
+.book-detail-cost-bs {
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
 .book-detail-seller-section {
   margin: 2rem;
-  height: 20vh;
+  min-height: 20vh;
+  max-height: 40vh;
+  padding: 2rem 0 2rem 1rem;
   width: 15vw;
 
   background-color: rgb(255,255,255);
   justify-items: center;
   align-content: center;
+  word-wrap: break-word;
   border-radius: 1rem;
 }
 

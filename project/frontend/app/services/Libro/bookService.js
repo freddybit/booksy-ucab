@@ -2,7 +2,7 @@
 // Aquí manejo las peticiones HTTP de epica Libro
 // relative root: app/services/Libro/bookService.js
 
-import axios from "axios";
+import axios from 'axios';
 import {Book} from '@assets/js/Book.js';
 
 const API_URL = "http://localhost:5000/api/";
@@ -11,6 +11,7 @@ export let getBookList = async () => {
     try {
         let answer = await axios.get(API_URL + 'books');
         let books = answer.data.map(b => new Book(
+            b._urlImg,
             b._id,
             b._nameBook,
             b._subtitle,

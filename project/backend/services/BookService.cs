@@ -12,7 +12,7 @@ public class BookService {
         if (_repository.ExistsBook("_id", dto.Id) == true)
             throw new Exception("Ya existe un libro con ese id.");
 
-        Book book = new Book(dto.Id, dto.NameBook, dto.Subtitle, dto.Series, dto.Author, dto.Language, dto.Publisher,
+        Book book = new Book(dto.UrlImg, dto.Id, dto.NameBook, dto.Subtitle, dto.Series, dto.Author, dto.Language, dto.Publisher,
                              dto.BookCover, dto.TypeBook, dto.BookVolume, dto.BookHeight, dto.BookWidth,
                              dto.CategoryList, dto.NumPages, dto.PublishYear, dto.Cost, dto.Description, dto.Seller);
         
@@ -25,7 +25,7 @@ public class BookService {
         if (_repository.ExistsBook("_id", dto.Id) == false)
             throw new Exception("No existe un libro con ese id.");
 
-        Book book = new Book(dto.Id, dto.NameBook, dto.Subtitle, dto.Series, dto.Author, dto.Language, dto.Publisher,
+        Book book = new Book(dto.UrlImg, dto.Id, dto.NameBook, dto.Subtitle, dto.Series, dto.Author, dto.Language, dto.Publisher,
                              dto.BookCover, dto.TypeBook, dto.BookVolume, dto.BookHeight, dto.BookWidth,
                              dto.CategoryList, dto.NumPages, dto.PublishYear, dto.Cost, dto.Description, dto.Seller);
         
@@ -37,7 +37,7 @@ public class BookService {
     public Book EditBook(BookDTO dto) {
         if (_repository.ExistsBook("_id", dto.Id) == false)
             throw new Exception("No existe un libro con ese id.");
-        Book book = new Book(dto.Id, dto.NameBook, dto.Subtitle, dto.Series, dto.Author, dto.Language, dto.Publisher,
+        Book book = new Book(dto.UrlImg, dto.Id, dto.NameBook, dto.Subtitle, dto.Series, dto.Author, dto.Language, dto.Publisher,
                              dto.BookCover, dto.TypeBook, dto.BookVolume, dto.BookHeight, dto.BookWidth,
                              dto.CategoryList, dto.NumPages, dto.PublishYear, dto.Cost, dto.Description, dto.Seller);
         
@@ -53,6 +53,9 @@ public class BookService {
 }
 
 public class BookDTO {
+    
+    [JsonPropertyName("_urlImg")]
+    public required string UrlImg { get; set; }
         
     [JsonPropertyName("_id")]
     public required int Id { get; set; }
@@ -76,7 +79,7 @@ public class BookDTO {
     public required string Publisher { get; set; }
 
     [JsonPropertyName("_bookCover")]
-    public string BookCover { get; set; }
+    public required string BookCover { get; set; }
 
     [JsonPropertyName("_typeBook")]
     public required string TypeBook { get; set; }
@@ -91,7 +94,7 @@ public class BookDTO {
     public required float BookWidth { get; set; }
 
     [JsonPropertyName("_categoryList")]
-    public List<string> CategoryList { get; set; }
+    public required List<string> CategoryList { get; set; }
 
     [JsonPropertyName("_numPages")]
     public int NumPages { get; set; }
