@@ -1,5 +1,5 @@
+using System.Text.Json.Serialization;
 using backend.models;
-using backend.factories;
 using backend.repositories;
 using ProfileFactory = backend.factories.ProfileFactory;
 
@@ -26,13 +26,17 @@ namespace backend.services
             if (_repository.ExistsBuyer("_email", dto.Email) == true)
                 throw new Exception("Ya existe un comprador con ese correo.");
 
-            if (_repository.ReturnBuyer(dto.FirstName, dto.LastName) != null)
-                throw new Exception("Ya existe un comprador con ese nombre y apellido.");
-
             Buyer buyer = ProfileFactory.CreateBuyer(dto.Email, dto.FirstName, dto.LastName, dto.Age, dto.Password);
             _repository.AddBuyer(buyer);
             _repository.Save();
             return buyer;
+        }
+        
+        public Buyer? LoginBuyer(string email, string password) {
+            if (_repository.ExistsBuyer("Email", email) == false) {
+                throw new Exception("No se encontro esta direccion de correo");
+            }
+            return _repository.LoginBuyer(email, password) ;
         }
 
         /**
@@ -41,9 +45,8 @@ namespace backend.services
          * @param lastName Apellido del comprador.
          * @return Instancia Buyer si se encuentra; null si no existe.
          */
-        public Buyer? GetBuyer(string firstName, string lastName)
-        {
-            return _repository.ReturnBuyer(firstName, lastName);
+        public Buyer? GetBuyer(string email) {
+            return _repository.ReturnBuyer(email);
         }
     }
 
@@ -51,12 +54,20 @@ namespace backend.services
      * @class BuyerDTO
      * @brief Objeto de transferencia de datos para registrar compradores.
      */
-    public class BuyerDTO
-    {
+    public class BuyerDTO {
         public required string Email { get; set; }
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
         public required int Age { get; set; }
+        public required string Password { get; set; }
+    }
+    
+    public class BuyerLoginDTO {
+        
+        [JsonPropertyName("_email")]
+        public required string Email { get; set; }
+        
+        [JsonPropertyName("_password")]
         public required string Password { get; set; }
     }
 

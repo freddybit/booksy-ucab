@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace backend.models
 {
     /**
@@ -10,52 +12,68 @@ namespace backend.models
     public class Seller : Profile
     {
         // Atributos privados
+
+        private string _bankName;
+        private int _id;
+        private string _phoneNumber;
         private List<Book> _catalog;    //**@brief Lista de libros que el vendedor tiene en su catálogo.
         private List<float> _ratings;   //**@brief Lista de calificaciones recibidas por el vendedor.
+        private List<BookPurchase> _salesHistory;
 
-        /**
-         * @brief Constructor del vendedor.
-         *
-         * Inicializa los atributos personales heredados de Profile y crea listas vacías para el catálogo y las calificaciones.
-         *
-         * @param email Correo electrónico del vendedor.
-         * @param firstName Nombre del vendedor.
-         * @param lastName Apellido del vendedor.
-         * @param age Edad del vendedor.
-         * @param password Contraseña del vendedor.
-         */
-        public Seller(string email, string firstName, string lastName, int age, string password)
-            : base(email, firstName, lastName, age, password)
-        {
+        public Seller(string email, string firstName, string lastName, int age, string password, string bankName, int id, string phoneNumber, List<Book> catalog, List<float> ratings, List<BookPurchase> salesHistory) : base(email, firstName, lastName, age, password) {
+            _bankName = bankName;
+            _id = id;
+            _phoneNumber = phoneNumber;
+            _catalog = catalog;
+            _ratings = ratings;
+            _salesHistory = salesHistory;
+        }
+
+        public Seller() : base() {
+            _bankName = "";
+            _id = 0;
+            _phoneNumber = "";
             _catalog = new List<Book>();
             _ratings = new List<float>();
+            _salesHistory = new List<BookPurchase>();
         }
         
-        public Seller()
-            : base("", "", "", 0, "")
-        {
-            _catalog = new List<Book>();
-            _ratings = new List<float>();
+        [JsonPropertyName("_bankName")]
+        public string BankName {
+            get => _bankName;
+            set => _bankName = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        //**@brief Obtiene o establece el catálogo de libros del vendedor.
-        public List<Book> Catalog
-        {
+        [JsonPropertyName("_id")]
+        public int Id {
+            get => _id;
+            set => _id = value;
+        }
+
+        [JsonPropertyName("_phoneNumber")]
+        public string PhoneNumber {
+            get => _phoneNumber;
+            set => _phoneNumber = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        [JsonPropertyName("_catalog")]
+        public List<Book> Catalog {
             get => _catalog;
-            set => _catalog = value ?? new List<Book>();
+            set => _catalog = value ?? throw new ArgumentNullException(nameof(value));
         }
-
-        //**@brief Obtiene o establece la lista de calificaciones del vendedor.
-        public List<float> Ratings
-        {
+        
+        [JsonPropertyName("_ratings")]
+        public List<float> Ratings {
             get => _ratings;
-            set => _ratings = value ?? new List<float>();
+            set => _ratings = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /**
-         * @brief Agrega un libro al catálogo del vendedor.
-         * @param book Objeto Book que representa el libro a agregar.
-         */
+        [JsonPropertyName("_salesHistory")]
+        public List<BookPurchase> SalesHistory {
+            get => _salesHistory;
+            set => _salesHistory = value ?? throw new ArgumentNullException(nameof(value));
+        }
+        
         public void AddBook(Book book)
         {
             _catalog.Add(book);

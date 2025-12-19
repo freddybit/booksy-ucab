@@ -2,18 +2,19 @@
 import { useRouter } from 'vue-router';
 import LoginForm from '@/components/Perfil/perfil-comprador/LoginForm.vue';
 import { loginComprador } from '@/services/Perfil/buyerService.js';
-import LoginFormSeller from "@/components/Perfil/perfil-vendedor/LoginFormSeller.vue";
 
 const router = useRouter();
 
 async function handleLogin(data) {
+  console.log("Datos enviados al servicio:", data);
   try {
     const response = await loginComprador(data);
     if (response.data.success) {
-      localStorage.setItem("buyerEmail", data.email);
+      localStorage.setItem("buyerEmail", data._email);
       localStorage.setItem("isBuyerLogged", "true");
       localStorage.setItem("isSellerLogged", "false");
-      router.push('/comprador/consultar');
+      console.table(localStorage);
+
     } else {
       alert("Credenciales incorrectas");
     }

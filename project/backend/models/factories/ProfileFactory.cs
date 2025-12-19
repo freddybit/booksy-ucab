@@ -22,15 +22,13 @@ namespace backend.factories
         public static ProfileFactory Instance => _instance;
 
         //**@brief Crea un perfil de tipo Buyer.
-        public static Buyer CreateBuyer(string email, string firstName, string lastName, int age, string password)
-        {
+        public static Buyer CreateBuyer(string email, string firstName, string lastName, int age, string password) {
             return new Buyer(email, firstName, lastName, age, password);
         }
 
         //**@brief Crea un perfil de tipo Seller. Retorna instancia de Buyer.
-        public static Seller CreateSeller(string email, string firstName, string lastName, int age, string password)
-        {
-            Seller seller = new Seller(email, firstName, lastName, age, password);
+        public static Seller CreateSeller(string email, string firstName, string lastName, int age, string password, string bankName, int id, string phoneNumber, List<Book> catalog, List<float> ratings, List<BookPurchase> salesHistory) {
+            Seller seller = new Seller(email, firstName, lastName, age, password, bankName, id, phoneNumber, catalog, ratings, salesHistory);
             return seller;
         }
     }

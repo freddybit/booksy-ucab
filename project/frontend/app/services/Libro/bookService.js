@@ -34,7 +34,7 @@ export let getBookList = async () => {
         console.log(books);
         return books;
     } catch (error){
-        console.log('Mensaje de error: ', error.message);
+        console.error('Mensaje de error: ', error.message);
         throw error;
     }
 }

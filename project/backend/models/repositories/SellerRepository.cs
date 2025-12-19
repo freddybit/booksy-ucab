@@ -53,8 +53,14 @@ namespace backend.repositories
                 string lastName = element.GetProperty("_lastName").GetString()!;
                 int age = element.GetProperty("_age").GetInt32()!;
                 string password = element.GetProperty("_password").GetString()!;
+                string bankName = element.GetProperty("_bankName").GetString()!;
+                int id = element.GetProperty("_id").GetInt32()!;
+                string phoneNumber = element.GetProperty("_phoneNumber").GetString()!;
+                List<Book> catalog = new List<Book>();   
+                List<float> ratings = new List<float>();   
+                List<BookPurchase> salesHistory = new List<BookPurchase>();
 
-                Seller seller = ProfileFactory.CreateSeller(email, firstName, lastName, age, password);
+                Seller seller = ProfileFactory.CreateSeller(email, firstName, lastName, age, password, bankName, id, phoneNumber, catalog, ratings, salesHistory);
                 _sellersList.Add(seller);
             }
         }

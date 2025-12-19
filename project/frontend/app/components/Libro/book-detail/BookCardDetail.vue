@@ -24,8 +24,6 @@ onMounted(async () => {
   }
 })
 
-
-
 </script>
 
 <template>
@@ -45,7 +43,7 @@ onMounted(async () => {
     <p class="seller-email">Correo UCAB: {{ book._seller._email }}</p>
   </section>
 
-  <router-link class="book-detail-link" to="/books">Comprar ahora</router-link>
+  <router-link class="book-detail-link" to="/">Comprar ahora</router-link>
 </template>
 
 <style scoped>
