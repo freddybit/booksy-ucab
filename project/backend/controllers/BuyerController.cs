@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Runtime.InteropServices.JavaScript;
 using Microsoft.AspNetCore.Mvc;
 using backend.models;
@@ -42,23 +43,29 @@ namespace backend.controllers
          * @param lastName Apellido del comprador.
          * @return Resultado HTTP con el comprador encontrado o error.
          */
-        [HttpGet("get")]
-        public IActionResult GetBuyer([FromQuery] string firstName, [FromQuery] string lastName) {
-            Buyer? buyer = _service.GetBuyer(firstName, lastName);
-            if (buyer == null)
-                return NotFound(new { error = "Comprador no encontrado." });
-
-            return Ok(buyer);
+        [HttpGet("getByEmail")]
+        public IActionResult GetBuyer([FromQuery] string email) {
+            try {
+                Buyer? buyer = _service.GetBuyer(email);
+                if (buyer == null)
+                    return NotFound(new { error = "Comprador no encontrado." });
+                return Ok(buyer);
+            } catch (Exception e) {
+                return StatusCode(500, new { error = e.Message, stack = e.StackTrace });
+            }
         }
 
         [HttpPost("login")]
-        public IActionResult LoginBuyer([FromQuery] string email, string password) {
-            Buyer? buyer = _service.LoginBuyer(email, password);
-            if (buyer == null) {
-                return NotFound(new { error = "Comprador no encontrado " });
+        public IActionResult LoginBuyer([FromBody] BuyerLoginDTO dto) {
+            try {
+                Buyer? buyer = _service.LoginBuyer(dto.Email, dto.Password);
+                if (buyer == null) {
+                    return Unauthorized(new { success = false, error = "Credenciales incorrectas" });
+                }
+                return Ok(new { success = true, buyer });
+            } catch (Exception e) {
+                return StatusCode(500, new { error = e.Message, stack = e.StackTrace });
             }
-
-            return Ok(buyer);
         }
         
     }

@@ -10,10 +10,11 @@ async function handleLogin(data) {
   try {
     const response = await loginComprador(data);
     if (response.data.success) {
-      localStorage.setItem("buyerEmail", data.email);
+      localStorage.setItem("buyerEmail", data._email);
       localStorage.setItem("isBuyerLogged", "true");
       localStorage.setItem("isSellerLogged", "false");
-      router.push('/comprador/consultar');
+      console.table(localStorage);
+
     } else {
       alert("Credenciales incorrectas");
     }

@@ -7,12 +7,12 @@
     <section class="horizontal-section">
       <h2 class="article-title">Categorías</h2>
       <div class="div-category-card">
-        <CategoryCard link="book" imgCard="classic-literature-category.jpg" title="Literatura clásica" />
-        <CategoryCard link="book" imgCard="art-design-category.png" title="Arte y diseño" />
-        <CategoryCard link="book" imgCard="math-category.jpg" title="Matemáticas y Estadística" />
-        <CategoryCard link="book" imgCard="fiction-category.jpg" title="Ficción" />
-        <CategoryCard link="book" imgCard="poesia-category.jpg" title="Poesía" />
-        <CategoryCard link="book" imgCard="no-fiction-category.jpg" title="Juvenil" />
+        <CategoryCard link="/" imgCard="classic-literature-category.jpg" title="Literatura clásica" />
+        <CategoryCard link="/" imgCard="art-design-category.png" title="Arte y diseño" />
+        <CategoryCard link="/" imgCard="math-category.jpg" title="Matemáticas y Estadística" />
+        <CategoryCard link="/" imgCard="fiction-category.jpg" title="Ficción" />
+        <CategoryCard link="/" imgCard="poesia-category.jpg" title="Poesía" />
+        <CategoryCard link="/" imgCard="no-fiction-category.jpg" title="Juvenil" />
       </div>
     </section>
   </article>

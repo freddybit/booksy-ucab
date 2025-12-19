@@ -9,14 +9,20 @@ import FormProfile from '@/components/Perfil/perfil-comprador/FormProfile.vue';
 const router = useRouter();
 
 async function handleRegistro(data) {
-  try {
-    await registrarComprador(data);
-    localStorage.setItem("buyerEmail", data.email);
-    localStorage.setItem("isBuyerLogged", "true");
-    localStorage.setItem("isSellerLogged", "false");
-    router.push('/comprador/consultar');
-  } catch (error) {
-    alert("Error al registrar: " + error.message);
+
+  if (data.email.includes('ucab.edu.ve')){
+    try {
+
+      await registrarComprador(data);
+      localStorage.setItem("buyerEmail", data.email);
+      localStorage.setItem("isBuyerLogged", "true");
+      localStorage.setItem("isSellerLogged", "false");
+      router.push('/comprador/consultar');
+    } catch (error) {
+      alert("Error al registrar: " + error.message);
+    }
+  } else {
+    alert('Error debes usar un correo ucab');
   }
 }
 </script>

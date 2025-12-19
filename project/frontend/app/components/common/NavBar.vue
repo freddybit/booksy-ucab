@@ -1,6 +1,15 @@
-<script setup lang="ts">
+<script setup lang="js">
 
+import { onMounted, ref } from "vue";
 import SearchBar from "./SearchBar.vue";
+import ProfileNavBarButton from "./ProfileNavBarButton.vue";
+
+let loggedIn = ref(false);
+
+onMounted(() =>{
+  loggedIn.value = localStorage.getItem('isBuyerLogged') === 'true';
+})
+
 </script>
 
 <template>
@@ -9,7 +18,7 @@ import SearchBar from "./SearchBar.vue";
       <img class="navbar-img" alt="Logo de Booksy UCAB" src="@assets/img/common/booksy-logo-horizontal.png" />
       <SearchBar></SearchBar>
     </section>
-    <section class="nav-bar-two">
+    <section class="nav-bar-two" v-if="!loggedIn">
       <menu class="navbar-list">
         <li class="navbar-list-item"><router-link to="/" class="link">Inicio</router-link></li>
         <li class="navbar-list-item"><router-link to="/catalog" class="link">Catálogo</router-link></li>
@@ -19,6 +28,18 @@ import SearchBar from "./SearchBar.vue";
         <li class="navbar-list-item"><router-link to="/beginSection" class="link">Ingresa</router-link></li>
       </menu>
     </section>
+
+    <section class="nav-bar-two" v-else>
+      <menu class="navbar-list">
+
+        <li class="navbar-list-item"><router-link to="/" class="link"><ProfileNavBarButton /></router-link></li>
+        <li class="navbar-list-item"><router-link to="/" class="link">Inicio</router-link></li>
+        <li class="navbar-list-item"><router-link to="/catalog" class="link">Catálogo</router-link></li>
+        <li class="navbar-list-item"><router-link to="/" class="link">Categorías</router-link></li>
+        <li class="navbar-list-item"><router-link to="/seller/sale" class="link">Vender</router-link></li>
+      </menu>
+    </section>
+    
   </nav>
 </template>
 

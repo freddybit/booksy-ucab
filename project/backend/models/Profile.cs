@@ -79,8 +79,7 @@ namespace backend.models
 
         //**@brief Obtiene o establece la contraseña del usuario, pero desde el mismo objeto.
         [JsonPropertyName("_password")]
-        private string Password
-        {
+        public string Password {
             get => _password;
             set => _password = value ?? throw new ArgumentNullException(nameof(value));
         }

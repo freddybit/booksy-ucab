@@ -83,16 +83,15 @@ namespace backend.repositories
         }
 
         //**@brief Busca y retorna un comprador específico por nombre y apellido.
-        public Buyer? ReturnBuyer(string firstName, string lastName) {
+        public Buyer? ReturnBuyer(string email) {
             return _buyers.FirstOrDefault(b =>
-                b.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase) &&
-                b.LastName.Equals(lastName, StringComparison.OrdinalIgnoreCase));
+                b.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
         }
         
         public Buyer? LoginBuyer(string email, string password) {
             return _buyers.FirstOrDefault(b =>
-                b.FirstName.Equals(email, StringComparison.OrdinalIgnoreCase) &&
-                b.LastName.Equals(password, StringComparison.Ordinal));
+                b.Email.Equals(email, StringComparison.OrdinalIgnoreCase) &&
+                b.Password.Equals(password, StringComparison.Ordinal));
         }
 
         /**

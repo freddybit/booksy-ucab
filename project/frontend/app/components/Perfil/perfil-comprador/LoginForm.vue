@@ -8,8 +8,8 @@ const emit = defineEmits(['submit']);
 
 function handleSubmit() {
   emit('submit', {
-    email: email.value,
-    password: password.value
+    _email: email.value,
+    _password: password.value
   });
 }
 </script>

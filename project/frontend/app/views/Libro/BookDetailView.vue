@@ -5,7 +5,7 @@ import Description from "@/components/Libro/book-detail/Description.vue";
 import CommentarySection from "@/components/Libro/book-detail/CommentarySection.vue";
 import BookCardDetail from "@/components/Libro/book-detail/BookCardDetail.vue";
 import {useRoute} from "vue-router";
-
+import InnerImageZoom from 'vue-inner-image-zoom';
 import { getBookList } from "@/services/Libro/bookService.js"
 import {onMounted, ref} from "vue";
 import {Book} from "@assets/js/Book.js";
@@ -30,7 +30,7 @@ onMounted(async () => {
 <template>
   <article class="article-book" v-if="book">
     <section class="section-left">
-      <section id="img-section"><img :src="book._urlImg" alt="Portada del libro" /></section>
+      <section id="img-section"><inner-image-zoom class="zoom-img" :src="book._urlImg" alt="Portada del libro" :zoomSrc="book._urlImg" zoomType="click" moveType="pan" :zoomScale="1" /></section>
       <Characteristics :book = "book"></Characteristics>
       <Description :book="book"></Description>
       <CommentarySection></CommentarySection>
@@ -79,21 +79,37 @@ onMounted(async () => {
   display: flex;
   height: 45vh;
   width: 46vw;
-  border: 1rem;
   background-color: rgb(240, 240, 240);
   border-radius: 1rem;
 
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 1rem;
+  overflow: hidden;
 }
 
-section img {
-  min-width: 10%;
-  max-width: 100%;
-  height: 100%;
+:deep(.iiz) {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
 
-  border-radius: 1rem;
+/* 2. ESTE ES EL PASO CLAVE: El trigger debe estar limitado */
+:deep(.iiz__trigger) {
+  display: flex !important;
+  height: 100% !important; /* Obliga al disparador a no ser más alto que el contenedor gris */
+  width: 100% !important;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3. La imagen debe ajustarse proporcionalmente */
+:deep(.iiz__img) {
+  max-height: 45vh !important; /* Un poco menos que el contenedor (45vh) para dejar margen */
+  width: auto !important;
+  object-fit: contain !important;
 }
 
 </style>

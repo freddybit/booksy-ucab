@@ -33,7 +33,7 @@ namespace backend.services
             // Si el correo ya existe como comprador, eliminarlo
             if (_buyerRepository.ExistsBuyer("_email", dto.Email))
             {
-                Buyer? comprador = _buyerRepository.ReturnBuyer(dto.FirstName, dto.LastName);
+                Buyer? comprador = _buyerRepository.ReturnBuyer(dto.Email);
                 if (comprador != null)
                 {
                     _buyerRepository.RemoveBuyer(comprador);
