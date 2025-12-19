@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.JavaScript;
 using Microsoft.AspNetCore.Mvc;
 using backend.models;
 using backend.services;
@@ -42,13 +43,23 @@ namespace backend.controllers
          * @return Resultado HTTP con el comprador encontrado o error.
          */
         [HttpGet("get")]
-        public IActionResult GetBuyer([FromQuery] string firstName, [FromQuery] string lastName)
-        {
+        public IActionResult GetBuyer([FromQuery] string firstName, [FromQuery] string lastName) {
             Buyer? buyer = _service.GetBuyer(firstName, lastName);
             if (buyer == null)
                 return NotFound(new { error = "Comprador no encontrado." });
 
             return Ok(buyer);
         }
+
+        [HttpPost("login")]
+        public IActionResult LoginBuyer([FromQuery] string email, string password) {
+            Buyer? buyer = _service.LoginBuyer(email, password);
+            if (buyer == null) {
+                return NotFound(new { error = "Comprador no encontrado " });
+            }
+
+            return Ok(buyer);
+        }
+        
     }
 }

@@ -34,6 +34,13 @@ namespace backend.services
             _repository.Save();
             return buyer;
         }
+        
+        public Buyer? LoginBuyer(string email, string password) {
+            if (_repository.ExistsBuyer("_email", email) == false) {
+                throw new Exception("No se encontro esta direccion de correo");
+            }
+            return _repository.LoginBuyer(email, password) ;
+        }
 
         /**
          * @brief Consulta un comprador por nombre y apellido.
