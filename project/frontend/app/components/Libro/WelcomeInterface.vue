@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import CardEcosystemOne from "./ecosystem-card/CardEcosystemOne.vue";
-import CardEcosystemTwo from "./ecosystem-card/CardEcosystemTwo.vue";
-import CardEcosystemThree from "./ecosystem-card/CardEcosystemThree.vue";
+  import CardEcosystem from "./ecosystem-card/CardEcosystem.vue";
 </script>
 
 <template>
   <article class="welcome-article">
     <cite class="text">"Para viajar lejos, no hay mejor nave que un libro."</cite>
     <ul class="filtrer-bar">
-      <li class="card"><CardEcosystemOne></CardEcosystemOne></li>
-      <li class="card"><CardEcosystemTwo></CardEcosystemTwo></li>
-      <li class="card"><CardEcosystemThree></CardEcosystemThree></li>
+      <li class="card"><CardEcosystem link="/beginSection" titleCard="Ingresa a tu cuenta" imgCard="user.png" descriptionCard="Disfruta sin límites con tu cuenta de Booksy UCAB" buttonCard="Ingresa a tu cuenta" /></li>
+      <li class="card"><CardEcosystem link="/beginSection" titleCard="Nuestras categorías" imgCard="application.png" descriptionCard="Encuentra libros educativos,de entretenimiento y más" buttonCard="Ir a categorías" /></li>
+      <li class="card"><CardEcosystem link="/beginSection" titleCard="Historial de compras" imgCard="receipt.png" descriptionCard="Revisa tus ultimas compras" buttonCard="Ver ultimas compra" /></li>
     </ul>
   </article>
 </template>

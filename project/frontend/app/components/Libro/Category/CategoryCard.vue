@@ -1,16 +1,28 @@
-<script setup lang="ts">
+<script setup lang="js">
+
+  import { useLink } from 'vuetify/lib/composables/router.mjs';
+
+const props = defineProps({
+  link: { type: String, required: true },
+  imgCard: { type: String, required: true },
+  title: { type: String, required: true },
+})
+
+const srcImg = new URL(`../../../../assets/img/consultar-libros-img/${props.imgCard}`, import.meta.url).href;
+
 </script>
 
 <template>
-  <a class="card-link">
-    <img class="card-img"  alt="Libro de matemáticas" src="@assets/img/consultar-libros-img/math-category.jpg" />
+  <router-link class="card-link" :to="link">
+    <img class="card-img"  alt="Libros" :src="srcImg" />
     <section class="card-section">
-      <h3 class="card-title">Matemáticas y Estadística</h3>
+      <h3 class="card-title">{{ title }}</h3>
     </section>
-  </a>
+  </router-link>
 </template>
 
 <style scoped>
+
 @media (min-width: 1600px) {
   .card-link {
     display: flex;
@@ -19,6 +31,8 @@
 
     border: 0.07rem solid rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
+    text-decoration: none;
+    color: black;
   }
 
   .card-img {
@@ -52,6 +66,8 @@
 
     border: 0.07rem solid rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
+    text-decoration: none;
+    color: black;
   }
 
   .card-img {
@@ -76,5 +92,4 @@
     color: rgb(0,44,235);
   }
 }
-
 </style>

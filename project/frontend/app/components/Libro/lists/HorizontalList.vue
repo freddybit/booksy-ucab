@@ -1,11 +1,5 @@
-<script setup lang="ts">
-
-import CategoryCardMath from "../Category/CategoryCardMath.vue";
-import CategoryCardFiction from "../Category/CategoryCardFiction.vue";
-import CategoryCardDesign from "../Category/CategoryCardDesign.vue";
-import CategoryCardClassic from "../Category/CategoryCardClassic.vue";
-import CategoryCardNoFiction from "../Category/CategoryCardNoFiction.vue";
-import CategoryCardPoetry from "../Category/CategoryCardPoetry.vue";
+<script setup lang="js">
+  import CategoryCard from "../Category/CategoryCard.vue";
 </script>
 
 <template>
@@ -13,12 +7,12 @@ import CategoryCardPoetry from "../Category/CategoryCardPoetry.vue";
     <section class="horizontal-section">
       <h2 class="article-title">Categorías</h2>
       <div class="div-category-card">
-        <CategoryCardMath></CategoryCardMath>
-        <CategoryCardFiction></CategoryCardFiction>
-        <CategoryCardNoFiction></CategoryCardNoFiction>
-        <CategoryCardDesign></CategoryCardDesign>
-        <CategoryCardClassic></CategoryCardClassic>
-        <CategoryCardPoetry></CategoryCardPoetry>
+        <CategoryCard link="book" imgCard="classic-literature-category.jpg" title="Literatura clásica" />
+        <CategoryCard link="book" imgCard="art-design-category.png" title="Arte y diseño" />
+        <CategoryCard link="book" imgCard="math-category.jpg" title="Matemáticas y Estadística" />
+        <CategoryCard link="book" imgCard="fiction-category.jpg" title="Ficción" />
+        <CategoryCard link="book" imgCard="poesia-category.jpg" title="Poesía" />
+        <CategoryCard link="book" imgCard="no-fiction-category.jpg" title="Juvenil" />
       </div>
     </section>
   </article>
