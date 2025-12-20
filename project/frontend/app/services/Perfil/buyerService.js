@@ -27,16 +27,9 @@ export const loginComprador = async (data) => {
 
 export const loadBuyer = async (email) => {
   try {
-    const answer = await axios.get(API + '/getByEmail');
-    const buyer = answer.data.map(b => new Buyer(
-      b._email,
-      b._firstName,
-      b._lastName,
-      b._age,
-      b._password,
-      b._listPurchase
-    ));
-    console.warn(buyer);
+    const answer = await axios.get(API + '/getByEmail', { params: { email } });
+    const b = answer.data;
+    const buyer = new Buyer(b._email, b._firstName, b._lastName, b._age, b._password, b._purchaseHistory );
     return buyer;
   } catch(error) {
     console.error('Mensaje de error: ', error.message);

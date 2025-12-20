@@ -14,7 +14,7 @@ async function handleLogin(data) {
       localStorage.setItem("isBuyerLogged", "true");
       localStorage.setItem("isSellerLogged", "false");
       console.table(localStorage);
-
+      window.location.reload();
     } else {
       alert("Credenciales incorrectas");
     }
