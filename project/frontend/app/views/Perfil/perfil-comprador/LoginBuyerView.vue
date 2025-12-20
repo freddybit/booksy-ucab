@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router';
 import LoginForm from '@/components/Perfil/perfil-comprador/LoginForm.vue';
 import { loginComprador } from '@/services/Perfil/buyerService.js';
+import { showNotification } from '../../../../assets/js/notifications';
 
 const router = useRouter();
 
@@ -15,11 +16,12 @@ async function handleLogin(data) {
       localStorage.setItem("isSellerLogged", "false");
       console.table(localStorage);
       window.location.reload();
+      showNotification('¡Iniciaste sección correctamente!', '#2ecc71');
     } else {
-      alert("Credenciales incorrectas");
+      showNotification('Datos incorrectos', '#cc0000');
     }
   } catch (error) {
-    alert("Error al iniciar sesión: " + error.message);
+    showNotification('Error al iniciar sesión: ' + error.message, '#cc0000');
   }
 }
 </script>
@@ -31,6 +33,7 @@ async function handleLogin(data) {
       </section>
       <section class="section-right">
         <LoginForm @submit="handleLogin"></LoginForm>
+        <div id="notifications-area"></div>
       </section>
     </section>
   </article>
