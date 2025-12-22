@@ -53,6 +53,7 @@ onMounted(() =>{
     background-color: rgb(255,255,255);
 
     align-items: center;
+
   }
 
   .nav-bar-one {

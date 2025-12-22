@@ -34,9 +34,9 @@ onMounted(async () => {
                 <p class="profileEmail">{{ buyer._email }}</p>
             </section>
             <ul>
-                <li><router-link to="/seller/sale" class="link">Mi Perfil</router-link></li>
+                <li><router-link class="link" :to="{ name: 'MyProfile', params: { email: buyer._email }}" >Mi Perfil</router-link></li>
                 <li><router-link to="/seller/sale" class="link">Compras</router-link></li>
-                <li><router-link to="/seller/sale" class="link">Vender</router-link></li>
+                <li><router-link class="link" :to="{name: 'Seller', params: { email: buyer._email } }" >Vender</router-link></li>
                 <li><button @click="closeProfile" >Salir</button></li>
             </ul>
         </section>
