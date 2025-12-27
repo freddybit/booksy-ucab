@@ -23,9 +23,7 @@ namespace backend.models
          * @param age Edad del comprador.
          * @param password Contraseña del comprador.
          */
-        public Buyer(string email, string firstName, string lastName, int age, string password)
-            : base(email, firstName, lastName, age, password)
-        {
+        public Buyer(string email, string firstName, string lastName, int age, string password) : base(email, firstName, lastName, age, password) {
             _purchaseHistory = new List<BookPurchase>();
         }
 

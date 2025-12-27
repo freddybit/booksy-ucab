@@ -18,6 +18,7 @@ namespace backend.models
         private string _lastName;   //**@brief Apellido del usuario.
         private int _age;           //**@brief Edad del usuario.
         private string _password;   //**@brief Contraseña del usuario. Solo modificable internamente.
+        private string _phone;
         /**
          * @brief Constructor principal del perfil.
          * @param email Correo electrónico del usuario.
@@ -32,6 +33,7 @@ namespace backend.models
             _lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             _age = age;
             _password = password ?? throw new ArgumentNullException(nameof(password));
+            _phone = "";
         }
         
         public Profile() {
@@ -40,6 +42,7 @@ namespace backend.models
             _lastName = "";
             _age = 0;
             _password = "";
+            _phone = "";
         }
 
 
