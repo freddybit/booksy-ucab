@@ -27,9 +27,6 @@ namespace backend.services
             if (_sellerRepository.ExistsSeller("_email", dto.Email))
                 throw new Exception("Ya existe un vendedor con ese correo.");
 
-            if (_sellerRepository.ReturnSeller(dto.FirstName, dto.LastName) != null)
-                throw new Exception("Ya existe un vendedor con ese nombre y apellido.");
-
             // Si el correo ya existe como comprador, eliminarlo
             if (_buyerRepository.ExistsBuyer("_email", dto.Email))
             {
@@ -53,9 +50,9 @@ namespace backend.services
          * @param lastName Apellido del vendedor.
          * @return Instancia Seller si se encuentra; null si no existe.
          */
-        public Seller? GetSeller(string firstName, string lastName)
+        public Seller? GetSeller(string email)
         {
-            return _sellerRepository.ReturnSeller(firstName, lastName);
+            return _sellerRepository.ReturnSeller(email);
         }
     }
 

@@ -1,27 +1,36 @@
 <script setup lang="js">
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { loadBuyer } from '@/services/Perfil/buyerService.js';
 import ProfileSellerCard from './ProfileSellerCard.vue';
+import { consultarVendedor } from '@/services/Perfil/sellerService';
 
-// Define the prop that comes from the Router
 const props = defineProps({
   email: { type: String, required: true }
 });
 
+const router = useRouter();
 const buyer = ref(null);
 const loading = ref(true);
 
 onMounted(async () => {
   try {
-    if (props.email) {
-      buyer.value = await loadBuyer(props.email);
+    const seller = await consultarVendedor(props.email);
+
+    if (seller && seller._email === props.email) {
+      console.log("Vendedor validado, permaneciendo en el menú.");
+      loading.value = false;
+    } else {
+      // 4. Si NO se cumple, redirigir a otra ruta (ejemplo: 'Home' o 'Login')
+      router.push('/beginSellerSection'); 
+      // También puedes usar router.push('/ruta-directa');
     }
   } catch (error) {
-    console.error("Error loading buyer:", error);
-  } finally {
-    loading.value = false;
+    console.error("Error validando vendedor:", error);
+    router.push('/'); // Redirigir en caso de error de API
   }
 });
+
 
 </script>
 

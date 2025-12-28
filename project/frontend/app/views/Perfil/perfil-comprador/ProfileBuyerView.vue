@@ -12,7 +12,7 @@ const buyer = ref(null);
 const loading = ref(true);
 
 onMounted(async () => {
-  try {
+  try {  
     if (props.email) {
       buyer.value = await loadBuyer(props.email);
     }
@@ -21,6 +21,14 @@ onMounted(async () => {
   } finally {
     loading.value = false;
   }
+});
+
+onMounted(() => {
+
+  document.addEventListener('DOMContentLoaded', (evt) => {
+
+  });
+
 });
 
 </script>
@@ -75,8 +83,6 @@ onMounted(async () => {
         <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Datos de tu cuenta" /></li>
         <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Seguridad" /></li>
         <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Privacidad" /></li>
-        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Tarjetas" /></li>
-        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Direcciones" /></li>
       </ul>
     </section>
   </article>

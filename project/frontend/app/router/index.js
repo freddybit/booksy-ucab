@@ -15,7 +15,7 @@ import ProfileBuyerView from '@/views/Perfil/perfil-comprador/ProfileBuyerView.v
 import SellerMenuView from '@/views/Perfil/perfil-vendedor/SellerMenuView.vue';
 
 const routes = [
-    { path: '/', component: HomeView },
+    { path: '/', name: 'Home', component: HomeView },
     { path: '/catalog', component: CatalogView },
     { path: '/books', component: BooksView },
     { path: '/book/:id', name: 'BookDetail', component: BookDetailView },

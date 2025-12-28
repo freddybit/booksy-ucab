@@ -7,10 +7,9 @@ namespace backend.models
      * Hereda de la clase abstracta Profile y añade funcionalidades específicas para compradores,
      * como el historial de compras realizadas.
      */
-    public class Buyer : Profile
-    {
+    public class Buyer : Profile {
         // Atributos privados
-        private List<BookPurchase> _purchaseHistory;    //**@brief Historial de compras realizadas por el comprador.
+        private List<BookPurchase> _purchaseHistory;    //**@brief Historial de compras realizadas por el comprador
 
         /**
          * @brief Constructor del comprador.

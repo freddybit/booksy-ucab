@@ -195,7 +195,7 @@ onMounted(() =>{
     display: flex;
     flex-direction: row;
     height: 3vh;
-    width: 9.8vw;
+    width: 10vw;
     justify-content: center;
     align-items: center;
     text-align: center;

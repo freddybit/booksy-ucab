@@ -116,14 +116,12 @@ namespace backend.repositories
         /**
         * @brief Devuelve un vendedor que coincida con nombre y apellido.
         *
-        * @param firstName Nombre del vendedor.
-        * @param lastName Apellido del vendedor.
+        * @param email Correo del vendedor.
         * @return Instancia Seller si se encuentra; null si no existe.
         */
-        public Seller? ReturnSeller(string firstName, string lastName)
-        {
+        public Seller? ReturnSeller(string email) {
             return _sellersList.FirstOrDefault(s =>
-                s.FirstName == firstName && s.LastName == lastName);
+                s.FirstName == email);
         }
 
     }
