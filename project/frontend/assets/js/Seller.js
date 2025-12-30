@@ -1,6 +1,7 @@
 
 export class Seller {
-    constructor(_email, _firstName, _lastName, _age, _password, _listBook, _qualification) {
+    constructor(_email, _firstName, _lastName, _age, _password, _bankName, _id, _phoneNumber,  _catalog, _ratings,  _salesHistory ) {
+        this._id = _id;
         this._email = _email;
         this._firstName = _firstName;
         this._lastName = _lastName;

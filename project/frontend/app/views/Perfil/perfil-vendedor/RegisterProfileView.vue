@@ -10,7 +10,6 @@ async function handleRegistro(data) {
     await registrarVendedor(data);
     localStorage.setItem("sellerEmail", data.email);
     localStorage.setItem("isSellerLogged", "true");
-    localStorage.setItem("isBuyerLogged", "false");
     alert("¡Felicidades! Ya eres un vendedor para Booksy UCAB")
     await router.push('/vendedor/consultar');
   } catch (error) {

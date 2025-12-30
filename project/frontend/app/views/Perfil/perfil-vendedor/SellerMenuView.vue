@@ -21,13 +21,11 @@ onMounted(async () => {
       console.log("Vendedor validado, permaneciendo en el menú.");
       loading.value = false;
     } else {
-      // 4. Si NO se cumple, redirigir a otra ruta (ejemplo: 'Home' o 'Login')
-      router.push('/beginSellerSection'); 
-      // También puedes usar router.push('/ruta-directa');
+      router.push('/registerSellerSection'); 
     }
   } catch (error) {
     console.error("Error validando vendedor:", error);
-    router.push('/'); // Redirigir en caso de error de API
+    router.push('/');
   }
 });
 

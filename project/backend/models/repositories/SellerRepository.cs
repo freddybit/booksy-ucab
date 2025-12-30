@@ -36,8 +36,7 @@ namespace backend.repositories
         public static SellerRepository Instance => _instance;
 
         //**@brief Carga los datos de vendedores desde el archivo JSON.
-        private void Load()
-        {
+        private void Load() {
             // No existe la ruta o el archivo
             if (!File.Exists(_jsonPath)) return;
 
@@ -46,8 +45,7 @@ namespace backend.repositories
 
             if (rawSellers == null) return;
 
-            foreach (var element in rawSellers)
-            {
+            foreach (var element in rawSellers) {
                 string email = element.GetProperty("_email").GetString()!;
                 string firstName = element.GetProperty("_firstName").GetString()!;
                 string lastName = element.GetProperty("_lastName").GetString()!;

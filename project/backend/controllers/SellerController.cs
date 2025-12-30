@@ -22,15 +22,11 @@ namespace backend.controllers
          * @return Resultado HTTP con el vendedor creado o error.
          */
         [HttpPost("register")]
-        public IActionResult RegisterSeller([FromBody] SellerDTO dto)
-        {
-            try
-            {
+        public IActionResult RegisterSeller([FromBody] SellerDTO dto) {
+            try {
                 Seller seller = _service.RegisterSeller(dto);
                 return Ok(seller);
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 return BadRequest(new { error = ex.Message });
             }
         }

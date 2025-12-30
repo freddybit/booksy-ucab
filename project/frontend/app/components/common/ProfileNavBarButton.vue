@@ -50,7 +50,7 @@ onMounted(async () => {
 @media (min-width:1600px) {
 
     img {
-        width: 2vw;
+        width: 1.3vw;
         height: fit-content;
     }
 
@@ -76,6 +76,7 @@ onMounted(async () => {
         border-radius: 1rem;
         justify-content: center;
         align-items: center;
+        gap: 1rem;
     }
 
     .menu {
@@ -171,7 +172,7 @@ onMounted(async () => {
 
 @media (max-width:1599px){
     img {
-        width: 1.5vw;
+        width: 1.3vw;
         height: fit-content;
     }
 
@@ -197,6 +198,7 @@ onMounted(async () => {
         border-radius: 1rem;
         justify-content: center;
         align-items: center;
+        gap: 0.5rem;
     }
 
     .menu {

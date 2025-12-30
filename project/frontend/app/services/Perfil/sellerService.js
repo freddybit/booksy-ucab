@@ -3,8 +3,15 @@ import axios from 'axios';
 
 const API = 'http://localhost:5000/api/seller';
 
-export const registrarVendedor = (data) =>
-  axios.post(`${API}/register`, data); 
+export const registrarVendedor = async (data) => {
+  try {
+    const answer = await axios.post(`${API}/register`, data);
+    return answer.data;
+  } catch(error) {
+    console.error('Mensaje de error: ' + error.message);
+    throw error;
+  }
+}
 
 export const loginVendedor = (data) =>
   axios.post(`${API}/login`, data);

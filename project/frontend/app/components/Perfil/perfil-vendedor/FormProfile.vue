@@ -1,53 +1,58 @@
 <script setup>
 import { ref } from 'vue';
+import { loadBuyer } from '@/services/Perfil/buyerService.js';
 
-const email = ref('');
-const firstName = ref('');
-const lastName = ref('');
-const age = ref(null);
-const password = ref('');
+const buyer = ref(null)
+const id = ref(null);
+const phoneNumber = ref('');
+const bankName = ref('');
 
 const emit = defineEmits(['submit']);
 
-function handleSubmit() {
-  emit('submit', {
-    email: email.value,
-    firstName: firstName.value,
-    lastName: lastName.value,
-    age: age.value,
-    password: password.value
-  });
+async function handleSubmit() {
+  const email = localStorage.getItem('buyerEmail');
+
+  if (!email) {
+    console.error('No se encontro un email en el LocalStorage');
+    return;
+  }
+
+  try {
+    buyer.value = await loadBuyer(email);
+    emit('submit', {
+      _email: buyer.value._email,
+      _firstName: buyer.value._firstName,
+      _lastName: buyer.value._lastName,
+      _age: buyer.value._age,
+      _password: buyer.value._password,
+      _id: parseInt(id.value),
+      _phoneNumber: phoneNumber.value,
+      _bankName: bankName.value
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+
 }
 </script>
 
 <template>
   <form class="form-profile" @submit.prevent="handleSubmit">
     <h1>REGISTRAR VENDEDOR</h1>
-    <fieldset>
-      <label for="nameInput">
-        Nombre
-        <input id="nameInput" v-model="firstName" placeholder="Nombre" required />
-      </label>
 
-      <label for="lastName">
-        Apellido
-        <input id="lastName" v-model="lastName" placeholder="Apellido" required />
-      </label>
-    </fieldset>
-
-    <label for="email">
-      Correo UCAB
-      <input id="email" v-model="email" placeholder="example@est.ucab.edu.ve" required />
+    <label for="id">
+      C.I.
+      <input id="id" v-model="id" placeholder="Ej: 31703151  " required />
     </label>
 
-    <label for="age">
-      Edad
-      <input id="age" v-model="age" type="number" placeholder="18" required />
+    <label for="phoneNumber">
+      Número de telefono
+      <input id="phoneNumber" v-model="phoneNumber" placeholder="Ej: 0424-1540999" required />
     </label>
 
-    <label for="password">
-      Contraseña
-      <input id="password" v-model="password" type="password" placeholder="Ingresar contraseña" required />
+    <label for="bankName"> 
+      Bancos que utilizas
+      <input id="bankName" v-model="bankName" placeholder="Ej: Banesco, BNC, Mercantil..." required />
     </label>
 
     <input type="submit" value="Crear cuenta" />
@@ -69,12 +74,6 @@ form {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-fieldset {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-}
-
 label {
   display: flex;
   flex-direction: column;
@@ -90,11 +89,8 @@ form fieldset {
   border: none;
 }
 
-#email, #age, #password {
-  width: 35vw;
-}
-
 input {
+  width: 35vw;
   padding: 1rem;
   font-size: 1.5rem;
   border: 1px solid #ccc;
