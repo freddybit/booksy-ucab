@@ -119,7 +119,7 @@ namespace backend.repositories
         */
         public Seller? ReturnSeller(string email) {
             return _sellersList.FirstOrDefault(s =>
-                s.FirstName == email);
+                s.Email == email);
         }
 
     }

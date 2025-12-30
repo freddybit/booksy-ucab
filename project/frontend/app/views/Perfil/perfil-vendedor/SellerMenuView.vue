@@ -10,17 +10,18 @@ const props = defineProps({
 });
 
 const router = useRouter();
-const buyer = ref(null);
+const seller = ref(null);
 const loading = ref(true);
 
 onMounted(async () => {
   try {
-    const seller = await consultarVendedor(props.email);
+    seller.value = await consultarVendedor(props.email);
 
-    if (seller && seller._email === props.email) {
+    if (seller.value && seller.value._email === props.email) {
       console.log("Vendedor validado, permaneciendo en el menú.");
       loading.value = false;
     } else {
+      alert(seller._email);
       router.push('/registerSellerSection'); 
     }
   } catch (error) {
@@ -29,11 +30,10 @@ onMounted(async () => {
   }
 });
 
-
 </script>
 
 <template>
-  <article v-if="buyer">
+  <article v-if="seller">
 
     <section class="left-section">
       <section class="menu-title">
@@ -54,13 +54,13 @@ onMounted(async () => {
           </router-link>
         </li>
         <li>
-          <router-link class="link-left" :to="{name: 'Seller', params: { email: buyer._email } }" >
+          <router-link class="link-left" :to="{name: 'Seller', params: { email: seller._email } }" >
             <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img/common/tag.png" />
             Vender
           </router-link>
         </li>
         <li>
-          <router-link class="link-left" :to="{ name: 'MyProfile', params: { email: buyer._email }}" >
+          <router-link class="link-left" :to="{ name: 'MyProfile', params: { email: seller._email }}" >
             <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img//common/user.png" />
             Mi perfil
           </router-link>
@@ -72,8 +72,8 @@ onMounted(async () => {
       <div>
         <img alt="Foto de perfil" src="../../../../assets/img/common/profile-big.png" /> 
         <section>
-          <h1>{{ buyer._firstName }} {{ buyer._lastName }}</h1>
-          <p class="email-subtitle">{{ buyer._email }}</p>
+          <h1>{{ seller._firstName }} {{ seller._lastName }}</h1>
+          <p class="email-subtitle">{{ seller._email }}</p>
         </section>
       </div>
 
