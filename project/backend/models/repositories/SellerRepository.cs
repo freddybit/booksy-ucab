@@ -26,8 +26,7 @@ namespace backend.repositories
         private List<Seller> _sellersList;
 
         //**@brief Constructor privado. Llama al método Load() para inicializar la lista.
-        private SellerRepository()
-        {
+        private SellerRepository() {
             _sellersList = new List<Seller>();
             Load();
         }
@@ -37,50 +36,58 @@ namespace backend.repositories
 
         //**@brief Carga los datos de vendedores desde el archivo JSON.
         private void Load() {
-            // No existe la ruta o el archivo
             if (!File.Exists(_jsonPath)) return;
 
             string json = File.ReadAllText(_jsonPath);
-            var rawSellers = JsonSerializer.Deserialize<List<JsonElement>>(json);
+    
+            // En lugar de usar JsonElement y mapear a mano:
+            var options = new JsonSerializerOptions { 
+                PropertyNameCaseInsensitive = true,
+                IncludeFields = true 
+            };
 
-            if (rawSellers == null) return;
+            // Esto cargará a los vendedores CON sus catálogos y ratings automáticamente
+            var loadedSellers = JsonSerializer.Deserialize<List<Seller>>(json, options);
 
-            foreach (var element in rawSellers) {
-                string email = element.GetProperty("_email").GetString()!;
-                string firstName = element.GetProperty("_firstName").GetString()!;
-                string lastName = element.GetProperty("_lastName").GetString()!;
-                int age = element.GetProperty("_age").GetInt32()!;
-                string password = element.GetProperty("_password").GetString()!;
-                string bankName = element.GetProperty("_bankName").GetString()!;
-                int id = element.GetProperty("_id").GetInt32()!;
-                string phoneNumber = element.GetProperty("_phoneNumber").GetString()!;
-                List<Book> catalog = new List<Book>();   
-                List<float> ratings = new List<float>();   
-                List<BookPurchase> salesHistory = new List<BookPurchase>();
-
-                Seller seller = ProfileFactory.CreateSeller(email, firstName, lastName, age, password, bankName, id, phoneNumber, catalog, ratings, salesHistory);
-                _sellersList.Add(seller);
+            if (loadedSellers != null) {
+                _sellersList = loadedSellers;
             }
         }
 
         //**@brief Guarda todos los vendedores en el archivo JSON, sobrescribiendo el contenido.
-        public void Save()
-        {
+        public void Save() {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json = JsonSerializer.Serialize(_sellersList, options);
             File.WriteAllText(_jsonPath, json);
         }
 
         //**@brief Agrega un nuevo vendedor al repositorio.
-        public void AddSeller(Seller seller)
-        {
+        public void AddSeller(Seller seller) {
             _sellersList.Add(seller);
+            Save();
         }
 
         //**@brief Elimina un vendedor del repositorio.
-        public void RemoveSeller(Seller seller)
-        {
-            _sellersList.Remove(seller);
+        public void RemoveSeller(Seller? seller) {
+            if (seller != null) {
+                // Buscamos por Email para asegurar que encontramos el objeto correcto en la lista
+                var sellerInList = _sellersList.FirstOrDefault(s => s.Email == seller.Email);
+                if (sellerInList != null) {
+                    _sellersList.Remove(sellerInList);
+                    Save(); // Usamos el método Save() centralizado
+                }
+            }
+        }
+        
+        public void UpdateSeller(Seller updatedSeller) {
+            int index = _sellersList.FindIndex(s => s.Email == updatedSeller.Email);
+            if (index != -1) {
+                _sellersList[index] = updatedSeller; // Sobreescribe el viejo en la lista
+                Save(); // Guarda el archivo limpio
+            } else {
+                _sellersList.Add(updatedSeller); // Si es nuevo, lo agrega
+                Save();
+            }
         }
 
         //**@brief Devuelve la lista completa de vendedores.

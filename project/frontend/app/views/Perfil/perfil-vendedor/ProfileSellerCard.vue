@@ -8,6 +8,7 @@
   const perfil = ref(null);
 
   const props = defineProps({
+      email: { type: String, required: true},
       srcImg: { type: String, required: true },
       title: { type: String, required: true },
       description: { type: String, required: true },
@@ -16,9 +17,9 @@
 </script>
  
 <template>
-  <router-link :to="props.link" class="link">
+  <router-link :to="{name: props.link, params: {email: props.email} }" class="link">
     <section class="img-section">
-        <img alt="icono" :src="props.srcImg" />
+        <img :alt="props.title" :src="props.srcImg" />
     </section>
     <section>
         <h3>{{ props.title }}</h3>

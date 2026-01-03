@@ -1,5 +1,6 @@
 // app/services/Perfil/sellerService.js
 import axios from 'axios';
+import { tr } from 'vuetify/locale';
 
 const API = 'http://localhost:5000/api/seller';
 
@@ -23,8 +24,17 @@ export const consultarVendedor = async (email) => {
     });
     return response.data; // Retorna solo los datos del vendedor
   } catch (error) {
-    // Si hay un 500, 404 o el servidor está apagado, cae aquí
     console.error("Error en la API de Vendedor:", error.response?.status, error.message);
-    return null; // Retornamos null para que el componente sepa que no hubo éxito
+    return null; 
   }
 };
+
+export const updateVendedor = async (data) => {
+  try {
+    const response = await axios.post(`${API}/edit`, data);
+  } catch (error) {
+    console.error("Error en la API de Vendedor:", error.response?.status, error.message);
+    return null; 
+  }
+}
+

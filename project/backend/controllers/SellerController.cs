@@ -49,9 +49,22 @@ namespace backend.controllers
                 return Ok(seller);
             }
             catch (Exception ex) {
-                // Esto imprimirá el error real en tu consola de Visual Studio / Terminal
                 Console.WriteLine($"Error en GetSeller: {ex.Message}");
         
+                return StatusCode(500, new { 
+                    error = "Error interno al conectar con la base de datos.",
+                    details = ex.Message 
+                });
+            }
+        }
+
+        [HttpPost("edit")]
+        public IActionResult EditSeller([FromBody] SellerDTO dto) {
+            try {
+                Seller seller = _service.EditSeller(dto);
+                return Ok(seller);
+            } catch (Exception ex) {
+                Console.WriteLine($"Error en EditSeller:{ex.Message}");  
                 return StatusCode(500, new { 
                     error = "Error interno al conectar con la base de datos.",
                     details = ex.Message 

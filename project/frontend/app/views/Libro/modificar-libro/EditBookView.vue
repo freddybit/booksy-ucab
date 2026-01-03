@@ -160,13 +160,6 @@ async function handleSubmit(event) {
         </label>
       </fieldset>
 
-      <fieldset class="fieldsetID">
-        <label for="publisherBook">
-          ID
-          <input v-model="id" id="publisherBook" type="text" disabled />
-        </label>
-      </fieldset>
-
     </fieldset>
 
     <fieldset id="partTwo">
@@ -248,7 +241,11 @@ async function handleSubmit(event) {
 
     </fieldset>
 
-    <input class="register-book-button" type="submit" value="Editar libro" />
+    <fieldset class="buttonPart">
+      <input class="edit-book-button" type="submit" value="Editar libro" />
+      <input class="delete-book-button" type="submit" value="Eliminar libro" />
+    </fieldset>
+
   </form>
 </article>
 </template>
@@ -291,7 +288,7 @@ h1 {
   border-radius: 1rem 1rem 0 0;
 }
 
-#partOne, #partTwo{
+#partOne, #partTwo {
   display: flex;
   flex-direction: column;
   height: 55vh;
@@ -304,12 +301,12 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 95vh;
+  height: 90vh;
   width: 50vw;
   border: none;
 }
 
-.fieldsetPart {
+.fieldsetPart, .buttonPart{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -353,18 +350,33 @@ input {
   background-color: rgb(163, 189, 224);
 }
 
-.register-book-button {
+.edit-book-button {
   height: 10vh;
-  width: 40vw;
+  width: 23vw;
   background-color: rgb(0,117,235);
   border-radius: 1rem;
   border: none;
   color: rgb(255,255,255);
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
-.register-book-button:hover {
+.edit-book-button:hover {
   background-color: rgb(0,44,235);
+  animation: jump 1s ease;
+}
+
+.delete-book-button {
+  height: 10vh;
+  width: 23vw;
+  background-color: rgb(235, 0, 0);
+  border-radius: 1rem;
+  border: none;
+  color: rgb(255,255,255);
+  font-size: 2rem;
+}
+
+.delete-book-button:hover {
+  background-color: rgb(141, 0, 0);
   animation: jump 1s ease;
 }
 

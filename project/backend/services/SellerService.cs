@@ -33,6 +33,19 @@ namespace backend.services
             return seller;
         }
 
+        public Seller EditSeller(SellerDTO dto) {
+            if (!_sellerRepository.ExistsSeller("Email", dto.Email))
+                throw new Exception("Vendedor no encontrado.");
+            
+            Seller updatedSeller = ProfileFactory.CreateSeller(
+                dto.Email, dto.FirstName, dto.LastName, dto.Age, dto.Password, 
+                dto.BankName, dto.Id, dto.PhoneNumber, dto.Catalog, dto.Ratings, dto.SalesHistory
+            );
+            
+            _sellerRepository.UpdateSeller(updatedSeller);
+            return updatedSeller;
+        }
+
         /**
          * @brief Consulta un vendedor por nombre y apellido.
          * @param firstName Nombre del vendedor.

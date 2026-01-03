@@ -78,11 +78,11 @@ onMounted(async () => {
       </div>
 
       <ul>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Registra, revisa y elimina ventas cuando sea necesario." title="Gestionar Ventas" link="/gestionarVenta/sale" /></li>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Registra todos los libros que deseas vender." title="Registrar libro" link="/seller/registerBook" /></li>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Modifica los libros que tienes en venta" title="Editar libro" link="/seller/editBook" /></li>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Echale un viztazo a todos tus libros en venta" title="Ver stock" link="/seller/editBook" /></li>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Saca los libros del stock." title="Eliminar libro" link="/seller/editBook" /></li>
+        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Registra, revisa y elimina ventas cuando sea necesario." title="Gestionar Ventas" link="GestionarVentas" :email="seller._email" /></li>
+        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Registra todos los libros que deseas vender." title="Registrar libro" link="RegisterBook" :email="seller._email" /></li>
+        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Modifica los libros que tienes en venta" title="Editar libro" link="EditBook" :email="seller._email" /></li>
+        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Echale un viztazo a todos tus libros en venta" title="Ver stock" link="SellerCatalog" :email="seller._email" /></li>
+        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Saca los libros del stock." title="Eliminar libro" link="EditBook" :email="seller._email" /></li>
       </ul>
     </section>
   </article>

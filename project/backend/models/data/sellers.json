@@ -3,7 +3,44 @@
     "_bankName": "BNC",
     "_id": 31703150,
     "_phoneNumber": "0424-1540989",
-    "_catalog": [],
+    "_catalog": [
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1767193182738-81dxFCnAp0L._SL1500_.jpg",
+        "_id": 55255,
+        "_nameBook": "Harry Potter",
+        "_subtitle": "La piedra filosofal",
+        "_series": "Harry Potter",
+        "_author": "J.K Rowling",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "Bloomsbury",
+        "_bookCover": "Dura",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "1",
+        "_bookHeight": 20,
+        "_bookWidth": 17,
+        "_categoryList": [
+          "Novela",
+          "Literatura fant\u00E1stica"
+        ],
+        "_numPages": 114,
+        "_publishYear": "2025-12-31T00:00:00",
+        "_cost": 45.99,
+        "_description": "Harry Potter y la piedra filosofal (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Philosopher\u2019s Stone,[1]\u200B excepto en Estados Unidos, donde se titul\u00F3 Harry Potter and the Sorcerer\u2019s Stone), es el primer libro de la serie literaria Harry Potter, escrito por la autora brit\u00E1nica J. K. Rowling entre 1990 y 1995. Publicado en el a\u00F1o 1997, supuso adem\u00E1s el debut de Rowling como escritora profesional.",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 31703150,
+          "_phoneNumber": "0424-1540989",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "fafernandez.24@est.ucab.edu.ve",
+          "_firstName": "Freddy Alejandro",
+          "_lastName": "Fern\u00E1ndez Tovar",
+          "_age": 20,
+          "_password": "@Freddyf0406"
+        }
+      }
+    ],
     "_ratings": [],
     "_salesHistory": [],
     "_email": "fafernandez.24@est.ucab.edu.ve",

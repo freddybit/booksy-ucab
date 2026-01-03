@@ -13,22 +13,27 @@ import RegisterProfileBuyerView from "../views/Perfil/perfil-comprador/RegisterP
 import EditBookView from "../views/Libro/modificar-libro/EditBookView.vue";
 import ProfileBuyerView from '@/views/Perfil/perfil-comprador/ProfileBuyerView.vue';
 import SellerMenuView from '@/views/Perfil/perfil-vendedor/SellerMenuView.vue';
+import { components } from 'vuetify/dist/vuetify.js';
+import SellerCatalog from '@/views/Perfil/perfil-vendedor/SellerCatalog.vue';
+import SellerBookDetailView from '@/views/Perfil/perfil-vendedor/SellerBookDetailView.vue';
 
 const routes = [
     { path: '/', name: 'Home', component: HomeView },
     { path: '/catalog', component: CatalogView },
     { path: '/books', component: BooksView },
     { path: '/book/:id', name: 'BookDetail', component: BookDetailView },
-    { path: '/seller/registerBook', name: 'RegisterBook', component: RegisterBookView },
+    { path: '/sellerCatalog/book/:id', name: 'SellerBookDetail', component: SellerBookDetailView },
+    { path: '/seller/registerBook/:email', name: 'RegisterBook', component: RegisterBookView, props: true },
     { path: '/beginSection', component: LoginBuyerView },
     { path: '/registerBuyerSection', component: RegisterProfileBuyerView },
     { path: '/beginSellerSection', component: LoginView },
     { path: '/registerSellerSection', component: RegisterProfileView },
     { path: '/seller/sale', component: SellerMenuView},
     { path: '/seller/:email', name: 'Seller', component: SellerMenuView, props: true },
-    { path: '/gestionarVenta/sale', component: GestionarVentasView },
-    { path: '/seller/editBook', component: EditBookView, props: true },
-    { path: '/buyer/myProfile/:email', name: 'MyProfile', component: ProfileBuyerView, props: true }
+    { path: '/gestionarVenta/sale/:email', name: 'GestionarVentas', component: GestionarVentasView, props: true },
+    { path: '/seller/editBook/:email', name:'EditBook' ,component: EditBookView, props: true },
+    { path: '/buyer/myProfile/:email', name: 'MyProfile', component: ProfileBuyerView, props: true },
+    { path: '/seller/sellerCatalog/:email', name: 'SellerCatalog', component: SellerCatalog, props: true }
 ];
 
 const router = createRouter({
