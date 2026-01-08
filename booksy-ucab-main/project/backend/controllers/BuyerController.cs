@@ -71,52 +71,43 @@ namespace backend.controllers
 
 
         
-    [HttpPost("confirm-purchase")]
-    public IActionResult ConfirmPurchase([FromBody] PurchaseRequest request)
-    {
-        //var buyerRepo = BuyerRepository.Instance; //no funciona porque password suelta error
-        var buyerRepo= BuyerRepository.Instance;
-        var bookRepo = BookRepository.Instance;
-        var sellerRepo = SellerRepository.Instance;
-
-        // 1. Buscar comprador
-        var buyer = buyerRepo.ReturnBuyer(request.Email);
-        if (buyer == null)
-            return BadRequest("Comprador no encontrado");
-
-        // 2. Buscar libro
-        Console.WriteLine("busca el libro");
-        var book = bookRepo.GetBookById(request.BookId);
-        Console.WriteLine($"Libro encontrado: {book?.NameBook}");
-        if (book == null)
-            return BadRequest("Libro no encontrado");
-            Console.WriteLine("libro existe");
-
-        // 3. Registrar compra en el comprador
-        buyerRepo.AddPurchase(book, request.Email);
-        Console.WriteLine("registrar compra");
-
-        // 4. Eliminar libro del catálogo
-        string bookId=request.BookId.ToString();
-        bookRepo.RemoveBook(bookId);
-        Console.WriteLine("eliminar libro del catalogo");
-
-        // 5. Eliminar libro del vendedor
-        var seller = sellerRepo.ReturnSellerByBookId(request.BookId);
-        if (seller != null)
+        [HttpPost("confirm-purchase")]
+        public IActionResult ConfirmPurchase([FromBody] PurchaseRequest request)
         {
-            var purchase= new BookPurchase(book, DateTime.Now);
-            string sellerEmail=seller.Email;
-            sellerRepo.AddSaleToSeller(purchase, sellerEmail);
-            sellerRepo.RemoveBooksBySeller(request.BookId, sellerEmail);
-            Console.WriteLine($"Libro eliminado del vendedor: {seller.Email}");
-        }
-        Console.WriteLine("eliminar libro del vendedor");
+            var buyerRepo = BuyerRepository.Instance;
+            var bookRepo = BookRepository.Instance;
+            var sellerRepo = SellerRepository.Instance;
 
-        // 6. Confirmación
-        Console.WriteLine("confirmacion");
-        return Ok(new { success = true });
-    }
+            // 1. Buscar comprador
+            var buyer = buyerRepo.ReturnBuyer(request.Email);
+            if (buyer == null)
+                return BadRequest(new { success = false, message = "Comprador no encontrado" });
+
+            // 2. Buscar libro
+            var book = bookRepo.GetBookById(request.BookId);
+            if (book == null)
+                return BadRequest(new { success = false, message = "Libro no encontrado" });
+
+            // 3. Registrar compra en el comprador
+            buyerRepo.AddPurchase(book, request.Email);
+
+            // 4. Eliminar libro del catálogo
+            string bookId = request.BookId.ToString();
+            bookRepo.RemoveBook(bookId);
+
+            // 5. Eliminar libro del vendedor
+            var seller = sellerRepo.ReturnSellerByBookId(request.BookId);
+            if (seller != null)
+            {
+                var purchase = new BookPurchase(book, DateTime.Now);
+                string sellerEmail = seller.Email;
+                sellerRepo.AddSaleToSeller(purchase, sellerEmail);
+                sellerRepo.RemoveBooksBySeller(request.BookId, sellerEmail);
+            }
+
+            // 6. Confirmación
+            return Ok(new { success = true, message = "Compra realizada exitosamente" });
+        }
     [HttpDelete("delete-purchase")]
     public IActionResult deletePurchase([FromBody] PurchaseRequest request)
         {
@@ -189,6 +180,20 @@ namespace backend.controllers
 
         Console.WriteLine("cantidad de purchases: ", buyer.PurchaseHistory.Count, "esta");
         return Ok(buyer.PurchaseHistory);
+    }
+
+    [HttpGet("contactSeller")]
+    public IActionResult ContactSeller([FromQuery] int id)
+    {
+        var bookRepo = BookRepository.Instance;
+        var sellerRepo = SellerRepository.Instance; 
+        var book = bookRepo.GetBookById(id);
+        if (book == null)
+            return NotFound(new { error = "Libro no encontrado." });
+        var seller = book.Seller;
+        if (seller == null)
+            return NotFound(new { error = "Vendedor no encontrado." });
+        return Ok(new { seller.Email, seller.PhoneNumber });
     }
 }
         public class PurchaseRequest

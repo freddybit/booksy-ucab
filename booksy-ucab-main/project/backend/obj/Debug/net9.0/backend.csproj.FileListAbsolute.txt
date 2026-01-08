@@ -336,3 +336,4 @@ C:\Users\marco\Desktop\booksy-ucab-main\booksy-ucab-main\project\backend\obj\Deb
 C:\Users\marco\Desktop\booksy-ucab-main\booksy-ucab-main\project\backend\obj\Debug\net9.0\backend.pdb
 C:\Users\marco\Desktop\booksy-ucab-main\booksy-ucab-main\project\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 C:\Users\marco\Desktop\booksy-ucab-main\booksy-ucab-main\project\backend\obj\Debug\net9.0\ref\backend.dll
+C:\Users\marco\Desktop\booksy-ucab-main\booksy-ucab-main\project\backend\obj\Debug\net9.0\backend.sourcelink.json

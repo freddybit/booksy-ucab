@@ -3,36 +3,19 @@
     <h2>Historial de Compras</h2>
     <h2>{{ buyerEmail }}</h2>
 
-    <table >
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Libro</th>
-          <th>Autor</th>
-          <th>Precio</th>
-          <th>Vendedor</th>
-          <th>Contacto</th>
-          <th>Fecha de Compra</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="purchase in purchases" :key="purchase.book._id">
-          <td>{{ purchase.book._id }}</td>
-          <td>{{ purchase.book._nameBook }}</td>
-          <td>{{ purchase.book._author }}</td>
-          <td>{{ formatPrice(purchase.book._cost) }}</td>
-          <td>{{ purchase.book._seller._firstName }}</td>
-          <td>{{ purchase.book._seller._email }}</td>
-          <td>{{ formatDate(purchase.purchaseDate) }}</td>
-          <td>
-            <button @click="openModal(purchase.book._id)">Eliminar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="cards-container">
+      <div class="purchase-card" v-for="purchase in purchases" :key="purchase.book._id">
+        <h3>📚 {{ purchase.book._nameBook }}</h3>
+        <p><strong>Autor:</strong> {{ purchase.book._author }}</p>
+        <p><strong>Precio:</strong> {{ formatPrice(purchase.book._cost) }}</p>
+        <p><strong>Vendedor:</strong> {{ purchase.book._seller._firstName }}</p>
+        <p><strong>Contacto:</strong> {{ purchase.book._seller._email }}</p>
+        <p><strong>Fecha:</strong> {{ formatDate(purchase.purchaseDate) }}</p>
+        <button @click="openModal(purchase.book._id)">Eliminar</button>
+      </div>
+    </div>
 
-    <!-- Modal separado -->
+    <!-- Modal -->
     <eliminarPago
       v-if="showModal"
       :book-id="selectedBookId"
@@ -63,15 +46,7 @@ export default {
         const response = await axios.get("http://localhost:5000/api/buyer/purchases", {
           params: { email: this.buyerEmail }
         });
-
-        console.log("Response data:", response.data);
         this.purchases = response.data;
-        console.log("Purchases fetched:", this.purchases);
-        console.log("cuantas compras:", this.purchases.length);
-
-        if (this.purchases.length === 0) {
-          console.log("No tiene compras registradas (front).");
-        }
       } catch (error) {
         console.error("Error al obtener las compras:", error);
       }
@@ -85,7 +60,7 @@ export default {
       this.selectedBookId = null;
     },
     handleDeleted(bookId) {
-      this.purchases = this.purchases.filter(p => p.Book._id !== bookId);
+      this.purchases = this.purchases.filter(p => p.book._id !== bookId);
       this.closeModal();
     },
     formatDate(dateString) {
@@ -105,10 +80,7 @@ export default {
   },
   mounted() {
     if (this.buyerEmail) {
-      console.log("buscando compras de:", this.buyerEmail, "ese es el email");
       this.fetchPurchases();
-    } else {
-      console.warn("No se encontró buyerEmail en localStorage.");
     }
   }
 };
@@ -117,44 +89,60 @@ export default {
 <style scoped>
 .purchases {
   margin: 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  color: #fff;
 }
 
 h2 {
   margin-bottom: 10px;
+  color: #fff;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+.purchase-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-thead {
-  background-color: #f4f4f4;
+.purchase-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 16px rgba(0,0,0,0.4);
 }
 
-tr:nth-child(even) {
-  background-color: #fafafa;
+.purchase-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.3em;
+  color: #ffd700; /* dorado para destacar el título */
+}
+
+.purchase-card p {
+  margin: 6px 0;
+  font-size: 0.95em;
 }
 
 button {
-  background-color: #3498db;
+  background-color: #e74c3c;
   color: white;
   border: none;
-  padding: 6px 12px;
+  padding: 8px 14px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: background-color 0.2s ease;
+  margin-top: 12px;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #c0392b;
 }
 </style>
