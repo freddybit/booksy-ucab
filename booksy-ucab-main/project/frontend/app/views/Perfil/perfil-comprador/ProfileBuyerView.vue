@@ -43,7 +43,7 @@ onMounted(() => {
       </section>
       <ol>
         <li>
-          <router-link class="link-left">
+          <router-link class="link-left" :to="{ name: 'compras'}">
             <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img/common/shopping-bag.png" />
             Compras
           </router-link>
