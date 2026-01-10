@@ -1,0 +1,146 @@
+[
+  {
+    "_bankName": "BNC",
+    "_id": 31703150,
+    "_phoneNumber": "0424-1540989",
+    "_catalog": [],
+    "_ratings": [],
+    "_salesHistory": [],
+    "_email": "fafernandez.24@est.ucab.edu.ve",
+    "_firstName": "Freddy Alejandro",
+    "_lastName": "Fern\u00E1ndez Tovar",
+    "_age": 20,
+    "_password": "@Freddyf0406"
+  },
+  {
+    "_bankName": "mercantil",
+    "_id": 31686654,
+    "_phoneNumber": "04121172929",
+    "_catalog": [],
+    "_ratings": [],
+    "_salesHistory": [
+      {
+        "Book": {
+          "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1767891209332-OIP.jpg",
+          "_id": 70455,
+          "_nameBook": "gig gato",
+          "_subtitle": "chad",
+          "_series": "evolucion de los gatos",
+          "_author": "Marco Di Mare",
+          "_language": "Espa\u00F1ol",
+          "_publisher": "cum",
+          "_bookCover": "Dura",
+          "_typeBook": "F\u00EDsico",
+          "_bookVolume": "1",
+          "_bookHeight": 24,
+          "_bookWidth": 15,
+          "_categoryList": [
+            "Espiritual",
+            "Filos\u00F3fica"
+          ],
+          "_numPages": 85,
+          "_publishYear": "2025-10-27T00:00:00",
+          "_cost": 199.99,
+          "_description": "una apasionante investigacion de una de las especies mas chads de la naturaleza",
+          "_seller": {
+            "_bankName": "mercantil",
+            "_id": 31686654,
+            "_phoneNumber": "04121172929",
+            "_catalog": [],
+            "_ratings": [],
+            "_salesHistory": [],
+            "_email": "madimare12@est.ucab.edu.ve",
+            "_firstName": "marco",
+            "_lastName": "y",
+            "_age": 19,
+            "_password": "hola"
+          }
+        },
+        "PurchaseDate": "2026-01-10T07:40:59.5840265-04:00"
+      },
+      {
+        "Book": {
+          "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1767891209332-OIP.jpg",
+          "_id": 80344,
+          "_nameBook": "giga gat",
+          "_subtitle": "chad",
+          "_series": "evolucion de los gatos",
+          "_author": "Marco Di Mare",
+          "_language": "Espa\u00F1ol",
+          "_publisher": "cum",
+          "_bookCover": "Dura",
+          "_typeBook": "F\u00EDsico",
+          "_bookVolume": "1",
+          "_bookHeight": 24,
+          "_bookWidth": 15,
+          "_categoryList": [
+            "Espiritual",
+            "Filos\u00F3fica"
+          ],
+          "_numPages": 85,
+          "_publishYear": "2025-10-27T00:00:00",
+          "_cost": 199.99,
+          "_description": "una apasionante investigacion de una de las especies mas chads de la naturaleza",
+          "_seller": {
+            "_bankName": "mercantil",
+            "_id": 31686654,
+            "_phoneNumber": "04121172929",
+            "_catalog": [],
+            "_ratings": [],
+            "_salesHistory": [],
+            "_email": "madimare12@est.ucab.edu.ve",
+            "_firstName": "marco",
+            "_lastName": "y",
+            "_age": 19,
+            "_password": "hola"
+          }
+        },
+        "PurchaseDate": "2026-01-10T07:41:29.5280065-04:00"
+      },
+      {
+        "Book": {
+          "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1767891209332-OIP.jpg",
+          "_id": 70377,
+          "_nameBook": "gi gato",
+          "_subtitle": "chad",
+          "_series": "evolucion de los gatos",
+          "_author": "Marco Di Mare",
+          "_language": "Espa\u00F1ol",
+          "_publisher": "cum",
+          "_bookCover": "Dura",
+          "_typeBook": "F\u00EDsico",
+          "_bookVolume": "1",
+          "_bookHeight": 24,
+          "_bookWidth": 15,
+          "_categoryList": [
+            "Espiritual",
+            "Filos\u00F3fica"
+          ],
+          "_numPages": 85,
+          "_publishYear": "2025-10-27T00:00:00",
+          "_cost": 199.99,
+          "_description": "una apasionante investigacion de una de las especies mas chads de la naturaleza",
+          "_seller": {
+            "_bankName": "mercantil",
+            "_id": 31686654,
+            "_phoneNumber": "04121172929",
+            "_catalog": [],
+            "_ratings": [],
+            "_salesHistory": [],
+            "_email": "madimare12@est.ucab.edu.ve",
+            "_firstName": "marco",
+            "_lastName": "y",
+            "_age": 19,
+            "_password": "hola"
+          }
+        },
+        "PurchaseDate": "2026-01-10T07:43:13.5788208-04:00"
+      }
+    ],
+    "_email": "madimare12@est.ucab.edu.ve",
+    "_firstName": "marco",
+    "_lastName": "y",
+    "_age": 19,
+    "_password": "hola"
+  }
+]

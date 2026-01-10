@@ -1,0 +1,13 @@
+[
+  {
+    "CodigoDeCompra": 1,
+    "FechaDeVenta": "2026-01-10T07:16:00.7213599-04:00",
+    "MontoTotal": 0,
+    "LibroId": 70377,
+    "CompradorId": 8,
+    "VendedorId": 2,
+    "IsDeleted": false,
+    "SellerEmail": "madimare12@est.ucab.edu.ve",
+    "BuyerEmail": "fafernandez.24@est.ucab.edu.ve"
+  }
+]

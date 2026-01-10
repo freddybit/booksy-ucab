@@ -1,0 +1,35 @@
+[
+  {
+    "CodigoDeCompra": 1,
+    "FechaDeVenta": "2026-01-10T07:40:59.6659899-04:00",
+    "MontoTotal": 199.99000549316406,
+    "LibroId": 70455,
+    "CompradorId": 8,
+    "VendedorId": 2,
+    "IsDeleted": false,
+    "SellerEmail": "madimare12@est.ucab.edu.ve",
+    "BuyerEmail": "fafernandez.24@est.ucab.edu.ve"
+  },
+  {
+    "CodigoDeCompra": 2,
+    "FechaDeVenta": "2026-01-10T07:41:29.5951257-04:00",
+    "MontoTotal": 199.99000549316406,
+    "LibroId": 80344,
+    "CompradorId": 8,
+    "VendedorId": 2,
+    "IsDeleted": false,
+    "SellerEmail": "madimare12@est.ucab.edu.ve",
+    "BuyerEmail": "fafernandez.24@est.ucab.edu.ve"
+  },
+  {
+    "CodigoDeCompra": 3,
+    "FechaDeVenta": "2026-01-10T07:43:13.5917579-04:00",
+    "MontoTotal": 199.99000549316406,
+    "LibroId": 70377,
+    "CompradorId": 11,
+    "VendedorId": 2,
+    "IsDeleted": false,
+    "SellerEmail": "madimare12@est.ucab.edu.ve",
+    "BuyerEmail": "warimare21@est.ucab.edu.ve"
+  }
+]
