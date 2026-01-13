@@ -2,7 +2,6 @@
 
 import Characteristics from "@/components/Libro/book-detail/Characteristics.vue";
 import Description from "@/components/Libro/book-detail/Description.vue";
-import CommentarySection from "@/components/Libro/book-detail/CommentarySection.vue";
 import BookCardDetail from "@/components/Libro/book-detail/BookCardDetail.vue";
 import {useRoute} from "vue-router";
 import InnerImageZoom from 'vue-inner-image-zoom';
@@ -10,17 +9,17 @@ import { getBookList } from "@/services/Libro/bookService.js"
 import {onMounted, ref} from "vue";
 import {Book} from "@assets/js/Book.js";
 
-let books = ref([])
-let book = ref({})
+let books = ref([]);
+let book = ref({});
 
-let route = useRoute()
-let bookId = route.params.id
+let route = useRoute();
+let bookId = route.params.id;
 
 
 onMounted(async () => {
   try {
-    books.value = await getBookList();
-    book.value = books.value.find(b => String(b._id) === String(bookId))
+    books.value = await getBookList();;
+    book.value = books.value.find(b => String(b._id) === String(bookId));
   } catch (error) {
     console.error("Error cargando libros:", error);
   }
@@ -33,7 +32,6 @@ onMounted(async () => {
       <section id="img-section"><inner-image-zoom class="zoom-img" :src="book._urlImg" alt="Portada del libro" :zoomSrc="book._urlImg" zoomType="click" moveType="pan" :zoomScale="1" /></section>
       <Characteristics :book = "book"></Characteristics>
       <Description :book="book"></Description>
-      <CommentarySection></CommentarySection>
     </section>
     <section class="section-right">
       <BookCardDetail :book = "book"></BookCardDetail>
@@ -45,7 +43,7 @@ onMounted(async () => {
 
 .article-book {
   display: flex;
-  height: 250vh;
+  min-height: 110vh;
   width: 65vw;
 
   margin: 8rem 0 8rem 0;
@@ -63,7 +61,7 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   width: 46vw;
-  height: 200vh;
+  height: 100vh;
   gap: 2rem;
 }
 

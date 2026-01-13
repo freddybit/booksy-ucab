@@ -18,7 +18,7 @@
         localStorage.setItem("isBuyerLogged", "true");
         localStorage.setItem("isSellerLogged", "false");
         showNotification('¡Creaste tu usuario correctamente!', '#2ecc71');
-        router.push('/comprador/consultar');
+        window.location.href = `/buyer/myProfile/${data.email}`;
       } catch (error) {
         showNotification('Error al registrar: ' + error.message, '#cc0000');
       }

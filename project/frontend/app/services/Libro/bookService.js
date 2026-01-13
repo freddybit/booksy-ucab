@@ -4,6 +4,7 @@
 
 import axios from 'axios';
 import {Book} from '@assets/js/Book.js';
+import { id } from 'vuetify/locale';
 
 const API_URL = "http://localhost:5000/api/";
 
@@ -52,11 +53,23 @@ export const postBook = async (bookPayload) => {
 
 export const editBook = async (bookPayload) => {
     try {
-        return await axios.post(API_URL + 'books', bookPayload, {
+        return await axios.post(API_URL + 'books/edit', bookPayload, {
             headers: { "Content-Type": "application/json" }
         });
     } catch (error) {
-        console.error("Error en postBook:", error.response ? error.response.data : error.message);
+        console.error("Error en editBook:", error.response ? error.response.data : error.message);
         throw error;
+    }
+}
+
+export const deleteBook = async (id) => {
+try {
+        const response = await axios.delete(`${API_URL}books/delete`, {
+            params: { id }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Error en la API:", error.response?.status, error.message);
+        return null; 
     }
 }

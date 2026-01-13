@@ -13,7 +13,7 @@ async function handleLogin(data) {
       localStorage.setItem("sellerEmail", data.email);
       localStorage.setItem("isSellerLogged", "true");
       localStorage.setItem("isBuyerLogged", "false");
-      router.push('/vendedor/consultar');
+      router.push({ name: 'Seller', params: { email: data.email} });
     } else {
       alert("Credenciales incorrectas");
     }

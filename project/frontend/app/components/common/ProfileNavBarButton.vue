@@ -1,13 +1,14 @@
 <script setup lang="js">
 import { onMounted, ref } from 'vue';
 import { loadBuyer } from '@/services/Perfil/buyerService.js';
+import router from '@/router';
 
 const buyer = ref(null);
 
 function closeProfile(){
     localStorage.clear();
     buyer.value = null;
-    window.location.reload();
+    window.location.href = '/';
 }
 
 onMounted(async () => {
@@ -27,7 +28,8 @@ onMounted(async () => {
     <details v-if="buyer">
         <summary>
             <img src="../../../assets/img/common/profile.png" alt="Foto perfil"/>
-            {{ buyer._firstName }}</summary>
+            {{ buyer._firstName }}
+        </summary>
         <section class="menu">
             <section class="head-menu">
                 <p class="profileName">Hola {{ buyer._firstName }}</p>
@@ -35,7 +37,7 @@ onMounted(async () => {
             </section>
             <ul>
                 <li><router-link class="link" :to="{ name: 'MyProfile', params: { email: buyer._email }}" >Mi Perfil</router-link></li>
-                <li><router-link to="/seller/sale" class="link">Compras</router-link></li>
+                <li><router-link class="link" :to="{ name: 'compras'}">Compras</router-link></li>
                 <li><router-link class="link" :to="{name: 'Seller', params: { email: buyer._email } }" >Vender</router-link></li>
                 <li><button @click="closeProfile" >Salir</button></li>
             </ul>
@@ -46,7 +48,8 @@ onMounted(async () => {
 
 <style scoped>
 
-@media (min-width:1600px){
+@media (min-width:1600px) {
+
     img {
         width: 1.3vw;
         height: fit-content;
@@ -69,7 +72,7 @@ onMounted(async () => {
         flex-direction: row;
         list-style: none;
         color: black;
-        font-size: 1.3em;
+        font-size: 1.3rem;
         font-weight: bold;
         border-radius: 1rem;
         justify-content: center;
@@ -80,10 +83,10 @@ onMounted(async () => {
     .menu {
         margin: 1rem 0 0 0;
         height: 30vh;
-        width: 15vw;
+        width: 20vw;
         position: absolute;
         top: 100%;
-        left: -5rem;
+        left: -2.5rem;
         background-color: white;
         box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
         z-index: 100;
@@ -170,7 +173,7 @@ onMounted(async () => {
 
 @media (max-width:1599px){
     img {
-        width: 2vw;
+        width: 1.3vw;
         height: fit-content;
     }
 
@@ -196,6 +199,7 @@ onMounted(async () => {
         border-radius: 1rem;
         justify-content: center;
         align-items: center;
+        gap: 0.5rem;
     }
 
     .menu {
@@ -258,7 +262,7 @@ onMounted(async () => {
         font-size: 1.3rem;
         font-weight: normal;
         transition: background-color 0.3s;
-        padding: 2rem 0 3.5rem 2rem;
+        padding: 1rem 0 2.5rem 1rem;
     }
 
         :deep(.link):hover {

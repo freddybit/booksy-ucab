@@ -1,94 +1,550 @@
 [
-    {
-        "_email": "ana.ramirez@ucab.edu.ve",
-        "_firstName": "Ana",
-        "_lastName": "Ramírez",
-        "_age": 34,
-        "_password": "AnaSecure123",
-        "_catalog": [],
-        "_ratings": [
-            4.5,
-            4.8,
-            5.0
-        ]
-    },
-    {
-        "_email": "carlos.gonzalez@ucab.edu.ve",
-        "_firstName": "Carlos",
-        "_lastName": "González",
-        "_age": 42,
-        "_password": "CarlosBooks2025",
-        "_catalog": [],
-        "_ratings": [
-            4.2,
-            4.0,
-            4.6,
-            4.9
-        ]
-    },
-    {
-        "_email": "marcela.suarez@ucab.edu.ve",
-        "_firstName": "Marcela",
-        "_lastName": "Suárez",
-        "_age": 29,
-        "_password": "MarcelaVend3Libros",
-        "_catalog": [],
-        "_ratings": [
-            4.9,
-            5.0,
-            4.7
-        ]
-    },
-    {
-        "_email": "daniel.perez@ucab.edu.ve",
-        "_firstName": "Daniel",
-        "_lastName": "Pérez",
-        "_age": 37,
-        "_password": "DaniBooks2024",
-        "_catalog": [],
-        "_ratings": [
-            4.3,
-            4.4,
-            4.6
-        ]
-    },
-    {
-        "_email": "sofia.martinez@ucab.edu.ve",
-        "_firstName": "Sofía",
-        "_lastName": "Martínez",
-        "_age": 31,
-        "_password": "SofiaEditaLibros",
-        "_catalog": [],
-        "_ratings": [
-            4.8,
-            4.9,
-            5.0
-        ]
-    },
-    {
-        "_email": "jose.rodriguez@ucab.edu.ve",
-        "_firstName": "José",
-        "_lastName": "Rodríguez",
-        "_age": 45,
-        "_password": "JosePublica2023",
-        "_catalog": [],
-        "_ratings": [
-            4.1,
-            4.0,
-            4.2
-        ]
-    },
-    {
-        "_email": "valentina.lopez@ucab.edu.ve",
-        "_firstName": "Valentina",
-        "_lastName": "López",
-        "_age": 26,
-        "_password": "ValenVendeLibros",
-        "_catalog": [],
-        "_ratings": [
-            5.0,
-            4.9,
-            4.8
-        ]
-    }
+  {
+    "_bankName": "mercantil",
+    "_id": 31686654,
+    "_phoneNumber": "04121172929",
+    "_catalog": [],
+    "_ratings": [],
+    "_salesHistory": [
+      {
+        "Book": {
+          "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1767891209332-OIP.jpg",
+          "_id": 70455,
+          "_nameBook": "gig gato",
+          "_subtitle": "chad",
+          "_series": "evolucion de los gatos",
+          "_author": "Marco Di Mare",
+          "_language": "Espa\u00F1ol",
+          "_publisher": "cum",
+          "_bookCover": "Dura",
+          "_typeBook": "F\u00EDsico",
+          "_bookVolume": "1",
+          "_bookHeight": 24,
+          "_bookWidth": 15,
+          "_categoryList": [
+            "Espiritual",
+            "Filos\u00F3fica"
+          ],
+          "_numPages": 85,
+          "_publishYear": "2025-10-27T00:00:00",
+          "_cost": 199.99,
+          "_description": "una apasionante investigacion de una de las especies mas chads de la naturaleza",
+          "_seller": {
+            "_bankName": "mercantil",
+            "_id": 31686654,
+            "_phoneNumber": "04121172929",
+            "_catalog": [],
+            "_ratings": [],
+            "_salesHistory": [],
+            "_email": "madimare12@est.ucab.edu.ve",
+            "_firstName": "marco",
+            "_lastName": "y",
+            "_age": 19,
+            "_password": "hola"
+          }
+        },
+        "PurchaseDate": "2026-01-10T07:40:59.5840265-04:00"
+      },
+      {
+        "Book": {
+          "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1767891209332-OIP.jpg",
+          "_id": 80344,
+          "_nameBook": "giga gat",
+          "_subtitle": "chad",
+          "_series": "evolucion de los gatos",
+          "_author": "Marco Di Mare",
+          "_language": "Espa\u00F1ol",
+          "_publisher": "cum",
+          "_bookCover": "Dura",
+          "_typeBook": "F\u00EDsico",
+          "_bookVolume": "1",
+          "_bookHeight": 24,
+          "_bookWidth": 15,
+          "_categoryList": [
+            "Espiritual",
+            "Filos\u00F3fica"
+          ],
+          "_numPages": 85,
+          "_publishYear": "2025-10-27T00:00:00",
+          "_cost": 199.99,
+          "_description": "una apasionante investigacion de una de las especies mas chads de la naturaleza",
+          "_seller": {
+            "_bankName": "mercantil",
+            "_id": 31686654,
+            "_phoneNumber": "04121172929",
+            "_catalog": [],
+            "_ratings": [],
+            "_salesHistory": [],
+            "_email": "madimare12@est.ucab.edu.ve",
+            "_firstName": "marco",
+            "_lastName": "y",
+            "_age": 19,
+            "_password": "hola"
+          }
+        },
+        "PurchaseDate": "2026-01-10T07:41:29.5280065-04:00"
+      },
+      {
+        "Book": {
+          "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1767891209332-OIP.jpg",
+          "_id": 70377,
+          "_nameBook": "gi gato",
+          "_subtitle": "chad",
+          "_series": "evolucion de los gatos",
+          "_author": "Marco Di Mare",
+          "_language": "Espa\u00F1ol",
+          "_publisher": "cum",
+          "_bookCover": "Dura",
+          "_typeBook": "F\u00EDsico",
+          "_bookVolume": "1",
+          "_bookHeight": 24,
+          "_bookWidth": 15,
+          "_categoryList": [
+            "Espiritual",
+            "Filos\u00F3fica"
+          ],
+          "_numPages": 85,
+          "_publishYear": "2025-10-27T00:00:00",
+          "_cost": 199.99,
+          "_description": "una apasionante investigacion de una de las especies mas chads de la naturaleza",
+          "_seller": {
+            "_bankName": "mercantil",
+            "_id": 31686654,
+            "_phoneNumber": "04121172929",
+            "_catalog": [],
+            "_ratings": [],
+            "_salesHistory": [],
+            "_email": "madimare12@est.ucab.edu.ve",
+            "_firstName": "marco",
+            "_lastName": "y",
+            "_age": 19,
+            "_password": "hola"
+          }
+        },
+        "PurchaseDate": "2026-01-10T07:43:13.5788208-04:00"
+      }
+    ],
+    "_email": "madimare12@est.ucab.edu.ve",
+    "_firstName": "marco",
+    "_lastName": "y",
+    "_age": 19,
+    "_password": "hola"
+  },
+  {
+    "_bankName": "BNC",
+    "_id": 31703150,
+    "_phoneNumber": "0424-1540989",
+    "_catalog": [
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768270297215-R.jpg",
+        "_id": 60167,
+        "_nameBook": "C\u00E1lculo",
+        "_subtitle": "Leithold 7ma Edici\u00F3n",
+        "_series": "C\u00E1lculo",
+        "_author": "Louis Leithold",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "OXFORD",
+        "_bookCover": "Dura",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "Vol 07",
+        "_bookHeight": 55,
+        "_bookWidth": 33,
+        "_categoryList": [
+          "Ingenieria",
+          "Calculo"
+        ],
+        "_numPages": 1326,
+        "_publishYear": "1998-01-20T00:00:00",
+        "_cost": 333,
+        "_description": "Harry Potter y la piedra filosofal (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Philosopher\u2019s Stone,[1]\u200B excepto en Estados Unidos, donde se titul\u00F3 Harry Potter and the Sorcerer\u2019s Stone), es el primer libro de la serie literaria Harry Potter, escrito por la autora brit\u00E1nica J. K. Rowling entre 1990 y 1995. Publicado en el a\u00F1o 1997, supuso adem\u00E1s el debut de Rowling como escritora profesional.",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 31703150,
+          "_phoneNumber": "0424-1540989",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "fafernandez.24@est.ucab.edu.ve",
+          "_firstName": "Freddy Alejandro",
+          "_lastName": "Fern\u00E1ndez Tovar",
+          "_age": 20,
+          "_password": "Visca Barca"
+        }
+      }
+    ],
+    "_ratings": [],
+    "_salesHistory": [],
+    "_email": "fafernandez.24@est.ucab.edu.ve",
+    "_firstName": "Freddy Alejandro",
+    "_lastName": "Fern\u00E1ndez Tovar",
+    "_age": 20,
+    "_password": "Visca Barca"
+  },
+  {
+    "_bankName": "BNC",
+    "_id": 30861195,
+    "_phoneNumber": "04128836070",
+    "_catalog": [
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768270796828-ing%20de%20soft.jpeg",
+        "_id": 48237,
+        "_nameBook": "Ingenieria de Software ",
+        "_subtitle": "orientada a objetos",
+        "_series": "sin serie",
+        "_author": "Eric J Braude",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "alfaomega",
+        "_bookCover": "Dura",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "01",
+        "_bookHeight": 20,
+        "_bookWidth": 8,
+        "_categoryList": [
+          "Acad\u00E9mica",
+          "Divulgaci\u00F3n cient\u00EDfica"
+        ],
+        "_numPages": 201,
+        "_publishYear": "2005-08-21T00:00:00",
+        "_cost": 89.99,
+        "_description": "analisis profundo de la ingenieria de software y como realizar software de calidad",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768271031529-min%20jarfdin%20ginal.jpeg",
+        "_id": 15936,
+        "_nameBook": "Mi jardin nuevo",
+        "_subtitle": "libro para aprender a leer",
+        "_series": "angelito",
+        "_author": "angel diaz",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "estudios ca",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "01",
+        "_bookHeight": 13,
+        "_bookWidth": 8,
+        "_categoryList": [
+          "Acad\u00E9mica"
+        ],
+        "_numPages": 20,
+        "_publishYear": "1990-08-21T00:00:00",
+        "_cost": 10,
+        "_description": "libro para lectores principiantes y aprendizaje de fonetica ",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768271141731-la%20sayohna.jpg",
+        "_id": 54831,
+        "_nameBook": "La sayona",
+        "_subtitle": "y otros cuentos de espantos",
+        "_series": "mitos venezolanos",
+        "_author": "mercedes franco",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "ekare",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "01",
+        "_bookHeight": 10,
+        "_bookWidth": 2,
+        "_categoryList": [
+          "Cuento"
+        ],
+        "_numPages": 97,
+        "_publishYear": "2006-09-09T00:00:00",
+        "_cost": 14.99,
+        "_description": "cuentos de terror para todas las edades",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768271268389-cuentosven.jpg",
+        "_id": 94403,
+        "_nameBook": "cuentos venezolanos",
+        "_subtitle": "para todas las edades",
+        "_series": "cuentos venezolanos",
+        "_author": "romulo gallegos",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "cultural venezolana",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "01",
+        "_bookHeight": 10,
+        "_bookWidth": 2,
+        "_categoryList": [
+          "Cuento"
+        ],
+        "_numPages": 97,
+        "_publishYear": "2008-09-09T00:00:00",
+        "_cost": 8.99,
+        "_description": "cuentos venezolanos de todo tipo para todas las edades",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768271398138-geografia%20de%20venezuela.jpg",
+        "_id": 7029,
+        "_nameBook": "geografia de venezuela",
+        "_subtitle": "2001",
+        "_series": "Venezuela ",
+        "_author": "jorge marquez",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "libreria de caracas",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "01",
+        "_bookHeight": 10,
+        "_bookWidth": 2,
+        "_categoryList": [
+          "Cuento"
+        ],
+        "_numPages": 134,
+        "_publishYear": "2001-09-09T00:00:00",
+        "_cost": 8.99,
+        "_description": "geografia de venezuela del a\u00F1o 2001",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768271637852-paquevossepais.jpg",
+        "_id": 58563,
+        "_nameBook": "pa que vos sepais",
+        "_subtitle": "el sentir Zuliano",
+        "_series": "sin serie",
+        "_author": "ernestino mogollon",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "Zuliana de libros",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "01",
+        "_bookHeight": 10,
+        "_bookWidth": 2,
+        "_categoryList": [
+          "Narrativa"
+        ],
+        "_numPages": 192,
+        "_publishYear": "2009-03-04T00:00:00",
+        "_cost": 11.99,
+        "_description": "toda clase de relatos de la tierra del sol amado",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768271777681-constitucionvzla.png",
+        "_id": 35833,
+        "_nameBook": "constitucion de Venezuela",
+        "_subtitle": "tama\u00F1o peque\u00F1o",
+        "_series": "constitucion de Venezuela",
+        "_author": "Republica Bolivariana de Venezuela",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "Republica Bolivariana de Venezuela",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "01",
+        "_bookHeight": 10,
+        "_bookWidth": 4,
+        "_categoryList": [
+          "Narrativa",
+          "Pol\u00EDtica"
+        ],
+        "_numPages": 301,
+        "_publishYear": "2000-03-24T00:00:00",
+        "_cost": 15.99,
+        "_description": "constitucion completa tama\u00F1o peque\u00F1o de la constitucion venezolana",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768271885013-aVeraverVenezuela.jpg",
+        "_id": 63808,
+        "_nameBook": "A ver a ver Venezuela",
+        "_subtitle": "Libro de actividades para toda la familia",
+        "_series": "a ver a ver",
+        "_author": "Jorge Andres Garcia ",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "Fisialca ",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "01",
+        "_bookHeight": 10,
+        "_bookWidth": 4,
+        "_categoryList": [
+          "Literatura infantil"
+        ],
+        "_numPages": 301,
+        "_publishYear": "2010-03-24T00:00:00",
+        "_cost": 12,
+        "_description": "libro infantil sobre Venezuela",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768272167888-historiadevenezuela.jpg",
+        "_id": 97309,
+        "_nameBook": "historia de Venezuela 7",
+        "_subtitle": "por etapas",
+        "_series": "historia de Venezuela",
+        "_author": "Juan Reyes y Carlos Moron",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "santillana",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "07",
+        "_bookHeight": 10,
+        "_bookWidth": 6,
+        "_categoryList": [
+          "Acad\u00E9mica"
+        ],
+        "_numPages": 201,
+        "_publishYear": "1998-09-01T00:00:00",
+        "_cost": 40,
+        "_description": "la historia de nuestro pais por partes y a detalle",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      },
+      {
+        "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768272316025-_visd_0000JPG01K24.jpg",
+        "_id": 15033,
+        "_nameBook": "el sue\u00F1o de Bolivar",
+        "_subtitle": "y la manipulacion bolivariana",
+        "_series": "Bolivar",
+        "_author": "Carlos Malamud",
+        "_language": "Espa\u00F1ol",
+        "_publisher": "alianza editorial",
+        "_bookCover": "Blanda",
+        "_typeBook": "F\u00EDsico",
+        "_bookVolume": "02",
+        "_bookHeight": 10,
+        "_bookWidth": 6,
+        "_categoryList": [
+          "Acad\u00E9mica",
+          "Narrativa"
+        ],
+        "_numPages": 201,
+        "_publishYear": "2003-09-01T00:00:00",
+        "_cost": 40,
+        "_description": "el sue\u00F1o de bolivar para america contado con una perspectiva actual",
+        "_seller": {
+          "_bankName": "BNC",
+          "_id": 30861195,
+          "_phoneNumber": "04128836070",
+          "_catalog": [],
+          "_ratings": [],
+          "_salesHistory": [],
+          "_email": "Mjackson@ucab.edu.ve",
+          "_firstName": "Michael",
+          "_lastName": "Jackson",
+          "_age": 20,
+          "_password": "vacilar"
+        }
+      }
+    ],
+    "_ratings": [],
+    "_salesHistory": [],
+    "_email": "Mjackson@ucab.edu.ve",
+    "_firstName": "Michael",
+    "_lastName": "Jackson",
+    "_age": 20,
+    "_password": "vacilar"
+  }
 ]

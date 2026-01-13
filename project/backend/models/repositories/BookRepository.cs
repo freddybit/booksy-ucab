@@ -36,14 +36,38 @@ public class BookRepository {
     
     public void AddBook(Book book) {
         _books.Add(book);
+        Save();
+    }
+
+    public List<Book> GetAllBooks() {
+        return _books;
     }
     
-    public void RemoveBook(Book book) {
-        _books.Remove(book);
+    public void RemoveBook(string id) {
+        if (id != null) {
+            // Buscamos por id para asegurar que encontramos el objeto correcto en la lista
+            var bookInList = _books.FirstOrDefault(b => b.Id == int.Parse(id));
+            if (bookInList != null) {
+                _books.Remove(bookInList);
+                Save();
+                Console.WriteLine($"Libro con Id {id} eliminado del catálogo.");
+            }
+        }
     }
 
     public List<Book> LoadBookList() {
         return Load(_jsonPath);
+    }
+
+    public void UpdateBook(Book updateBook) {
+        int index = _books.FindIndex(b => b.Id == updateBook.Id);
+        if (index != -1) {
+            _books[index] = updateBook; // Sobreescribe el viejo en la lista
+            Save(); // Guarda el archivo limpio
+        } else {
+            _books.Add(updateBook); // Si es nuevo, lo agrega
+            Save();
+        }
     }
 
     public bool ExistsBook(string attribute, object value) {
@@ -58,6 +82,11 @@ public class BookRepository {
             }
         }
         return false;
+    }
+    // ✅ Busca un libro por Id
+    public Book? GetBookById(int id)
+    {
+        return _books.FirstOrDefault(b => b.Id == id);
     }
     
 }

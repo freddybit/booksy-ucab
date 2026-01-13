@@ -35,5 +35,15 @@ export const loadBuyer = async (email) => {
     console.error('Mensaje de error: ', error.message);
     throw error;
   }
-
 }
+
+export const eliminarComprador = async (email) => {
+  try {
+    const answer = await axios.delete(`${API}/delete`, { params: { email } });
+    return answer.data;
+  } catch (error) {
+    console.error('Error al eliminar comprador: ' + error.message);
+    const errorMsg = error.response?.data?.error || error.message;
+    throw new Error(errorMsg);
+  }
+};

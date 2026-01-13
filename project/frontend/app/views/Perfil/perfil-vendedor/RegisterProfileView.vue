@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router';
 import FormProfile from '@/components/Perfil/perfil-vendedor/FormProfile.vue';
 import { registrarVendedor } from '@/services/Perfil/sellerService.js';
+import { showNotification } from '../../../../assets/js/notifications';
 
 const router = useRouter();
 
@@ -10,11 +11,11 @@ async function handleRegistro(data) {
     await registrarVendedor(data);
     localStorage.setItem("sellerEmail", data.email);
     localStorage.setItem("isSellerLogged", "true");
-    localStorage.setItem("isBuyerLogged", "false");
-    alert("¡Felicidades! Ya eres un vendedor para Booksy UCAB")
-    await router.push('/vendedor/consultar');
+    showNotification('¡Felicidades! Ya eres un vendedor para Booksy UCAB', '#2ecc71');
+    router.push({ name: 'Seller', params: { email: data.email} });
+
   } catch (error) {
-    alert("Error al registrar vendedor: " + error.message);
+    showNotification('Error al registrar: ' + error.message, '#cc0000');
   }
 }
 </script>

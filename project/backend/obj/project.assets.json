@@ -80,11 +80,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\booksy-ucab\\project\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Documents\\PROGRAMACION\\booksy-ucab-main\\booksy-ucab-main\\project\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\booksy-ucab\\project\\backend\\backend.csproj",
+      "projectPath": "C:\\Users\\PC\\Documents\\PROGRAMACION\\booksy-ucab-main\\booksy-ucab-main\\project\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\booksy-ucab\\project\\backend\\obj\\",
+      "outputPath": "C:\\Users\\PC\\Documents\\PROGRAMACION\\booksy-ucab-main\\booksy-ucab-main\\project\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"

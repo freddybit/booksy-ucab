@@ -4,7 +4,6 @@ import { useRoute } from 'vue-router';
 import { getBookList } from '@/services/Libro/bookService.js';
 import BookCard from '@/components/Libro/catalog-card/BookCard.vue';
 import ZeroResults from '@/components/Libro/catalog-card/ZeroResults.vue';
-import CategoryListVue from '@/components/Libro/catalog-card/CategoryList.vue';
 
 const books = ref([]);
 const error = ref(true);
@@ -41,12 +40,15 @@ const filteredBooks = computed(() => {
     <section id="catalog" class="section-right">
       <p v-if="error">Cargando resultados...</p>
       <section v-else>
-        <ZeroResults v-if="query && filteredBooks.length === 0"></ZeroResults>
+        <ZeroResults v-if="filteredBooks.length === 0"></ZeroResults>
         <BookCard v-for="b in filteredBooks" :key="b._id" :book="b" />
         <p v-if="!query && books.length === 0">No hay libros</p>
       </section>
     </section>
   </article>
+    <router-link :to="{ name: 'compras' }">
+      <button>Consultar Pagos</button>
+    </router-link>
 </template>
 
 <style scoped>

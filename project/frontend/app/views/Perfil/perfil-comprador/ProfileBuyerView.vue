@@ -1,18 +1,43 @@
 <script setup lang="js">
 import { ref, onMounted } from 'vue';
-import { loadBuyer } from '@/services/Perfil/buyerService.js';
+import { useRouter } from 'vue-router'; 
+import { eliminarComprador, loadBuyer } from '@/services/Perfil/buyerService.js';
 import ProfileBuyerCard from './ProfileBuyerCard.vue';
 
-// Define the prop that comes from the Router
+
 const props = defineProps({
   email: { type: String, required: true }
 });
 
 const buyer = ref(null);
 const loading = ref(true);
+const deleteButton = document.querySelector('button');
+const router = useRouter();
+
+function closeProfile(){
+    localStorage.clear();
+    buyer.value = null;
+    window.location.href = '/';
+}
+
+async function deleteProfile() {
+  const confirmacion = window.confirm('¿Seguro que deseas borrar tu perfil? Esta acción es irreversible.');
+  if (!confirmacion) return;
+  try {
+    const response = await eliminarComprador(props.email);
+    if (response.success) {
+      closeProfile();
+      alert('Perfil eliminado correctamente.');
+      router.push({ name: 'Home' });
+    }
+  } catch (error) {
+    console.error('Error al eliminar:', error);
+    alert('No se pudo eliminar el perfil: ' + error.message);
+  }
+}
 
 onMounted(async () => {
-  try {
+  try {  
     if (props.email) {
       buyer.value = await loadBuyer(props.email);
     }
@@ -35,15 +60,9 @@ onMounted(async () => {
       </section>
       <ol>
         <li>
-          <router-link class="link-left">
+          <router-link class="link-left" :to="{ name: 'compras'}">
             <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img/common/shopping-bag.png" />
             Compras
-          </router-link>
-        </li>
-        <li>
-          <router-link class="link-left">
-            <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img/common/bill.png" />
-            Facturacion
           </router-link>
         </li>
         <li>
@@ -71,14 +90,16 @@ onMounted(async () => {
       </div>
 
       <ul>
-        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Tu información" /></li>
-        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Datos de tu cuenta" /></li>
-        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Seguridad" /></li>
-        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Privacidad" /></li>
-        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Tarjetas" /></li>
-        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/search-icon.png" description="Nombre elegido y datos para identificarte" title="Direcciones" /></li>
+        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/id-card.png" link-name="MyInformation" description="Nombre elegido y datos para identificarte" title="Tu información" /></li>
+        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/user_icon.png" link-name="DataAccount" description="Datos que representan a la cuenta" title="Datos de tu cuenta" /></li>
+        <li><ProfileBuyerCard :email="buyer._email" src-img="../../../../assets/img/common/lock.png" link-name="SecurityProfile" description="Vista de contraseña" title="Seguridad" /></li>
       </ul>
+
+      <div>
+        <button @click="deleteProfile()" >Puedes cancelar tu cuenta, siempre que desees </button>
+      </div>
     </section>
+
   </article>
   
   <div v-else-if="loading">Cargando perfil...</div>
@@ -231,6 +252,19 @@ onMounted(async () => {
     font-size: 1.25rem;
     gap: 2rem;
     color: rgb(0, 0, 0);
+  }
+
+  button{
+    width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    color: rgb(0, 61, 194);
+    border: none;
+    background:none;
+  }
+
+    button:hover{
+    color: rgb(1, 77, 241);
   }
 
 </style>

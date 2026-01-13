@@ -34,7 +34,7 @@ onMounted(() =>{
         <li class="sub-menu" ><ProfileNavBarButton /></li>
         <li class="navbar-list-item"><router-link to="/" class="link">Inicio</router-link></li>
         <li class="navbar-list-item"><router-link to="/catalog" class="link">Catálogo</router-link></li>
-        <li class="navbar-list-item"><router-link to="/" class="link">Categorías</router-link></li>
+        <li class="navbar-list-item"><router-link to="/categoryList" class="link">Categorías</router-link></li>
       </menu>
     </section>
     
@@ -195,7 +195,7 @@ onMounted(() =>{
     display: flex;
     flex-direction: row;
     height: 3vh;
-    width: 9.8vw;
+    width: 10vw;
     justify-content: center;
     align-items: center;
     text-align: center;

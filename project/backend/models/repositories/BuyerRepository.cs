@@ -5,43 +5,25 @@ using backend.factories;
 using System.Reflection;
 using ProfileFactory = backend.factories.ProfileFactory;
 
-namespace backend.repositories
-{
-    /**
-     * @class BuyerRepository
-     * @brief Repositorio que gestiona la colección de compradores en el sistema Booksy.
-     *
-     * Implementa el patrón Singleton. Carga los datos desde un archivo JSON al iniciar
-     * y permite agregar, eliminar, buscar y exportar compradores.
-     */
-    public class BuyerRepository
-    {
-        //**@brief Instancia única del repositorio (Singleton).
+namespace backend.repositories {
+
+    public class BuyerRepository {
+
         private static readonly BuyerRepository _instance = new BuyerRepository();
-
-        //**@brief Ruta del archivo JSON que contiene los datos de los compradores.
+        
         private readonly string _jsonPath = @"models/data/buyers.json";
-
-        //**@brief Lista interna de compradores cargados desde el archivo.
+        
         private List<Buyer> _buyers;
-
-        //**@brief Constructor privado. Llama al método Load() para inicializar la lista.
+        
         private BuyerRepository()
         {
             _buyers = new List<Buyer>();
             Load();
         }
-
-        //**@brief Obtiene la instancia única del repositorio.
+        
         public static BuyerRepository Instance => _instance;
-
-        /**
-         * @brief Carga los datos de compradores desde el archivo JSON.
-         *
-         * Lee cada objeto, extrae sus atributos, crea instancias con ProfileFactory y las agrega a la lista.
-         */
-        private void Load()
-        {
+        
+        private void Load() {
             if (!File.Exists(_jsonPath)) return;
 
             string json = File.ReadAllText(_jsonPath);
@@ -58,34 +40,41 @@ namespace backend.repositories
                 string password = element.GetProperty("_password").GetString()!;
 
                 Buyer buyer = ProfileFactory.CreateBuyer(email, firstName, lastName, age, password);
+                        // reconstruir historial de compras
+                if (element.TryGetProperty("PurchaseHistory", out var historyProp))
+                {
+                    foreach (var purchaseElement in historyProp.EnumerateArray())
+                    {
+                        var bookJson = purchaseElement.GetProperty("Book");
+                        var purchaseDate = purchaseElement.GetProperty("PurchaseDate").GetDateTime();
+
+                        Book book = JsonSerializer.Deserialize<Book>(bookJson.GetRawText())!;
+                        buyer.PurchaseHistory.Add(new BookPurchase(book, purchaseDate));
+                    }
+                }
                 _buyers.Add(buyer);
             }
         }
-
-        //**@brief Guarda todos los compradores en el archivo JSON, sobrescribiendo el contenido.
+        
         public void Save()
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json = JsonSerializer.Serialize(_buyers, options);
             File.WriteAllText(_jsonPath, json);
         }
-
-        //**@brief Agrega un nuevo comprador al repositorio.
+        
         public void AddBuyer(Buyer buyer)
         {
             _buyers.Add(buyer);
         }
-
-        //**@brief Elimina un comprador del repositorio.
+        
         public void RemoveBuyer(Buyer buyer)
         {
             _buyers.Remove(buyer);
         }
-
-        //**@brief Busca y retorna un comprador específico por nombre y apellido.
+        
         public Buyer? ReturnBuyer(string email) {
-            return _buyers.FirstOrDefault(b =>
-                b.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+            return _buyers.FirstOrDefault(b =>b.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
         }
         
         public Buyer? LoginBuyer(string email, string password) {
@@ -93,14 +82,7 @@ namespace backend.repositories
                 b.Email.Equals(email, StringComparison.OrdinalIgnoreCase) &&
                 b.Password.Equals(password, StringComparison.Ordinal));
         }
-
-        /**
-         * @brief Verifica si existe un comprador con un valor específico en cualquier atributo.
-         *
-         * @param attribute Nombre del atributo (por ejemplo: "Email", "FirstName").
-         * @param value Valor a buscar.
-         * @return true si existe al menos un comprador con ese valor; false en caso contrario.
-         */
+        
         public bool ExistsBuyer(string attribute, object value)
         {
             foreach (var buyer in _buyers)
@@ -115,5 +97,52 @@ namespace backend.repositories
             }
             return false;
         }
+
+        public void AddPurchase(Book book, string email)
+        {
+            for(int i=0; i<_buyers.Count; i++)
+            {
+                if(_buyers[i].Email==email)
+                {
+                    _buyers[i].AddPurchase(book);
+                    Save();
+                    break;
+                }
+            }
+        }
+
+        public void RemovePurchaseBuyer(int bookId, string email)
+        {
+            for(int i=0; i<_buyers.Count; i++)
+            {
+                if(_buyers[i].Email==email)
+                {
+                    _buyers[i].RemovePurchaseByBookId(bookId);
+                    Save();
+                    break;
+                }
+            }
+        }
+        public int GetBuyerIndexByEmail(string email)
+        {
+            for (int i = 0; i < _buyers.Count; i++)
+            {
+                if (_buyers[i].Email.Equals(email, StringComparison.OrdinalIgnoreCase))
+                    return i + 1; // 1-based index
+            }
+            return 0;
+        }
+        
+        public void DeleteBuyerByEmail(string email) {
+            var buyer = _buyers.FirstOrDefault(b => b.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+            if (buyer != null) {
+                _buyers.Remove(buyer);
+                Save();
+            }
+            else {
+                throw new Exception("El comprador no existe en el sistema.");
+            }
+        }
+        
     }
 }

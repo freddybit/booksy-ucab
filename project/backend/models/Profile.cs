@@ -33,7 +33,6 @@ namespace backend.models
             _lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             _age = age;
             _password = password ?? throw new ArgumentNullException(nameof(password));
-            _phone = "";
         }
         
         public Profile() {

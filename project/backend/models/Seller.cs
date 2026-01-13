@@ -20,6 +20,7 @@ namespace backend.models
         private List<float> _ratings;   //**@brief Lista de calificaciones recibidas por el vendedor.
         private List<BookPurchase> _salesHistory;
 
+
         public Seller(string email, string firstName, string lastName, int age, string password, string bankName, int id, string phoneNumber, List<Book> catalog, List<float> ratings, List<BookPurchase> salesHistory) : base(email, firstName, lastName, age, password) {
             _bankName = bankName;
             _id = id;
@@ -73,10 +74,18 @@ namespace backend.models
             get => _salesHistory;
             set => _salesHistory = value ?? throw new ArgumentNullException(nameof(value));
         }
-        
+
         public void AddBook(Book book)
         {
             _catalog.Add(book);
+        }
+
+        public void RemoveBookById(int id)
+        {
+            var bookInList = _catalog.FirstOrDefault(b => b.Id == id);
+            if (bookInList != null) {
+                _catalog.Remove(bookInList);
+            }
         }
     }
 }

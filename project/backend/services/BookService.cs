@@ -21,28 +21,22 @@ public class BookService {
         return book;
     }
     
-    public Book DeleteBook(BookDTO dto) {
-        if (_repository.ExistsBook("_id", dto.Id) == false)
+    public void DeleteBook(string id) {
+        if (_repository.ExistsBook("Id", int.Parse(id)) == false) 
             throw new Exception("No existe un libro con ese id.");
-
-        Book book = new Book(dto.UrlImg, dto.Id, dto.NameBook, dto.Subtitle, dto.Series, dto.Author, dto.Language, dto.Publisher,
-                             dto.BookCover, dto.TypeBook, dto.BookVolume, dto.BookHeight, dto.BookWidth,
-                             dto.CategoryList, dto.NumPages, dto.PublishYear, dto.Cost, dto.Description, dto.Seller);
         
-        _repository.RemoveBook(book);
+        _repository.RemoveBook(id);
         _repository.Save();
-        return book;
     }
 
     public Book EditBook(BookDTO dto) {
-        if (_repository.ExistsBook("_id", dto.Id) == false)
+        if (_repository.ExistsBook("Id", dto.Id) == false) 
             throw new Exception("No existe un libro con ese id.");
         Book book = new Book(dto.UrlImg, dto.Id, dto.NameBook, dto.Subtitle, dto.Series, dto.Author, dto.Language, dto.Publisher,
                              dto.BookCover, dto.TypeBook, dto.BookVolume, dto.BookHeight, dto.BookWidth,
                              dto.CategoryList, dto.NumPages, dto.PublishYear, dto.Cost, dto.Description, dto.Seller);
         
-        _repository.RemoveBook(book);
-        _repository.Save();
+        _repository.UpdateBook(book); 
         return book;
     }
 

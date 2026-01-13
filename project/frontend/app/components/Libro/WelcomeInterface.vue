@@ -1,16 +1,33 @@
 <script setup lang="ts">
+  import { onMounted, ref } from "vue";
   import CardEcosystem from "./ecosystem-card/CardEcosystem.vue";
+
+  let loggedIn = ref(false);
+
+onMounted(() =>{
+  loggedIn.value = localStorage.getItem('isBuyerLogged') === 'true';
+})
 </script>
 
 <template>
-  <article class="welcome-article">
+  <article class="welcome-article" v-if="!loggedIn">
     <cite class="text">"Para viajar lejos, no hay mejor nave que un libro."</cite>
     <ul class="filtrer-bar">
       <li class="card"><CardEcosystem link="/beginSection" titleCard="Ingresa a tu cuenta" imgCard="user.png" descriptionCard="Disfruta sin límites con tu cuenta de Booksy UCAB" buttonCard="Ingresa a tu cuenta" /></li>
-      <li class="card"><CardEcosystem link="/beginSection" titleCard="Nuestras categorías" imgCard="application.png" descriptionCard="Encuentra libros educativos,de entretenimiento y más" buttonCard="Ir a categorías" /></li>
+      <li class="card"><CardEcosystem link="/categoryList" titleCard="Nuestras categorías" imgCard="application.png" descriptionCard="Encuentra libros educativos,de entretenimiento y más" buttonCard="Ir a categorías" /></li>
       <li class="card"><CardEcosystem link="/beginSection" titleCard="Historial de compras" imgCard="receipt.png" descriptionCard="Revisa tus ultimas compras" buttonCard="Ver ultimas compra" /></li>
     </ul>
   </article>
+
+   <article class="welcome-article" v-else>
+    <cite class="text">"Para viajar lejos, no hay mejor nave que un libro."</cite>
+    <ul class="filtrer-bar">
+      <li class="card"><CardEcosystem link="{ name: 'MyProfile', params: { email: buyer._email }}" titleCard="Ingresa a tu cuenta" imgCard="user.png" descriptionCard="Disfruta sin límites con tu cuenta de Booksy UCAB" buttonCard="Ingresa a tu cuenta" /></li>
+      <li class="card"><CardEcosystem link="/categoryList" titleCard="Nuestras categorías" imgCard="application.png" descriptionCard="Encuentra libros educativos,de entretenimiento y más" buttonCard="Ir a categorías" /></li>
+      <li class="card"><CardEcosystem link="/beginSection" titleCard="Historial de compras" imgCard="receipt.png" descriptionCard="Revisa tus ultimas compras" buttonCard="Ver ultimas compra" /></li>
+    </ul>
+  </article>
+
 </template>
 
 <style scoped>

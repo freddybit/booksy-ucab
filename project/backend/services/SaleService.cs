@@ -19,7 +19,7 @@ namespace backend.services
             return _saleRepository.ReturnVentas().Where(v => !v.IsDeleted).ToList();
         }
 
-        public Venta RegistrarVenta(int libroId, int vendedorId, int compradorId)
+        public Venta RegistrarVenta(float cost,int libroId, int vendedorId, int compradorId, string sellerEmail, string buyerEmail)
         {
             var ventas = _saleRepository.ReturnVentas();
             int nextCodigo = ventas.Any() ? ventas.Max(v => v.CodigoDeCompra) + 1 : 1;
@@ -45,16 +45,7 @@ namespace backend.services
                 // ignore parsing errors and keep monto = 0
             }
 
-            var venta = new Venta
-            {
-                CodigoDeCompra = nextCodigo,
-                FechaDeVenta = DateTime.Now,
-                MontoTotal = monto,
-                LibroId = libroId,
-                CompradorId = compradorId,
-                VendedorId = vendedorId,
-                IsDeleted = false
-            };
+            var venta = new Venta(nextCodigo, DateTime.Now, cost, libroId, compradorId, vendedorId, false, sellerEmail, buyerEmail);
 
             _saleRepository.AddVenta(venta);
             _saleRepository.Save();

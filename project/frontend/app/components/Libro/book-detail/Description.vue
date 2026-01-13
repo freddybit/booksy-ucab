@@ -19,9 +19,9 @@ defineProps({
 @media (min-width: 1600px){
   .description-detail {
     display: flex;
-    margin: 2rem 0 0 0;
+    margin: 0 0 0 0;
     flex-direction: column;
-    width: 60vw;
+    width: 90%;
     height: 20vh;
     gap: 2rem;
   }

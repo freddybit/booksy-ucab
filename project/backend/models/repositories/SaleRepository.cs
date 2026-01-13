@@ -34,6 +34,7 @@ namespace backend.repositories
             catch
             {
                 // ignore malformed file
+                Console.WriteLine("Error loading ventas.json file.");
             }
         }
 
@@ -51,14 +52,27 @@ namespace backend.repositories
             return _ventas.FirstOrDefault(v => v.CodigoDeCompra == codigo);
         }
 
+
         public void AddVenta(Venta venta)
         {
             _ventas.Add(venta);
+            Save();
         }
 
         public void RemoveVenta(Venta venta)
         {
             _ventas.Remove(venta);
+            Save();
+        }
+
+        public void RemoveVentaById(int bookId)
+        {
+            var venta = _ventas.FirstOrDefault(v => v.LibroId == bookId);
+            if (venta != null)
+            {
+                _ventas.Remove(venta);
+                Save();
+            }
         }
     }
 }

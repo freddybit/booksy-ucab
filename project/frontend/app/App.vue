@@ -1,14 +1,13 @@
 <script setup lang="js">
   import NavBar from "@/components/common/NavBar.vue";
-
-  // CSS Imports
   import '@assets/styles/animations.css';
+  import FooterBooksy from "./components/common/FooterBooksy.vue";
 
 </script>
 
 <template>
   <header>
-    <NavBar></NavBar>
+    <NavBar />
   </header>
   <main id="welcome-page">
     <router-view />

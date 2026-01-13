@@ -20,7 +20,7 @@ namespace backend.controllers
             return Ok(items);
         }
 
-        public class CreateSaleRequest { public int LibroId { get; set; } public int VendedorId { get; set; } public int CompradorId { get; set; } }
+        public class CreateSaleRequest { public int LibroId { get; set; } public int VendedorId { get; set; } public int CompradorId { get; set; } public string SellerEmail { get; set; } public string BuyerEmail { get; set; } public float Cost{get; set;} }
 
         [HttpPost]
         public IActionResult Registrar([FromBody] CreateSaleRequest req)
@@ -38,24 +38,8 @@ namespace backend.controllers
                 bool bookExists = books.Any(b => b.GetProperty("_id").GetInt32() == req.LibroId);
                 if (!bookExists) return BadRequest(new { error = $"Libro con id {req.LibroId} no encontrado" });
 
-                // Verify seller id exists (1-based index into sellers.json)
-                if (!System.IO.File.Exists("models/data/sellers.json"))
-                    return BadRequest(new { error = "Datos de vendedores no disponibles" });
-                var sellersJson = System.IO.File.ReadAllText("models/data/sellers.json");
-                var sellers = JsonSerializer.Deserialize<List<JsonElement>>(sellersJson) ?? new List<JsonElement>();
-                if (req.VendedorId <= 0 || req.VendedorId > sellers.Count)
-                    return BadRequest(new { error = $"Vendedor con id {req.VendedorId} no encontrado" });
-
-                // Verify buyer id exists (1-based index into buyers.json)
-                if (!System.IO.File.Exists("models/data/buyers.json"))
-                    return BadRequest(new { error = "Datos de compradores no disponibles" });
-                var buyersJson = System.IO.File.ReadAllText("models/data/buyers.json");
-                var buyers = JsonSerializer.Deserialize<List<JsonElement>>(buyersJson) ?? new List<JsonElement>();
-                if (req.CompradorId <= 0 || req.CompradorId > buyers.Count)
-                    return BadRequest(new { error = $"Comprador con id {req.CompradorId} no encontrado" });
-
                 // All simple existence checks passed — register the sale
-                var venta = _service.RegistrarVenta(req.LibroId, req.VendedorId, req.CompradorId);
+                var venta = _service.RegistrarVenta(req.Cost,req.LibroId, req.VendedorId, req.CompradorId, req.SellerEmail, req.BuyerEmail);
                 return Ok(venta);
             }
             catch (System.Exception ex)

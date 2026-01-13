@@ -1,29 +1,35 @@
 [
   {
-    "CodigoDeCompra": 5,
-    "FechaDeVenta": "2025-11-18T00:33:13.868582Z",
-    "MontoTotal": 0,
-    "LibroId": 66718,
-    "CompradorId": 2,
+    "CodigoDeCompra": 1,
+    "FechaDeVenta": "2026-01-10T07:40:59.6659899-04:00",
+    "MontoTotal": 199.99000549316406,
+    "LibroId": 70455,
+    "CompradorId": 8,
     "VendedorId": 2,
-    "IsDeleted": false
+    "IsDeleted": false,
+    "SellerEmail": "madimare12@est.ucab.edu.ve",
+    "BuyerEmail": "fafernandez.24@est.ucab.edu.ve"
   },
   {
-    "CodigoDeCompra": 7,
-    "FechaDeVenta": "2025-11-19T16:07:01.5627695-04:00",
-    "MontoTotal": 14,
-    "LibroId": 97150,
-    "CompradorId": 1,
-    "VendedorId": 1,
-    "IsDeleted": false
+    "CodigoDeCompra": 2,
+    "FechaDeVenta": "2026-01-10T07:41:29.5951257-04:00",
+    "MontoTotal": 199.99000549316406,
+    "LibroId": 80344,
+    "CompradorId": 8,
+    "VendedorId": 2,
+    "IsDeleted": false,
+    "SellerEmail": "madimare12@est.ucab.edu.ve",
+    "BuyerEmail": "fafernandez.24@est.ucab.edu.ve"
   },
   {
-    "CodigoDeCompra": 8,
-    "FechaDeVenta": "2025-11-26T11:15:00.547173-04:00",
-    "MontoTotal": 0,
-    "LibroId": 66718,
-    "CompradorId": 2,
+    "CodigoDeCompra": 3,
+    "FechaDeVenta": "2026-01-10T07:43:13.5917579-04:00",
+    "MontoTotal": 199.99000549316406,
+    "LibroId": 70377,
+    "CompradorId": 11,
     "VendedorId": 2,
-    "IsDeleted": false
+    "IsDeleted": false,
+    "SellerEmail": "madimare12@est.ucab.edu.ve",
+    "BuyerEmail": "warimare21@est.ucab.edu.ve"
   }
 ]

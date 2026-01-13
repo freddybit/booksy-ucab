@@ -15,8 +15,8 @@ async function handleLogin(data) {
       localStorage.setItem("isBuyerLogged", "true");
       localStorage.setItem("isSellerLogged", "false");
       console.table(localStorage);
-      window.location.reload();
-      showNotification('¡Iniciaste sección correctamente!', '#2ecc71');
+      await showNotification('¡Iniciaste sección correctamente!', '#2ecc71');
+      window.location.href = `/buyer/myProfile/${data._email}`;
     } else {
       showNotification('Datos incorrectos', '#cc0000');
     }

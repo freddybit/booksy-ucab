@@ -15,6 +15,7 @@ defineProps({
   </div>
 </template>
 
+
 <style scoped>
 .profile-card {
   width: 40vw;

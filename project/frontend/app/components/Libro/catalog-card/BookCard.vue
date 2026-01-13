@@ -15,7 +15,7 @@ defineProps({
         <h3 class="subtitle-card">{{ book._subtitle }}</h3>
       </div>
       <p class="author-card ">Autor: {{ book._author }}</p>
-      <p class="year-card" v-if="book._publishYear">Fecha de publicación: {{ book._publishYear }}</p>
+      <p class="year-card" v-if="book._publishYear">Fecha de publicación: {{ (book._publishYear || '').toString().slice(0, 10) }}</p>
       <p class="author-card ">Vendedor: {{ book._seller._firstName }} {{ book._seller._lastName }}</p>
     </section>
     <section class="card-meta">

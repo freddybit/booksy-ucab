@@ -106,3 +106,10 @@
     border-radius: 0 1rem 1rem 0 ;
   }
 }
+
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex; 
+    cursor: pointer;
+  }

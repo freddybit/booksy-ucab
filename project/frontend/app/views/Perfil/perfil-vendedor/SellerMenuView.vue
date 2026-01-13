@@ -1,32 +1,39 @@
 <script setup lang="js">
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { loadBuyer } from '@/services/Perfil/buyerService.js';
 import ProfileSellerCard from './ProfileSellerCard.vue';
+import { consultarVendedor } from '@/services/Perfil/sellerService';
 
-// Define the prop that comes from the Router
 const props = defineProps({
   email: { type: String, required: true }
 });
 
-const buyer = ref(null);
+const router = useRouter();
+const seller = ref(null);
 const loading = ref(true);
 
 onMounted(async () => {
   try {
-    if (props.email) {
-      buyer.value = await loadBuyer(props.email);
+    seller.value = await consultarVendedor(props.email);
+
+    if (seller.value && seller.value._email === props.email) {
+      console.log("Vendedor validado, permaneciendo en el menú.");
+      loading.value = false;
+    } else {
+      alert(seller._email);
+      router.push('/registerSellerSection'); 
     }
   } catch (error) {
-    console.error("Error loading buyer:", error);
-  } finally {
-    loading.value = false;
+    console.error("Error validando vendedor:", error);
+    router.push('/');
   }
 });
 
 </script>
 
 <template>
-  <article v-if="buyer">
+  <article v-if="seller">
 
     <section class="left-section">
       <section class="menu-title">
@@ -35,25 +42,19 @@ onMounted(async () => {
       </section>
       <ol>
         <li>
-          <router-link class="link-left">
+          <router-link class="link-left" :to="{ name: 'compras'}">
             <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img/common/shopping-bag.png" />
             Compras
           </router-link>
         </li>
         <li>
-          <router-link class="link-left">
-            <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img/common/bill.png" />
-            Facturacion
-          </router-link>
-        </li>
-        <li>
-          <router-link class="link-left" :to="{name: 'Seller', params: { email: buyer._email } }" >
+          <router-link class="link-left" :to="{name: 'Seller', params: { email: seller._email } }" >
             <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img/common/tag.png" />
             Vender
           </router-link>
         </li>
         <li>
-          <router-link class="link-left" :to="{ name: 'MyProfile', params: { email: buyer._email }}" >
+          <router-link class="link-left" :to="{ name: 'MyProfile', params: { email: seller._email }}" >
             <img alt="Icono de mi perfil" class="menu-icon" src="../../../../assets/img//common/user.png" />
             Mi perfil
           </router-link>
@@ -65,17 +66,15 @@ onMounted(async () => {
       <div>
         <img alt="Foto de perfil" src="../../../../assets/img/common/profile-big.png" /> 
         <section>
-          <h1>{{ buyer._firstName }} {{ buyer._lastName }}</h1>
-          <p class="email-subtitle">{{ buyer._email }}</p>
+          <h1>{{ seller._firstName }} {{ seller._lastName }}</h1>
+          <p class="email-subtitle">{{ seller._email }}</p>
         </section>
       </div>
 
       <ul>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Registra, revisa y elimina ventas cuando sea necesario." title="Gestionar Ventas" link="/gestionarVenta/sale" /></li>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Registra todos los libros que deseas vender." title="Registrar libro" link="/seller/registerBook" /></li>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Modifica los libros que tienes en venta" title="Editar libro" link="/seller/editBook" /></li>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Echale un viztazo a todos tus libros en venta" title="Ver stock" link="/seller/editBook" /></li>
-        <li><ProfileSellerCard src-img="../../../../assets/img/common/search-icon.png" description="Saca los libros del stock." title="Eliminar libro" link="/seller/editBook" /></li>
+        <li><ProfileSellerCard src-img="../../../../assets/img/common/manage.png" description="Registra, revisa y elimina ventas cuando sea necesario." title="Gestionar Ventas" link="GestionarVentas" :email="seller._email" /></li>
+        <li><ProfileSellerCard src-img="../../../../assets/img/common/register.png" description="Registra todos los libros que deseas vender." title="Registrar libro" link="RegisterBook" :email="seller._email" /></li>
+        <li><ProfileSellerCard src-img="../../../../assets/img/common/magazine.png" description="Echale un viztazo a todos tus libros en venta" title="Ver stock" link="SellerCatalog" :email="seller._email" /></li>
       </ul>
     </section>
   </article>

@@ -22,15 +22,11 @@ namespace backend.controllers
          * @return Resultado HTTP con el vendedor creado o error.
          */
         [HttpPost("register")]
-        public IActionResult RegisterSeller([FromBody] SellerDTO dto)
-        {
-            try
-            {
+        public IActionResult RegisterSeller([FromBody] SellerDTO dto) {
+            try {
                 Seller seller = _service.RegisterSeller(dto);
                 return Ok(seller);
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 return BadRequest(new { error = ex.Message });
             }
         }
@@ -42,13 +38,53 @@ namespace backend.controllers
          * @return Resultado HTTP con el vendedor encontrado o error.
          */
         [HttpGet("get")]
-        public IActionResult GetSeller([FromQuery] string firstName, [FromQuery] string lastName)
-        {
-            Seller? seller = _service.GetSeller(firstName, lastName);
-            if (seller == null)
-                return NotFound(new { error = "Vendedor no encontrado." });
+        public IActionResult GetSeller([FromQuery] string email) {
+            try {
+                // Aquí es donde probablemente falla si la DB está caída o pausada
+                Seller? seller = _service.GetSeller(email);
+        
+                if (seller == null)
+                    return NotFound(new { message = "Vendedor no encontrado." });
 
-            return Ok(seller);
+                return Ok(seller);
+            }
+            catch (Exception ex) {
+                Console.WriteLine($"Error en GetSeller: {ex.Message}");
+        
+                return StatusCode(500, new { 
+                    error = "Error interno al conectar con la base de datos.",
+                    details = ex.Message 
+                });
+            }
         }
+
+        [HttpPost("edit")]
+        public IActionResult EditSeller([FromBody] SellerDTO dto) {
+            try {
+                Seller seller = _service.EditSeller(dto);
+                return Ok(seller);
+            } catch (Exception ex) {
+                Console.WriteLine($"Error en EditSeller:{ex.Message}");  
+                return StatusCode(500, new { 
+                    error = "Error interno al conectar con la base de datos.",
+                    details = ex.Message 
+                });
+            }
+        }
+        
+        [HttpPost("editBook")]
+        public IActionResult EditSellerBook([FromBody] SellerDTO dto) {
+            try {
+                Seller seller = _service.EditSeller(dto);
+                return Ok(seller);
+            } catch (Exception ex) {
+                Console.WriteLine($"Error en EditSeller:{ex.Message}");  
+                return StatusCode(500, new { 
+                    error = "Error interno al conectar con la base de datos.",
+                    details = ex.Message 
+                });
+            }
+        }
+
     }
 }

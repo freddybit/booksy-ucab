@@ -1,11 +1,15 @@
 <script setup lang="js">
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router'   
+
 
 const props = defineProps({
   book: {type: Object, required: true}
 })
 
-let bolivarPrice = ref(0);
+let bolivarPrice = ref(0)
+const router = useRouter()
+let errorMessage = ref('')
 
 onMounted(async () => {
   try{
@@ -23,6 +27,21 @@ onMounted(async () => {
     console.log('Error: ', e);
   }
 })
+
+function goToPay() {
+  console.log("Iniciando proceso de compra...");
+  const isBuyerLogged = localStorage.getItem('isBuyerLogged') === 'true'
+  const isSellerLogged = localStorage.getItem('isSellerLogged') === 'true'
+  const buyerEmail = localStorage.getItem('buyerEmail')
+
+  if (!isBuyerLogged || !buyerEmail || isSellerLogged) {
+    errorMessage.value = 'Debe iniciar sesión como comprador para comprar.'
+    return
+  }
+
+  errorMessage.value = ''
+  router.push({ name: 'pagar', params: { id: props.book._id } })
+}
 
 </script>
 
@@ -42,8 +61,11 @@ onMounted(async () => {
     <p class="seller-phone">Calificación del vendedor: {{ book._seller._qualification }}</p>
     <p class="seller-email">Correo UCAB: {{ book._seller._email }}</p>
   </section>
+  <button class="book-detail-link" @click="goToPay">
+  Comprar ahora
+</button>
 
-  <router-link class="book-detail-link" to="/">Comprar ahora</router-link>
+
 </template>
 
 <style scoped>

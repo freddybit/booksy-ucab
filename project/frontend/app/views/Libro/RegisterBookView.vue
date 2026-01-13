@@ -1,7 +1,13 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { supabase } from "@/main";
-import { postBook } from "@/services/Libro/bookService.js"; // nueva función a crear
+import { postBook } from "@/services/Libro/bookService.js";
+import { consultarVendedor, updateVendedor } from "@/services/Perfil/sellerService";
+import { Book } from "@assets/js/Book";
+
+const props = defineProps({
+  email: {type: String, required: true }
+});
 
 const img = ref();
 const nameImg = ref('');
@@ -121,6 +127,14 @@ let languageBook = ref([]);
 async function handleSubmit(event) {
   event.preventDefault();
 
+  console.log(props.email);
+  let seller = await consultarVendedor(props.email);
+  
+  if (!seller){
+    console.error('Error: ', seller);
+    return;
+  }
+
   try {
 
     const {data, error} = await supabase.storage.from('imagenes').upload(nameImg.value, img.value);
@@ -147,12 +161,21 @@ async function handleSubmit(event) {
       _cost: parseFloat(costBook.value),
       _description: description.value,
       _seller: {
-        _firstName: "VendedorEjemplo",
-        _email: "vendedor@ejemplo.com",
-        _qualification: 0
+        _id: seller._id,
+        _email: seller._email,
+        _firstName: seller._firstName,
+        _lastName: seller._lastName,
+        _age: seller._age,
+        _password: seller._password,
+        _bankName: seller._bankName,
+        _phoneNumber: seller._phoneNumber,
+        _catalog: [],
+        _salesHistory: []
       }
     };
 
+    seller._catalog.push(payload);
+    updateVendedor(seller)
     const response = await postBook(payload);
 
     console.log("Respuesta del backend:", response.data);
