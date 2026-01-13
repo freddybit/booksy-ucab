@@ -263,7 +263,6 @@ async function handleSubmit() {
 
     <fieldset class="buttonPart">
       <input class="edit-book-button" type="submit" value="Editar libro" />
-      <input class="delete-book-button" type="submit" value="Eliminar libro" />
     </fieldset>
 
   </form>

@@ -14,32 +14,28 @@ const handleDelete = async () => {
   if (!confirmacion) return;
 
   try {
-    // 1. Borrar el libro de la base de datos
+
     const result = await deleteBook(props.book._id);
 
-    // 2. Obtener el vendedor actualizado
+
     const realSeller = await consultarVendedor(props.book._seller._email);
 
     if (realSeller && realSeller._catalog) {
-      
-      // CORRECCIÓN AQUÍ: findIndex necesita una función (b => b._id === ...)
-      // O si tu catálogo es solo una lista de IDs simples, usa indexOf(props.book._id)
+
       const index = realSeller._catalog.findIndex(item => 
         (item._id ? item._id === props.book._id : item === props.book._id)
       );
 
       if (index !== -1) {
-        // 4. ELIMINAR del array
+
         realSeller._catalog.splice(index, 1);
         
         console.log("Sincronizando catálogo del vendedor...");
-        
-        // 5. ENVIAR los cambios al servidor (Sin esto, el borrado no persiste)
+
         await updateVendedor(realSeller);
         
         if (result) {
           alert("Libro eliminado con éxito.");
-          // router.push({ name: 'SellerCatalog' }); 
         }
       } else {
         console.warn("No se encontró el libro en el catálogo del vendedor localmente.");
@@ -79,7 +75,7 @@ onMounted(async () => {
   <section class="book-detail-seller-section" v-if="book && book._seller">
     <h2 class="seller-information">Información sobre el vendedor</h2>
     <p class="seller-name">Nombre del vendedor: {{ book._seller._firstName }}</p>
-    <p class="seller-phone">Calificación del vendedor: {{ book._seller._qualification }}</p>
+    <p class="seller-phone">Teléfono: {{ book._seller._phoneNumber }}</p>
     <p class="seller-email">Correo UCAB: {{ book._seller._email }}</p>
   </section>
 

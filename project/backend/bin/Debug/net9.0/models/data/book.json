@@ -1,41 +1,5 @@
 [
   {
-    "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768270297215-R.jpg",
-    "_id": 60167,
-    "_nameBook": "C\u00E1lculo",
-    "_subtitle": "Leithold 7ma Edici\u00F3n",
-    "_series": "C\u00E1lculo",
-    "_author": "Louis Leithold",
-    "_language": "Espa\u00F1ol",
-    "_publisher": "OXFORD",
-    "_bookCover": "Dura",
-    "_typeBook": "F\u00EDsico",
-    "_bookVolume": "Vol 07",
-    "_bookHeight": 55,
-    "_bookWidth": 33,
-    "_categoryList": [
-      "Ingenieria",
-      "Calculo"
-    ],
-    "_numPages": 1326,
-    "_publishYear": "1998-01-20T00:00:00",
-    "_cost": 333,
-    "_description": "Harry Potter y la piedra filosofal (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Philosopher\u2019s Stone,[1]\u200B excepto en Estados Unidos, donde se titul\u00F3 Harry Potter and the Sorcerer\u2019s Stone), es el primer libro de la serie literaria Harry Potter, escrito por la autora brit\u00E1nica J. K. Rowling entre 1990 y 1995. Publicado en el a\u00F1o 1997, supuso adem\u00E1s el debut de Rowling como escritora profesional.",
-    "_seller": {
-      "_bankName": "BNC",
-      "_id": 31703150,
-      "_phoneNumber": "0424-1540989",
-      "_catalog": [],
-      "_ratings": [],
-      "_salesHistory": [],
-      "_email": "fafernandez.24@est.ucab.edu.ve",
-      "_firstName": "Freddy Alejandro",
-      "_lastName": "Fern\u00E1ndez Tovar",
-      "_age": 20,
-      "_password": "Visca Barca"
-    }
-  },
-  {
     "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768270796828-ing%20de%20soft.jpeg",
     "_id": 48237,
     "_nameBook": "Ingenieria de Software ",
@@ -387,6 +351,78 @@
       "_age": 20,
       "_password": "vacilar"
     }
+  },
+  {
+    "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768282532409-107.png",
+    "_id": 70537,
+    "_nameBook": "C\u00E1lculo",
+    "_subtitle": "Leithold 7ma Edici\u00F3n",
+    "_series": "C\u00E1lculo",
+    "_author": "Louis Leithold",
+    "_language": "Espa\u00F1ol",
+    "_publisher": "OXFORD",
+    "_bookCover": "Blanda",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "Vol 07",
+    "_bookHeight": 50,
+    "_bookWidth": 30,
+    "_categoryList": [
+      "Calculo",
+      "Ingenieria",
+      "Acad\u00E9mica"
+    ],
+    "_numPages": 1360,
+    "_publishYear": "1998-01-20T00:00:00",
+    "_cost": 30.99,
+    "_description": "Un verdadero cl\u00E1sico en la ense\u00F1anza del c\u00E1lculo en los niveles medio y superior, esta obra, en su s\u00E9ptima edici\u00F3n, conserva las caracter\u00EDsticas que la han convertido en el texto m\u00E1s consultado por los estudiantes, s\u00F3lo que ahora incorpora los adelantos m\u00E1s recientes en los las \u00E1reas de la tecnolog\u00EDa y la pedagog\u00EDa matem\u00E1tica moderna. El libro incluye aplicaciones pr\u00E1cticas de la calculadora graficadora lo cual implica la adici\u00F3n de nuevos temas, tales como la derivada num\u00E9rica y la integral num\u00E9rica. Entre las nuevas caracter\u00EDsticas de El c\u00E1lculo se encuentran: *Catorce cap\u00EDtulos que explican temas fundamentales como funciones, derivadas, integrales, funciones vectoriales, ecuaciones param\u00E9tricas, etc\u00E9tera *Una visi\u00F3n preliminar de cada tema a fin de que el lector tenga una comprensi\u00F3n global de lo que va a aprender *Sugerencias para el repaso del cap\u00EDtulo, que resumen al estudiante los conceptos que debe haber aprendido a lo largo de cada tema *El texto ofrece temas estrictamente de c\u00E1lculo, cuya aplicaci\u00F3n puede encontrarse en otros campos, como la ingenier\u00EDa, la qu\u00EDmica e incluso las ciencias sociales *Incorporaci\u00F3n de las tendencias modernas (como la llamada reforma al c\u00E1lculo y la graficadora)",
+    "_seller": {
+      "_bankName": "BNC",
+      "_id": 31703150,
+      "_phoneNumber": "0424-1540989",
+      "_catalog": [],
+      "_ratings": [],
+      "_salesHistory": [],
+      "_email": "fafernandez.24@est.ucab.edu.ve",
+      "_firstName": "Freddy Alejandro",
+      "_lastName": "Fern\u00E1ndez Tovar",
+      "_age": 20,
+      "_password": "Visca Barca"
+    }
+  },
+  {
+    "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768282875368-Descubrir-el-Principito-scaled.jpg",
+    "_id": 42402,
+    "_nameBook": "El principito",
+    "_subtitle": "- Antoine De Saint Exupery",
+    "_series": "El principito",
+    "_author": "Antoine De Saint Exupery",
+    "_language": "Espa\u00F1ol",
+    "_publisher": "Salamandra Infantil Y Juvenil",
+    "_bookCover": "Dura",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "Vol 01",
+    "_bookHeight": 21,
+    "_bookWidth": 13.1,
+    "_categoryList": [
+      "Cuento",
+      "Literatura infantil"
+    ],
+    "_numPages": 96,
+    "_publishYear": "2021-04-06T00:00:00",
+    "_cost": 40.23,
+    "_description": "\u0022El Principito\u0022 es una novela corta escrita por Antoine de Saint-Exup\u00E9ry que narra la historia de un ni\u00F1o proveniente de un asteroide que explora el universo y reflexiona sobre la vida, el amor y la amistad.",
+    "_seller": {
+      "_bankName": "BNC",
+      "_id": 31703150,
+      "_phoneNumber": "0424-1540989",
+      "_catalog": [],
+      "_ratings": [],
+      "_salesHistory": [],
+      "_email": "fafernandez.24@est.ucab.edu.ve",
+      "_firstName": "Freddy Alejandro",
+      "_lastName": "Fern\u00E1ndez Tovar",
+      "_age": 20,
+      "_password": "Visca Barca"
+    }
   }
 ]
-

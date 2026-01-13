@@ -58,7 +58,7 @@ function goToPay() {
   <section class="book-detail-seller-section" v-if="book && book._seller">
     <h2 class="seller-information">Información sobre el vendedor</h2>
     <p class="seller-name">Nombre del vendedor: {{ book._seller._firstName }}</p>
-    <p class="seller-phone">Calificación del vendedor: {{ book._seller._qualification }}</p>
+    <p class="seller-phone">Teléfono: {{ book._seller._phoneNumber }}</p>
     <p class="seller-email">Correo UCAB: {{ book._seller._email }}</p>
   </section>
   <button class="book-detail-link" @click="goToPay">
