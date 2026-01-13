@@ -104,13 +104,53 @@
     "_password": "aloh"
   },
   {
-    "PurchaseHistory": [],
+    "PurchaseHistory": [
+      {
+        "Book": {
+          "_urlImg": "https://cduuorobtzbfpdtoovpj.supabase.co/storage/v1/object/public/imagenes/covers/1768270297215-R.jpg",
+          "_id": 60167,
+          "_nameBook": "C\u00E1lculo",
+          "_subtitle": "Leithold 7ma Edici\u00F3n",
+          "_series": "C\u00E1lculo",
+          "_author": "Louis Leithold",
+          "_language": "Espa\u00F1ol",
+          "_publisher": "OXFORD",
+          "_bookCover": "Dura",
+          "_typeBook": "F\u00EDsico",
+          "_bookVolume": "Vol 07",
+          "_bookHeight": 55,
+          "_bookWidth": 33,
+          "_categoryList": [
+            "Ingenieria",
+            "Calculo"
+          ],
+          "_numPages": 1326,
+          "_publishYear": "1998-01-20T00:00:00",
+          "_cost": 333,
+          "_description": "Harry Potter y la piedra filosofal (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Philosopher\u2019s Stone,[1]\u200B excepto en Estados Unidos, donde se titul\u00F3 Harry Potter and the Sorcerer\u2019s Stone), es el primer libro de la serie literaria Harry Potter, escrito por la autora brit\u00E1nica J. K. Rowling entre 1990 y 1995. Publicado en el a\u00F1o 1997, supuso adem\u00E1s el debut de Rowling como escritora profesional.",
+          "_seller": {
+            "_bankName": "BNC",
+            "_id": 31703150,
+            "_phoneNumber": "0424-1540989",
+            "_catalog": [],
+            "_ratings": [],
+            "_salesHistory": [],
+            "_email": "fafernandez.24@est.ucab.edu.ve",
+            "_firstName": "Freddy Alejandro",
+            "_lastName": "Fern\u00E1ndez Tovar",
+            "_age": 20,
+            "_password": "Visca Barca"
+          }
+        },
+        "PurchaseDate": "2026-01-13T01:32:40.6157981-04:00"
+      }
+    ],
     "_email": "fafernandez.24@est.ucab.edu.ve",
     "_firstName": "Freddy Alejandro",
     "_lastName": "Fern\u00E1ndez Tovar",
     "_age": 20,
     "_password": "Visca Barca"
-  }, 
+  },
   {
     "PurchaseHistory": [],
     "_email": "Mjackson@ucab.edu.ve",

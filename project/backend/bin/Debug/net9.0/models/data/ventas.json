@@ -31,5 +31,16 @@
     "IsDeleted": false,
     "SellerEmail": "madimare12@est.ucab.edu.ve",
     "BuyerEmail": "warimare21@est.ucab.edu.ve"
+  },
+  {
+    "CodigoDeCompra": 4,
+    "FechaDeVenta": "2026-01-13T01:32:40.6315351-04:00",
+    "MontoTotal": 333,
+    "LibroId": 60167,
+    "CompradorId": 9,
+    "VendedorId": 2,
+    "IsDeleted": false,
+    "SellerEmail": "fafernandez.24@est.ucab.edu.ve",
+    "BuyerEmail": "fafernandez.24@est.ucab.edu.ve"
   }
 ]
